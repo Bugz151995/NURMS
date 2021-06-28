@@ -124,11 +124,11 @@
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="../core/completed_auction.php">
+                    <a class="nav-link" href="../core/closed_auction.php">
                       <div class="sb-nav-link-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                       </div>
-                      Completed Auction
+                      Closed Auction
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -214,12 +214,15 @@
                       <i class="fas fa-home fa-lg"></i>
                     </div>
                     
-                    <span href="#0" class="fs-header breadcrumb__divider ml-3">Home</span>
+                    <a href="../core/home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction</span>
+                    <span href="#" class="fs-header breadcrumb__point r-link">My Orders</span>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                  </li>
+                  <li class="breadcrumb__group">
+                    <span href="#" class="fs-header breadcrumb__point">Pending</span>
                   </li>
                 </ol>
               </nav>
@@ -281,6 +284,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../src/js/toggle-sidenav.js"></script>
     <script src="../src/js/toggle-nav-links.js"></script>
   </body>
 </html>

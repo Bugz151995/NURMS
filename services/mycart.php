@@ -123,11 +123,11 @@
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="../core/completed_auction.php">
+                    <a class="nav-link" href="../core/closed_auction.php">
                       <div class="sb-nav-link-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                       </div>
-                      Completed Auction
+                      Closed Auction
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -213,12 +213,11 @@
                       <i class="fas fa-home fa-lg"></i>
                     </div>
                     
-                    <span href="#0" class="fs-header breadcrumb__divider ml-3">Home</span>
+                    <a href="../core/home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                    <span href="#0" class="fs-header breadcrumb__point">My Cart</span>
                   </li>
                 </ol>
               </nav>

@@ -124,11 +124,11 @@
                   </a>
                 </li>
                 <li class="text-decoration-none">
-                  <a class="nav-link" href="completed_auction.php">
+                  <a class="nav-link" href="closed_auction.php">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    Completed Auction
+                    Closed Auction
                   </a>
                 </li>
                 <li class="text-decoration-none">
@@ -215,12 +215,15 @@
                       <i class="fas fa-home fa-lg"></i>
                     </div>
                     
-                    <span href="#0" class="fs-header breadcrumb__divider ml-3">Home</span>
+                    <a href="home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction</span>
+                    <a href="#" class="fs-header breadcrumb__point r-link">Auction</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                  </li>
+                  <li class="breadcrumb__group">
+                    <span href="#" class="fs-header breadcrumb__point">Live Auction</span>
                   </li>
                 </ol>
               </nav>
@@ -368,6 +371,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -385,7 +400,7 @@
                                 <p>Ends in:
                                   <span class="fw-bolder">5 hours, 29 Seconds</span>
                                 </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
+                                <a class="btn-sm btn btn-primary w-100" href="bid_status.php">View</a>
                               </div>
                             </div>
                           </div>
@@ -419,6 +434,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -436,7 +463,7 @@
                                 <p>Ends in:
                                 <span class="fw-bolder">5 hours, 29 Seconds</span>
                               </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
+                                <a class="btn-sm btn btn-primary w-100" href="bid_status.php">View</a>
                               </div>
                             </div>
                           </div>
@@ -470,6 +497,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -487,7 +526,7 @@
                                 <p>Ends in:
                                 <span class="fw-bolder">5 hours, 29 Seconds</span>
                               </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
+                                <a class="btn-sm btn btn-primary w-100" href="bid_status.php">View</a>
                               </div>
                             </div>
                           </div>
@@ -521,6 +560,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -538,7 +589,7 @@
                                 <p>Ends in:
                                 <span class="fw-bolder">5 hours, 29 Seconds</span>
                               </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
+                                <a class="btn-sm btn btn-primary w-100" href="bid_status.php">View</a>
                               </div>
                             </div>
                           </div>

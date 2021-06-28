@@ -124,11 +124,11 @@
                   </a>
                 </li>
                 <li class="text-decoration-none">
-                  <a class="nav-link" href="completed_auction.php">
+                  <a class="nav-link" href="closed_auction.php">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    Completed Auction
+                    Closed Auction
                   </a>
                 </li>
                 <li class="text-decoration-none">
@@ -338,12 +338,41 @@
                 <!-- View completed auction button-->
                 <div class="col-md-5 pt-3 d-flex" id="comp-auction-btn">
                   <button class="w-100 border border-2 rounded border-primary btn btn-primary bg-transparent text-primary fs-header shadow">
-                    View Completed Auction
+                    View Closed Auction
                   </button>
                 </div>
               </div>
 
               <!--Auctioned Item Description-->
+              <div>
+                <div class="">
+                  <h3>Lapu Lapu Medal</h3>
+                  <p>
+                    <span>Goa, </span><span>PH |</span> 
+                    <a href="#">Numisworks Auction Product Trading</a>
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="col-md-7">
+                    <img src="../src/img/sale-1.png" class="pr-5 w-100" alt="">
+                  </div>
+                  <div class="col-md-5">
+                    <div class="bg-white rounded p-4">
+                      Estimate: P1,000 <br>
+                      Price: P1,000 <br>
+                      Max Bid: P500 <br>
+                      Ends in: 5 hours, 29 minutes <br>
+                      Bidders: 5
+                    </div>
+                    <div class="bg-white rounded mt-2 p-4">
+                      Composition: <br>
+                      Diameter:  <br>
+                      Weight:  <br>
+                      Other Description:  <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </main>
@@ -352,9 +381,9 @@
             <div class="d-flex align-items-center justify-content-between small">
               <div class="text-muted">&copy; Numisworks Auction Product Trading est. 2021</div>
               <div>
-                  <a href="#">Privacy Policy</a>
-                  &middot;
-                  <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
               </div>
             </div>
           </div>

@@ -371,6 +371,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -420,6 +432,18 @@
                                     <span>Goa, PH</span>
                                     <span>|</span>
                                     <a href="#">Numisworks Auction Product Trading</a>
+                                  </p>
+                                </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
                                   </p>
                                 </div>
                                 <!--Bid Status-->
@@ -473,6 +497,18 @@
                                     <a href="#">Numisworks Auction Product Trading</a>
                                   </p>
                                 </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
+                                  </p>
+                                </div>
                                 <!--Bid Status-->
                                 <div class="bid-status">
                                   <div>
@@ -522,6 +558,18 @@
                                     <span>Goa, PH</span>
                                     <span>|</span>
                                     <a href="#">Numisworks Auction Product Trading</a>
+                                  </p>
+                                </div>
+                                <!--reserved price and estimated price-->
+                                <div class="bid-status">
+                                  <p>
+                                    <div>
+                                      <p class="fw-bolder">Price: <span class="font-weight-normal">0</span></p>
+                                    </div>
+                                    <span class="pl-1 pr-1">|</span>
+                                    <div>
+                                      <p class="fw-bolder">Estimate: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                    </div>
                                   </p>
                                 </div>
                                 <!--Bid Status-->

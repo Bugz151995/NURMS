@@ -116,7 +116,7 @@
               </a>
               <ul class="remove-list-style-type">
                 <li class="text-decoration-none">
-                  <a class="nav-link" href="live_auction.php">
+                  <a class="nav-link active" href="live_auction.php">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-search-dollar"></i>
                     </div>
@@ -124,7 +124,7 @@
                   </a>
                 </li>
                 <li class="text-decoration-none">
-                  <a class="nav-link active" href="completed_auction.php">
+                  <a class="nav-link" href="completed_auction.php">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-file-invoice-dollar"></i>
                     </div>
@@ -219,7 +219,11 @@
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction</span>
+                    <span href="#0" class="fs-header breadcrumb__point r-link">Auction</span>
+                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                  </li>
+                  <li class="breadcrumb__group">
+                    <span href="#0" class="fs-header breadcrumb__point">Live Auction</span>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                 </ol>
@@ -339,229 +343,21 @@
                 </div>
               </div>
 
-              <!--Auctioned Item Table-->
-              <table class="w-100">
-                <tbody id="shop-auction-table">
-                  <tr>
-                    <td>
-
-                      <!--Auctioned Product Row 1-->
-                      <div class="rounded bg-white shadow mb-3">
-                        <div class="row align-self-start">
-                          <div class="col-4">
-                            <img src="../src/img/sale-1.png" class="p-3 product-img" alt="">
-                          </div>
-                          <!--Auctioned Product Detils-->
-                          <div class="col-8 small pt-4 pb-4 ">
-                            <div class="row pl-4 pr-4">
-                              <!--Auctioned Product Description-->
-                              <div class="col-12">
-                                <!--Product name-->
-                                <div class="product-name">
-                                  Lapu-Lapu Medal
-                                </div>
-                                <!--Shop Location-->
-                                <div class="auctioner">
-                                  <p>
-                                    <span>Goa, PH</span>
-                                    <span>|</span>
-                                    <a href="#">Numisworks Auction Product Trading</a>
-                                  </p>
-                                </div>
-                                <!--Bid Status-->
-                                <div class="bid-status">
-                                  <div>
-                                    <p class="fw-bolder">Bids: <span class="font-weight-normal">0</span></p>
-                                  </div>
-                                  <span class="pl-1 pr-1">|</span>
-                                  <div>
-                                    <p class="fw-bolder">Current Bid: <span class="font-weight-normal">&#8369;0.00</span></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row pl-4 pr-4">
-                              <div class="bid-duration">
-                                <p>Ends in:
-                                  <span class="fw-bolder">5 hours, 29 Seconds</span>
-                                </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-
-                      <!--Auctioned Product Row 2-->
-                      <div class="rounded bg-white shadow mb-3">
-                        <div class="row align-items-center">
-                          <div class="col-4 align-self-start">
-                            <img src="../src/img/sale-2.png" class="p-3 product-img" alt="">
-                          </div>
-                          <!--Auctioned Product Detils-->
-                          <div class="col-8 small pt-4 pb-4">
-                            <div class="row pl-4 pr-4">
-                              <!--Auctioned Product Description-->
-                              <div class="col-12">
-                                <!--Product name-->
-                                <div class="product-name">
-                                  Araw ng Republika Medal
-                                </div>
-                                <!--Shop Location-->
-                                <div class="auctioner">
-                                  <p>
-                                    <span>Goa, PH</span>
-                                    <span>|</span>
-                                    <a href="#">Numisworks Auction Product Trading</a>
-                                  </p>
-                                </div>
-                                <!--Bid Status-->
-                                <div class="bid-status">
-                                  <div>
-                                    <p class="fw-bolder">Bids: <span class="font-weight-normal">0</span></p>
-                                  </div>
-                                  <span class="pl-1 pr-1">|</span>
-                                  <div>
-                                    <p class="fw-bolder">Current Bid: <span class="font-weight-normal">&#8369;0.00</span></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row pl-4 pr-4">
-                              <div class="bid-duration">
-                                <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
-                              </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>               
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-
-                      <!--Auctioned Product Row 3-->
-                      <div class="rounded bg-white shadow mb-3">
-                        <div class="row align-items-center">
-                          <div class="col-4 align-self-start">
-                            <img src="../src/img/sale-3.png" class="p-3 product-img" alt="">
-                          </div>
-                          <!--Auctioned Product Detils-->
-                          <div class="col-8 small pt-4 pb-4">
-                            <div class="row pl-4 pr-4">
-                              <!--Auctioned Product Description-->
-                              <div class="col-12">
-                                <!--Product name-->
-                                <div class="product-name">
-                                  Araw ng Kalayaan Medal
-                                </div>
-                                <!--Shop Location-->
-                                <div class="auctioner">
-                                  <p>
-                                    <span>Goa, PH</span>
-                                    <span>|</span>
-                                    <a href="#">Numisworks Auction Product Trading</a>
-                                  </p>
-                                </div>
-                                <!--Bid Status-->
-                                <div class="bid-status">
-                                  <div>
-                                    <p class="fw-bolder">Bids: <span class="font-weight-normal">0</span></p>
-                                  </div>
-                                  <span class="pl-1 pr-1">|</span>
-                                  <div>
-                                    <p class="fw-bolder">Current Bid: <span class="font-weight-normal">&#8369;0.00</span></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row pl-4 pr-4">
-                              <div class="bid-duration">
-                                <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
-                              </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>               
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-
-                      <!--Auctioned Product Row 4-->
-                      <div class="rounded bg-white shadow mb-3">
-                        <div class="row align-items-center">
-                          <div class="col-4 align-self-start">
-                            <img src="../src/img/sale-4.png" class="p-3 product-img" alt="">
-                          </div>
-                          <!--Auctioned Product Detils-->
-                          <div class="col-8 small pt-4 pb-4">
-                            <div class="row pl-4 pr-4">
-                              <!--Auctioned Product Description-->
-                              <div class="col-12">
-                                <!--Product name-->
-                                <div class="product-name">
-                                  Gabriela Silang Medal
-                                </div>
-                                <!--Shop Location-->
-                                <div class="auctioner">
-                                  <p>
-                                    <span>Goa, PH</span>
-                                    <span>|</span>
-                                    <a href="#">Numisworks Auction Product Trading</a>
-                                  </p>
-                                </div>
-                                <!--Bid Status-->
-                                <div class="bid-status">
-                                  <div>
-                                    <p class="fw-bolder">Bids: <span class="font-weight-normal">0</span></p>
-                                  </div>
-                                  <span class="pl-1 pr-1">|</span>
-                                  <div>
-                                    <p class="fw-bolder">Current Bid: <span class="font-weight-normal">&#8369;0.00</span></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row pl-4 pr-4">
-                              <div class="bid-duration">
-                                <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
-                              </p>
-                                <button class="btn-sm btn btn-primary w-100">View</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>               
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <!--Auctioned Item Description-->
             </div>
           </section>
         </main>
         <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">&copy; Numisworks Auction Product Trading est. 2021</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+              <div class="text-muted">&copy; Numisworks Auction Product Trading est. 2021</div>
+              <div>
+                  <a href="#">Privacy Policy</a>
+                  &middot;
+                  <a href="#">Terms &amp; Conditions</a>
+              </div>
             </div>
+          </div>
         </footer>
       </div>
     </div>

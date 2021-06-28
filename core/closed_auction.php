@@ -116,27 +116,19 @@
               </a>
               <ul class="remove-list-style-type">
                 <li class="text-decoration-none">
-                  <a class="nav-link active" href="#">
-                    <div class="sb-nav-link-icon">
-                      <i class="fas fa-search-dollar"></i>
-                    </div>
-                    Auction House
-                  </a>
-                </li>
-                <li class="text-decoration-none">
                   <a class="nav-link" href="live_auction.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-file-invoice-dollar"></i>
+                      <i class="fas fa-search-dollar"></i>
                     </div>
                     Live Auction
                   </a>
                 </li>
                 <li class="text-decoration-none">
-                  <a class="nav-link" href="completed_auction.php">
+                  <a class="nav-link active" href="#">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-dollar-sign"></i>
+                      <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    Completed Auction
+                    Closed Auction
                   </a>
                 </li>
                 <li class="text-decoration-none">
@@ -223,16 +215,15 @@
                       <i class="fas fa-home fa-lg"></i>
                     </div>
                     
-                    <span href="#0" class="fs-header breadcrumb__divider ml-3">Home</span>
+                    <a href="home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction</span>
+                    <a href="#" class="fs-header breadcrumb__point r-link">Auction</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction House</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                    <span href="#0" class="fs-header breadcrumb__point">Closed Auction</span>
                   </li>
                 </ol>
               </nav>

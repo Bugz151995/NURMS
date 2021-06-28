@@ -1,4 +1,4 @@
-<?php require 'api/session.php'?>
+<?php require 'src/api/session.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="src/img/logo.png"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="src/css/util.css">
+	<link rel="stylesheet" type="text/css" href="src/css/index.css">
 </head>
 <body style="background-color: #666666;">
 	<nav class="shadow bg-dark w-100" alt="Heading" style="position: fixed; z-index: 100; top: 0; opacity: 99%;">
 		<div class="d-flex">
 			<div class="p-3">
-				<img src="src/img/logo.png" width="50" alt="">
+				<img src="src/img/logo_light.png" width="50" alt="">
 			</div>
 			<div class="p-2 d-flex">
 				<p class="text-white align-self-center">
@@ -27,7 +27,7 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<form class="login100-form validate-form" action="api/authenticate.php" method="POST">
+					<form class="login100-form validate-form" action="src/api/authenticate.php" method="POST">
 						<span class="login100-form-title p-b-46 p-t-80">
 							Sign in to continue
 						</span>
@@ -72,7 +72,7 @@
 						</div>
 					</form>
 
-					<div class="login100-more" style="background-image: url('images/bg-01.png');">
+					<div class="login100-more" style="background-image: url('src/img/bg-01.png');">
 					</div>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="js/main.js"></script>
+	<script src="src/js/main.js"></script>
 
 </body>
 </html>

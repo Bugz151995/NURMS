@@ -11,7 +11,7 @@ if (isset($_POST['btnlogin'])) {
     ?>
     <script type="text/javascript">
       alert("Password is missing!");
-      window.location = "../index.php";
+      window.location = "../../index.php";
     </script>
     <?php
   }else{
@@ -46,11 +46,11 @@ if (isset($_POST['btnlogin'])) {
           
           $passMatch = password_verify($pass, $found_user['password']);
           if($passMatch){
-            header("Location: ../home.php");
+            header("Location: ../../core/home.php");
           } else {
             ?><script type="text/javascript">
             alert('Username or Password Not Found! Please contact your administrator.');
-            window.location = "../index.php";
+            window.location = "../../index.php";
             </script>
             <?php
           }
@@ -58,7 +58,7 @@ if (isset($_POST['btnlogin'])) {
       //IF theres no result
         ?><script type="text/javascript">
           alert("Username or Password Not Found! Please contact your administrator.");
-          window.location = "../index.php";
+          window.location = "../../index.php";
         </script>
         <?php
       }

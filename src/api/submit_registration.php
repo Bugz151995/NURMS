@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'api/connect.php';
+include 'connect.php';
 
 $passMatch = false;
 $lName = "";

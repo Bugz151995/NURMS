@@ -116,17 +116,9 @@
               <div style="display: none" id="auction-links">
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="auction.php">
-                      <div class="sb-nav-link-icon">
-                        <i class="fas fa-search-dollar"></i>
-                      </div>
-                      Auction House
-                    </a>
-                  </li>
-                  <li class="text-decoration-none">
                     <a class="nav-link" href="live_auction.php">
                       <div class="sb-nav-link-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
+                        <i class="fas fa-search-dollar"></i>
                       </div>
                       Live Auction
                     </a>
@@ -134,13 +126,21 @@
                   <li class="text-decoration-none">
                     <a class="nav-link" href="completed_auction.php">
                       <div class="sb-nav-link-icon">
-                        <i class="fas fa-funnel-dollar"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                       </div>
                       Completed Auction
                     </a>
                   </li>
+                  <li class="text-decoration-none">
+                    <a class="nav-link" href="my_bids.php">
+                      <div class="sb-nav-link-icon">
+                        <i class="fas fa-bold"></i>
+                      </div>
+                      My Bids
+                    </a>
+                  </li>
                 </ul>
-              </div> 
+              </div>   
                 
               <div class="sb-sidenav-menu-heading"><h6>Interface</h6></div>
               <!--Account Verification-->

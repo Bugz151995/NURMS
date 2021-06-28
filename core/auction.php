@@ -126,7 +126,7 @@
                 <li class="text-decoration-none">
                   <a class="nav-link" href="live_auction.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-hand-holding-usd"></i>
+                      <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     Live Auction
                   </a>
@@ -134,9 +134,17 @@
                 <li class="text-decoration-none">
                   <a class="nav-link" href="completed_auction.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-funnel-dollar"></i>
+                      <i class="fas fa-dollar-sign"></i>
                     </div>
                     Completed Auction
+                  </a>
+                </li>
+                <li class="text-decoration-none">
+                  <a class="nav-link" href="my_bids.php">
+                    <div class="sb-nav-link-icon">
+                      <i class="fas fa-bold"></i>
+                    </div>
+                    My Bids
                   </a>
                 </li>
               </ul>

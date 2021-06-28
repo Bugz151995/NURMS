@@ -197,11 +197,15 @@ DEMO
 }
 
 .slide-inward{
-  animation: 1s ease-out 0s 1 slideDownward;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .slide-upward{
   animation: 1s ease-out 0s 1 slideUpdward;
+}
+
+.slide-outward{
+  animation: 1s ease-out 0s 1 slideOutToLeft;
 }
 
 .fs-header{
@@ -245,6 +249,7 @@ DEMO
   display: flex;
 }
 
+
 @keyframes slideDownward {
   0% {
     transform: translateY(-25%);
@@ -254,12 +259,21 @@ DEMO
   }
 }
 
-@keyframes slideInSideward {
+@keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
@@ -272,7 +286,7 @@ DEMO
   }
 }
 
-@keyframes slideInSideward {
+@keyframes zoomOut {
   0% {
     transform: scale(1.5,1.5);
   }
@@ -370,5 +384,5 @@ DEMO
 
 .remove-list-style-type{
   list-style-type: none;
-  padding-left: 13px;
+  padding-left: 5px;
 }

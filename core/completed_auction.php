@@ -116,7 +116,7 @@
               </a>
               <ul class="remove-list-style-type">
                 <li class="text-decoration-none">
-                  <a class="nav-link active" href="#">
+                  <a class="nav-link" href="auction.php">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-search-dollar"></i>
                     </div>
@@ -132,7 +132,7 @@
                   </a>
                 </li>
                 <li class="text-decoration-none">
-                  <a class="nav-link" href="completed_auction.php">
+                  <a class="nav-link active" href="#">
                     <div class="sb-nav-link-icon">
                       <i class="fas fa-funnel-dollar"></i>
                     </div>
@@ -220,10 +220,6 @@
                   </li>
                   <li class="breadcrumb__group">
                     <span href="#0" class="fs-header breadcrumb__point">Auction</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
-                  </li>
-                  <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Auction House</span>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                 </ol>

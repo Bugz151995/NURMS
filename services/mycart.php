@@ -103,38 +103,43 @@
                 Numismatic Products
               </a>
               <!--Auction Product Link-->
-              <a class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-expanded="false" aria-controls="collapseLayouts">
+              <a class="nav-link" id="auction-toggle" role="button" href="#" aria-expanded="false">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-gavel"></i>
                 </div>
-                Auction <span class="text-right w-100"></span>
+                Auction 
+                <span class="text-right w-100"> 
+                  <i id="auction-toggle-icon" class="fas fa-caret-right"></i>
+                </span>
               </a>
-              <ul class="remove-list-style-type">
-                <li class="text-decoration-none">
-                  <a class="nav-link" href="auction.php">
-                    <div class="sb-nav-link-icon">
-                      <i class="fas fa-search-dollar"></i>
-                    </div>
-                    Auction House
-                  </a>
-                </li>
-                <li class="text-decoration-none">
-                  <a class="nav-link" href="#">
-                    <div class="sb-nav-link-icon">
-                      <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    Live Auction
-                  </a>
-                </li>
-                <li class="text-decoration-none">
-                  <a class="nav-link" href="#">
-                    <div class="sb-nav-link-icon">
-                      <i class="fas fa-funnel-dollar"></i>
-                    </div>
-                    Completed Auction
-                  </a>
-                </li>
-              </ul>
+              <div style="display: none" id="auction-links">
+                <ul class="remove-list-style-type">
+                  <li class="text-decoration-none">
+                    <a class="nav-link" href="auction.php">
+                      <div class="sb-nav-link-icon">
+                        <i class="fas fa-search-dollar"></i>
+                      </div>
+                      Auction House
+                    </a>
+                  </li>
+                  <li class="text-decoration-none">
+                    <a class="nav-link" href="live_auction.php">
+                      <div class="sb-nav-link-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                      </div>
+                      Live Auction
+                    </a>
+                  </li>
+                  <li class="text-decoration-none">
+                    <a class="nav-link" href="completed_auction.php">
+                      <div class="sb-nav-link-icon">
+                        <i class="fas fa-funnel-dollar"></i>
+                      </div>
+                      Completed Auction
+                    </a>
+                  </li>
+                </ul>
+              </div>  
                 
               <div class="sb-sidenav-menu-heading"><h6>Services</h6></div>
               <!--Account Verification-->
@@ -411,8 +416,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
+    <script src="../src/js/toggle-nav-links.js"></script>
 </body>
 </html>

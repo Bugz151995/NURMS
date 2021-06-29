@@ -311,17 +311,6 @@
                   <li data-target="#eventsCarousel" data-slide-to="1"></li>
                   <li data-target="#eventsCarousel" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="images/default_banner.png" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="images/default_banner.png" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="images/default_banner.png" alt="Third slide">
-                  </div>
-                </div>
                 <a class="carousel-control-prev" href="#eventsCarousel" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
@@ -332,103 +321,99 @@
                 </a>
               </div>
               <!-- Carousel for upcoming products-->
-              <div id="upcomingProductCarousel" class="p-2 col-md-6 carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-                  <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://dummyimage.com/600x300/000/fff" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="https://dummyimage.com/600x300/000/fff" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="https://dummyimage.com/600x300/000/fff" alt="Third slide">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
+             
             </div>
-            <div class="container-fluid px-4 px-lg-5 mt-5">
-              <div class="row">
-                <div class="col mb-4">
+            
+            <div class="row">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-1.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <h5 class="fw-bolder">Sale Item</h5>
+                        <p class="d-flex fw-bolder">Lapu-Lapu Medal</p>
                         <!-- Product price-->
-                        <span class="text-muted text-decoration-line-through">$50.00</span>
-                        $25.00
-                      </div>
+                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
+                            <div class="pcard-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-                <div class="col mb-4">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-2.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <h5 class="fw-bolder">Sale Item</h5>
+                        <p class="d-flex fw-bolder">Araw ng Republika Medal</p>
                         <!-- Product price-->
-                        <span class="text-muted text-decoration-line-through">$50.00</span>
-                        $25.00
-                      </div>
+                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-                <div class="col mb-4">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-3.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <h5 class="fw-bolder">Sale Item</h5>
+                        <p class="d-flex fw-bolder">Araw ng Kalayaan</p>
                         <!-- Product price-->
-                        <span class="text-muted text-decoration-line-through">$50.00</span>
-                        $25.00
-                      </div>
+                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="mb-3 shadow col-md-4">
+                  <div class="card h-100">
+                    <!-- Sale badge-->
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <!-- Product image-->
+                    <img class="img-resize card-img-top" src="../src/img/sale-4.png" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                      <div class="text-left">
+                        <!-- Product name-->
+                        <p class="d-flex fw-bolder">Gabriela Silang Medal</p>
+                        <!-- Product price-->
+                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                  </div>
+                </div>
+           
           </section>
         </main>
         <footer class="py-4 bg-light mt-auto">

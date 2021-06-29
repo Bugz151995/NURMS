@@ -200,6 +200,7 @@
           </div>
         </nav>
       </div>
+
       <!--Main Content-->
       <div id="layoutSidenav_content">
         <main>
@@ -228,9 +229,10 @@
               </nav>
             </div>
           </div>
+          
           <!--Pending Orders Container-->     
           <div class="p-3 container-fluid">
-            <ul class="nav nav-pills pt-2 pb-2">
+            <ul class="nav nav-tabs pt-2">
               <li class="nav-item">
                 <a class="nav-link active" href="#">Pending</a>
               </li>
@@ -244,19 +246,224 @@
                 <a class="nav-link" href="completed_orders.php">Completed</a>
               </li>
             </ul>
-            <!--Pending orders table-->
-            <table class="table table-borderless">
-              <tbody>
-                <tr class="shadow">
-                  <td width="150"><img src="../src/img/sale-1.png" width="150" alt=""></td>
-                  <td>
-                    <span class="fw-bolder">Product Name</span><br>
-                    <span>Quantity: 1</span><br>
-                    <span>Price: P100</span><br>
-                    <span>Shipping option: JNT</span>
+            <div class="row pb-4">
 
-                    <div class="pt-2">
-                      <button class="btn btn-danger w-100">Cancel Order</button>
+              <!--Page number navigation-->
+              <div class="col-md-7 d-flex pt-3" id="page-nav">
+                <ul class="nav nav-pills small justify-self-end align-self-center">
+                  <li class="nav-item shadow">
+                    <a class="nav-link border border-primary border-2 fs-header" href="#">
+                    <i class="fas fa-angle-double-left"></i></a>
+                  </li>
+                  <li class="nav-item ml-2 shadow">
+                    <a class="nav-link border border-primary border-2 fs-header" href="#">Prev</a>
+                  </li>
+                  <li class="nav-item ml-2 shadow fs-header bg-primary rounded">
+                    <a class="nav-link active rounded" href="#">2</a>
+                  </li>  
+                  <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow fs-header">
+                    <a class="nav-link bg-white rounded" href="#">Next</a>
+                  </li>
+                  <li class="nav-item shadow">
+                    <a class="nav-link ml-2 border border-primary border-2 fs-header" href="#">
+                    <i class="fas fa-angle-double-right"></i></a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- View completed auction button-->
+              <div class="col-md-5 pt-3 d-flex dropdown" id="comp-auction-btn">
+                <button class="w-100 border border-2 rounded border-primary btn btn-primary bg-transparent text-primary fs-header shadow dropdown-toggle" data-toggle="dropdown">
+                  Sort By
+                </button>
+                <div class="dropdown-menu">
+                  <a href="" class="dropdown-item">Date</a>
+                  <a href="" class="dropdown-item">Price</a>
+                  <a href="" class="dropdown-item">Shop</a>
+                </div>
+               </div>
+            </div>
+            <!--Pending orders table-->
+            <table class="w-100">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--Auctioned Product Row 1-->
+                    <div class="rounded bg-white shadow mb-3">
+                      <div class="row align-self-start">
+                        <div class="col-4">
+                          <img src="../src/img/sale-1.png" class="p-3 product-img" alt="">
+
+                          <!--Sale Badge-->
+                          <div class="badge badge-warning position-absolute position-badge-topleft">Sale                       
+                          </div>
+                          
+                        </div>
+                        <!--Auctioned Product Detils-->
+                        <div class="col-8 small pt-4 pb-4 ">
+                          <div class="row pl-4 pr-4">
+                            <!--Auctioned Product Description-->
+                            <div class="col-12">
+                              <!--Product name-->
+                              <div class="product-name">
+                                Lapu-Lapu Medal
+                              </div>
+                              <!--Shop Location-->
+                              <div class="auctioner">
+                                <p>
+                                  <span>Goa, PH</span>
+                                  <span>|</span>
+                                  <a href="#">Numisworks Auction Product Trading</a>
+                                </p>
+                              </div>
+                              <!--Bid Status-->
+                              <div class="bid-status">
+                                <div>
+                                  <p class="fw-bolder">Unit Price: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-4 pr-4">
+                            <div class="bid-duration">
+                              <p>Quantity:
+                                <span class="fw-bolder"></span>
+                              </p>
+                              <div>
+                                  <p class="fw-bolder">Composition: <span class="font-weight-normal"></span></p>
+                                </div>
+                                <div>
+                                  <p >Specification: <span></span></p>
+                                </div>
+                                
+                              <div class="mx-auto"  style="width: 200px;">
+                              <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+
+                              <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--Auctioned Product Row 2-->
+                    <div class="rounded bg-white shadow mb-3">
+                      <div class="row align-self-start">
+                        <div class="col-4">
+                          <img src="../src/img/sale-2.png" class="p-3 product-img" alt="">
+                          <!--Auction Badge-->
+                          <div class="badge badge-success position-absolute position-badge-topleft">
+                            Auction
+                          </div>
+                        </div>
+                        <!--Auctioned Product Detils-->
+                        <div class="col-8 small pt-4 pb-4">
+                          <div class="row pl-4 pr-4">
+                            <!--Auctioned Product Description-->
+                            <div class="col-12">
+                              <!--Product name-->
+                              <div class="product-name">
+                                Araw ng Republika Medal
+                              </div>
+                              <!--Shop Location-->
+                              <div class="auctioner">
+                                <p>
+                                  <span>Goa, PH</span>
+                                  <span>|</span>
+                                  <a href="#">Numisworks Auction Product Trading</a>
+                                </p>
+                              </div>
+                              <!--Bid Status-->
+                              <div class="bid-status">
+                                <div>
+                                  <p class="fw-bolder">Unit Price: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-4 pr-4">
+                            <div class="bid-duration">
+                            <p>Quantity:
+                                <span class="fw-bolder"></span>
+                              </p>
+                              <div>
+                                  <p class="fw-bolder">Composition: <span class="font-weight-normal"></span></p>
+                                </div>
+                                <div>
+                                  <p >Specification: <span></span></p>
+                                </div>
+                              <div class="mx-auto"  style="width: 200px;">
+                              <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+
+                              <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>               
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--Auctioned Product Row 3-->
+                    <div class="rounded bg-white shadow mb-3">
+                      <div class="row align-self-start">
+                        <div class="col-4">
+                          <img src="../src/img/sale-3.png" class="p-3 product-img" alt="">
+                          <!--Auction Badge-->
+                          <div class="badge badge-warning position-absolute position-badge-topleft">
+                            Sale
+                          </div>
+                        </div>
+                        <!--Auctioned Product Detils-->
+                        <div class="col-8 small pt-4 pb-4">
+                          <div class="row pl-4 pr-4">
+                            <!--Auctioned Product Description-->
+                            <div class="col-12">
+                              <!--Product name-->
+                              <div class="product-name">
+                                Araw ng Kalayaan Medal
+                              </div>
+                              <!--Shop Location-->
+                              <div class="auctioner">
+                                <p>
+                                  <span>Goa, PH</span>
+                                  <span>|</span>
+                                  <a href="#">Numisworks Auction Product Trading</a>
+                                </p>
+                              </div>
+                              <!--Bid Status-->
+                              <div class="bid-status">
+                                <div>
+                                  <p class="fw-bolder">Unit Price: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-4 pr-4">
+                            <div class="bid-duration">
+                              <p>Quantity:
+                              <span class="fw-bolder"></span>
+                            </p>
+                            <div>
+                                  <p class="fw-bolder">Composition: <span class="font-weight-normal"></span></p>
+                                </div>
+                                <div>
+                                  <p >Specification: <span></span></p>
+                                </div>
+                            <div class="mx-auto"  style="width: 200px;">
+                              <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+                              <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
+
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>               
                     </div>
                   </td>
                 </tr>

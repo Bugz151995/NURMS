@@ -234,10 +234,12 @@ DEMO
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase !important;
   font-weight: bold;
+  font-size: 11pt;
 }
 
 .auctioner{
   font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
 }
 
 .bid-duration{
@@ -246,9 +248,21 @@ DEMO
 
 .bid-status{
   font-family: 'Poppins', sans-serif;
-  display: flex;
+  font-size: 10pt;
 }
 
+.remove-list-style-type{
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.product-img{
+  width: 190px;
+}
+
+.position-to-right{
+  right: 0;
+}
 
 @keyframes slideDownward {
   0% {
@@ -296,20 +310,16 @@ DEMO
 }
 
 @media screen and (max-width: 1920px) and (min-width: 1401px) {
-  .product-img{
-    width: 200px;
-  }
+  
 }
 
 @media screen and (max-width: 1400px) and (min-width: 1201px) {
-  .product-img{
-    width: 200px;
-  }
+  
 }
 
 @media screen and (max-width: 1200px) and (min-width: 993px){
   .product-img{
-    width: 200px;
+    width: 180px;
   }
 }
 
@@ -321,7 +331,16 @@ DEMO
     padding: 0em 3em 3em 3em;
   }
   .product-img{
-    width: 200px;
+    width: 170px;
+  } 
+  .product-name{
+    font-size: 11pt;
+  }
+  .auctioner{
+    font-size: 10pt;
+  }
+  .bid-status{
+    font-size: 10pt;
   }
 }
 
@@ -333,7 +352,7 @@ DEMO
     padding: 0em 2em 2em 2em;
   }
   .product-img{
-    width: 170px;
+    width: 150px;
   }
   #page-nav{
     order: 1;
@@ -353,17 +372,14 @@ DEMO
   .sm-intro-bg{
     padding: 0em 1em 1em 1em;
   }  
-  .product-title{
-    font-size: 7pt;
+  .product-name{
+    font-size: 9pt;
   }
   .product-img{
-    width: 150px;
+    width: 120px;
   }
   .shop-logo{
     width: 110px;
-  }
-  .product-name{
-    font-size: 9pt;
   }
   .auctioner{
     font-size: 8pt;
@@ -386,3 +402,23 @@ DEMO
   list-style-type: none;
   padding-left: 5px;
 }
+
+.img-resize
+{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+#badges
+{
+  font-size: 15pt;
+}
+
+.position-badge-topleft{
+  top: 1rem;
+  left: 2rem;
+}
+

@@ -50,7 +50,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li>
-                  <div class="d-flex align-items-center">
                     <a class="dropdown-item ml-2 mr-2" href="#!">
                       <i class="fas fa-sliders-h fa-fw"></i><span class="pl-2">My Account</span> 
                     </a>
@@ -222,8 +221,7 @@
                 </ol>
               </nav>
             </div>
-          </div>
-
+          </div> 
           <div class="p-2">
             <table class="w-100">
               <tbody>
@@ -233,7 +231,7 @@
                     <div class="rounded bg-white shadow mb-3">
                       <div class="row align-self-start">
                         <div class="col-4">
-                          <img src="src/img/sale-1.png" class="p-3 product-img" alt="">
+                          <img src="../src/img/sale-1.png" class="p-3 product-img" alt="">
                         </div>
                         <!--Auctioned Product Detils-->
                         <div class="col-8 small pt-4 pb-4 ">
@@ -288,7 +286,7 @@
                     <div class="rounded bg-white shadow mb-3">
                       <div class="row align-items-center">
                         <div class="col-4 align-self-start">
-                          <img src="src/img/sale-2.png" class="p-3 product-img" alt="">
+                          <img src="../src/img/sale-2.png" class="p-3 product-img" alt="">
                         </div>
                         <!--Auctioned Product Detils-->
                         <div class="col-8 small pt-4 pb-4">
@@ -343,7 +341,7 @@
                     <div class="rounded bg-white shadow mb-3">
                       <div class="row align-items-center">
                         <div class="col-4 align-self-start">
-                          <img src="src/img/sale-3.png" class="p-3 product-img" alt="">
+                          <img src="../src/img/sale-3.png" class="p-3 product-img" alt="">
                         </div>
                         <!--Auctioned Product Detils-->
                         <div class="col-8 small pt-4 pb-4">

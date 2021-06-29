@@ -247,16 +247,117 @@
             <!--Pending orders table-->
             <table class="table table-borderless">
               <tbody>
-                <tr class="shadow">
-                  <td width="150"><img src="../src/img/sale-1.png" width="150" alt=""></td>
+                <tr>
                   <td>
-                    <span class="fw-bolder">Product Name</span><br>
-                    <span>Quantity: 1</span><br>
-                    <span>Price: P100</span><br>
-                    <span>Shipping option: JNT</span>
-
-                    <div class="pt-2">
-                      <button class="btn btn-danger w-100">Cancel Order</button>
+                    <!--Auctioned Product Row 1-->
+                    <div class="rounded bg-white shadow mb-3">
+                      <div class="row align-self-start">
+                        <div class="col-4">
+                          <img src="../src/img/sale-1.png" class="p-3 product-img" alt="">
+                          <!-- Auction badge-->
+                          <div class=" col- badge badge-success position-absolute">Auction</div>
+                        </div>
+                        <!--Auctioned Product Detils-->
+                        <div class="col-8 small pt-4 pb-4 ">
+                          <div class="row pl-4 pr-4">
+                            <!--Auctioned Product Description-->
+                            <div class="col-12">
+                              <!--Product name-->
+                              <div class="product-name">
+                                Lapu-Lapu Medal
+                              </div>
+                              <!--Shop Location-->
+                              <div class="auctioner">
+                                <p>
+                                  <span>Goa, PH</span>
+                                  <span>|</span>
+                                  <a href="#">Numisworks Auction Product Trading</a>
+                                </p>
+                              </div>
+                              <!--Bid Status-->
+                              <div class="bid-status">
+                                <div>
+                                  <p class="fw-bolder">Unit Price: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-4 pr-4">
+                            <div class="bid-duration">
+                              <p>Quantity:
+                                <span class="fw-bolder"></span>
+                              </p>
+                              <div>
+                                  <p class="fw-bolder">Composition: <span class="font-weight-normal"></span></p>
+                                </div>
+                                <div>
+                                  <p >Specification: <span></span></p>
+                                </div>
+                                
+                              <div class="mx-auto"  style="width: 200px;">
+                              <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+                              <button class="float-ms-right btn-sm btn btn-danger">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--Auctioned Product Row 2-->
+                    <div class="rounded bg-white shadow mb-3">
+                      <div class="row align-self-start">
+                        <div class="col-4">
+                          <img src="../src/img/sale-2.png" class="p-3 product-img" alt="">
+                          <!-- Sale badge-->
+                          <div class="badge badge-warning position-absolute" style="top: 1rem; left: 2rem">Sale</div>
+                        </div>
+                        <!--Auctioned Product Detils-->
+                        <div class="col-8 small pt-4 pb-4">
+                          <div class="row pl-4 pr-4">
+                            <!--Auctioned Product Description-->
+                            <div class="col-12">
+                              <!--Product name-->
+                              <div class="product-name">
+                                Araw ng Republika Medal
+                              </div>
+                              <!--Shop Location-->
+                              <div class="auctioner">
+                                <p>
+                                  <span>Goa, PH</span>
+                                  <span>|</span>
+                                  <a href="#">Numisworks Auction Product Trading</a>
+                                </p>
+                              </div>
+                              <!--Bid Status-->
+                              <div class="bid-status">
+                                <div>
+                                  <p class="fw-bolder">Unit Price: <span class="font-weight-normal">&#8369;0.00</span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-4 pr-4">
+                            <div class="bid-duration">
+                            <p>Quantity:
+                                <span class="fw-bolder"></span>
+                              </p>
+                              <div>
+                                  <p class="fw-bolder">Composition: <span class="font-weight-normal"></span></p>
+                                </div>
+                                <div>
+                                  <p >Specification: <span></span></p>
+                                </div>
+                              <div class="mx-auto"  style="width: 200px;">
+                              <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+                              <button class="float-ms-right btn-sm btn btn-danger">Cancel</button>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>               
                     </div>
                   </td>
                 </tr>

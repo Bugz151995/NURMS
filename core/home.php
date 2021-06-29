@@ -304,97 +304,110 @@
 
           <!-- Section-->
           <section class="container">
-            <div class="container-fluid px-3 px-lg-5 mt-5">
+          <span class="info-label fw-bolder"><h3>Featured Items</h3></span>
+            <div class="product-layout container-fluid px-3 px-lg-5 mt-5">
               <div class="row pb-4">
-                <span class="info-label fw-bolder">Featured Items</span>
+              <div class=" shadow input-group mb-1 ">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Sort by:</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Sort by...</option>
+                    <option value="1">Date</option>
+                    <option value="2">Price</option>
+                    <option value="3">Shop</option>
+                  </select>
+                </div>
               </div>
-              <div class="row">
-                <div class="col mb-4">
+              <div class="  row">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="src/sale-1.png" alt="..." />
+                    <img class="zoom img-resize card-img-top" src="../src/img/sale-1.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <p class="fw-bolder">Lapu-Lapu Medal</p>
+                        <p class="d-flex fw-bolder">Lapu-Lapu Medal</p>
                         <!-- Product price-->
                         &#8369;1,200.00
-                      </div>
+                            <div class="pb-2 card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-                <div class="col mb-4">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="src/sale-2.png" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-2.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <p class="fw-bolder">Araw ng Republika Medal</p>
+                        <p class="d-flex fw-bolder">Araw ng Republika Medal</p>
                         <!-- Product price-->
                         &#8369;1,200.00
-                      </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-                <div class="col mb-4">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="src/sale-3.png" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-3.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <p class="fw-bolder">Araw ng Kalayaan</p>
+                        <p class="d-flex fw-bolder">Araw ng Kalayaan</p>
                         <!-- Product price-->
                         &#8369;1,200.00
-                      </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-                <div class="col mb-4">
+                <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
-                    <img class="card-img-top" src="src/sale-4.png" alt="..." />
+                    <img class="img-resize card-img-top" src="../src/img/sale-4.png" alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
-                      <div class="text-center">
+                      <div class="text-left">
                         <!-- Product name-->
-                        <p class="fw-bolder">Gabriela Silang Medal</p>
+                        <p class="d-flex fw-bolder">Gabriela Silang Medal</p>
                         <!-- Product price-->
                         &#8369;1,500.00
-                      </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
+                            </div>
+                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
+                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
+                        </div>
                     </div>
                     <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
           </section>
         </main>
         <footer class="py-4 bg-light mt-auto">

@@ -293,9 +293,11 @@
                       <div class="row align-self-start">
                         <div class="col-4">
                           <img src="../src/img/sale-1.png" class="p-3 product-img" alt="">
+
                           <!--Sale Badge-->
                           <div class="badge badge-warning position-absolute position-badge-topleft">Sale                       
                           </div>
+                          
                         </div>
                         <!--Auctioned Product Detils-->
                         <div class="col-8 small pt-4 pb-4 ">
@@ -336,6 +338,7 @@
                                 
                               <div class="mx-auto"  style="width: 200px;">
                               <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+
                               <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
                             </div>
                           </div>
@@ -394,6 +397,7 @@
                                 </div>
                               <div class="mx-auto"  style="width: 200px;">
                               <button class="float-ms-right btn-sm btn btn-primary ">View</button>
+
                               <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
                             </div>
                             </div>
@@ -454,6 +458,7 @@
                             <div class="mx-auto"  style="width: 200px;">
                               <button class="float-ms-right btn-sm btn btn-primary ">View</button>
                               <button class="float-ms-right btn-sm btn btn-danger">Cancel Order</button>
+
                             </div>
                             </div>
                           </div>

@@ -334,12 +334,6 @@
                   </ul>
                 </div>
                 
-                <!-- View completed auction button-->
-                <div class="col-md-5 pt-3 d-flex" id="comp-auction-btn">
-                  <button class="w-100 border border-2 rounded border-primary btn btn-primary bg-transparent text-primary fs-header shadow">
-                    View Completed Auction
-                  </button>
-                </div>
               </div>
 
               <!--Auctioned Item Table-->
@@ -386,7 +380,7 @@
                             <div class="row pl-4 pr-4">
                               <div class="bid-duration">
                                 <p>Ends in:
-                                  <span class="fw-bolder">5 hours, 29 Seconds</span>
+                                  <span class="fw-bolder">Closed</span>
                                 </p>
                                 <button class="btn-sm btn btn-primary w-100">View</button>
                               </div>
@@ -437,7 +431,7 @@
                             <div class="row pl-4 pr-4">
                               <div class="bid-duration">
                                 <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
+                                <span class="fw-bolder">Closed</span>
                               </p>
                                 <button class="btn-sm btn btn-primary w-100">View</button>
                               </div>
@@ -488,7 +482,7 @@
                             <div class="row pl-4 pr-4">
                               <div class="bid-duration">
                                 <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
+                                <span class="fw-bolder">Closed</span>
                               </p>
                                 <button class="btn-sm btn btn-primary w-100">View</button>
                               </div>
@@ -539,7 +533,7 @@
                             <div class="row pl-4 pr-4">
                               <div class="bid-duration">
                                 <p>Ends in:
-                                <span class="fw-bolder">5 hours, 29 Seconds</span>
+                                <span class="fw-bolder">Closed</span>
                               </p>
                                 <button class="btn-sm btn btn-primary w-100">View</button>
                               </div>

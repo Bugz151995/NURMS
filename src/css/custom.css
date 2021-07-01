@@ -210,7 +210,12 @@ DEMO
 
 .fs-header{
   font-family: 'Poppins', sans-serif;
-  font-size: 15pt;
+  font-size: 14pt;
+}
+
+.fs-nav{
+  font-family: 'Poppins', sans-serif;
+  font-size: 14pt;
 }
 
 .product-title{
@@ -240,6 +245,13 @@ DEMO
 .auctioner{
   font-family: 'Poppins', sans-serif;
   font-size: 10pt;
+  text-decoration: none;
+  color: #212529;
+}
+
+.auctioner:hover{
+  text-decoration: none;
+  color: #0d6efd;
 }
 
 .bid-duration{
@@ -251,63 +263,90 @@ DEMO
   font-size: 10pt;
 }
 
+.bid-price{
+  font-family: 'Poppins', sans-serif;
+  font-size: 13pt;
+}
+
 .remove-list-style-type{
   list-style-type: none;
   padding-left: 5px;
 }
 
 .product-img{
-  width: 190px;
+  height: 150px;
 }
 
-.position-to-right{
+.p-to-br{
   right: 0;
+  bottom: 0;
 }
 
-@keyframes slideDownward {
-  0% {
-    transform: translateY(-25%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+.p-to-bl{
+  left: 0;
+  bottom: 0;
 }
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+.p-to-tl{
+  left: 0;
+  top: 0;
 }
 
-@keyframes slideOutToLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.p-to-tr{
+  right: 0;
+  top: 0;
 }
 
-@keyframes slideUpdward {
-  0% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+.other-nav-fs{
+  font-family: 'Poppins', sans-serif;
+  font-size: 12pt;
 }
 
-@keyframes zoomOut {
-  0% {
-    transform: scale(1.5,1.5);
+/***************************/
+  @keyframes slideDownward {
+    0% {
+      transform: translateY(-25%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-  100% {
-    transform: scale(1,1);
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-}
+
+  @keyframes slideOutToLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slideUpdward {
+    0% {
+      transform: translateY(30%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomOut {
+    0% {
+      transform: scale(1.5,1.5);
+    }
+    100% {
+      transform: scale(1,1);
+    }
+  }
 
 @media screen and (max-width: 1920px) and (min-width: 1401px) {
   
@@ -318,9 +357,7 @@ DEMO
 }
 
 @media screen and (max-width: 1200px) and (min-width: 993px){
-  .product-img{
-    width: 180px;
-  }
+
 }
 
 @media screen and  (max-width: 992px) and (min-width: 769px){
@@ -330,9 +367,6 @@ DEMO
   .sm-intro-bg{
     padding: 0em 3em 3em 3em;
   }
-  .product-img{
-    width: 170px;
-  } 
   .product-name{
     font-size: 11pt;
   }
@@ -341,6 +375,9 @@ DEMO
   }
   .bid-status{
     font-size: 10pt;
+  }
+  .bid-price{
+    font-size: 11pt;
   }
 }
 
@@ -351,14 +388,14 @@ DEMO
   .sm-intro-bg{
     padding: 0em 2em 2em 2em;
   }
-  .product-img{
-    width: 150px;
-  }
   #page-nav{
-    order: 1;
+    order: 2;
   }
   #comp-auction-btn{
-    order: 2;
+    order: 1;
+  }
+  .bid-price{
+    font-size: 10pt;
   }
 }
 
@@ -369,32 +406,38 @@ DEMO
   .fs-header{
     font-size: 10pt;
   }
+  .fs-nav{
+    font-size: 10pt;
+  }
   .sm-intro-bg{
     padding: 0em 1em 1em 1em;
-  }  
-  .product-name{
-    font-size: 9pt;
-  }
-  .product-img{
-    width: 120px;
-  }
+  } 
   .shop-logo{
     width: 110px;
+  } 
+  .product-name{
+    font-size: 10pt;
   }
   .auctioner{
-    font-size: 8pt;
+    font-size: 9pt;
   }
   .bid-duration{
-    font-size: 8pt;
+    font-size: 9pt;
   }
   .bid-status{
-    font-size: 8pt;
+    font-size: 9pt;
+  }
+  .bid-price{
+    font-size: 11pt;
   }
   #page-nav{
     order: 2;
   }
   #comp-auction-btn{
     order: 1;
+  }
+  .other-nav-fs{
+    font-size: 10pt;
   }
 }
 
@@ -422,3 +465,20 @@ DEMO
   left: 2rem;
 }
 
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 56px;
+  left: 0pc;
+  z-index: 1000;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 40px;
+}
+
+/* Page content */
+.content {
+  padding: 30px;
+}

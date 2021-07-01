@@ -215,160 +215,64 @@
                       <i class="fas fa-home fa-lg"></i>
                     </div>
                     
-                    <span href="#0" class="fs-header breadcrumb__divider ml-3">Home</span>
+                    <a href="home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point r-link">Auction</span>
+                    <a href="live_auction.php" class="fs-header breadcrumb__point r-link">Live Auction</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#0" class="fs-header breadcrumb__point">Live Auction</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                    <span href="#" class="fs-header breadcrumb__point">Bid</span>
                   </li>
                 </ol>
               </nav>
             </div>
-
-            <!--Shop Selection-->
-            <div class="row">
-              <div class="sm-intro-bg container slide-upward">
-                <div class="rounded pl-4 pr-4 pt-2 pb-1 shop-details-bg shadow">
-                  <label for="#shops" class="mt-n5 fs-header text-center w-100 fw-bolder">Shops</label>
-                  <div class="form-group input-group">
-                    <span class="input-group-text">
-                      <i class="fas fa-store-alt"></i>
-                    </span>
-                    <select name="" id="shops" class="custom-select fs-header">
-                      <option value="">Numisworks Auction Product Trading</option>
-                      <option value="">Abe Reyes Auction</option>
-                      <option value="">Taimatsu's Collection</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!--Shop Details-->
-            <table class="w-100 mt-5 fs-header table table-borderless shop-details-bg">
-              <tbody>
-                <!--Shop Description-->
-                <tr>
-                  <td class="pl-3">
-                    <img src="../src/img/logo.png" alt="" class="shop-logo shadow rounded-circle mt-n5">
-                  </td>
-                  <td>
-                    <div class="fs-header pt-2">
-                      <h5 class="fw-bolder fs-header">Shop Description</h5>
-                      <ul>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <!--Shop Products-->
-                <tr>
-                  <td colspan="2">
-                    <div class="text-center">
-                      <p>View Shop's Events? <a href="events.php">Click here.</a><p>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Carousel for upcoming products-->
-          <div id="upcomingProductCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_3.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
           </div>
 
           <!--Auctioned Item Section-->
           <section>
             <div class="container mt-4">
-              <div class="row pb-4">
-
-                <!--Page number navigation-->
-                <div class="col-md-7 d-flex pt-3" id="page-nav">
-                  <ul class="nav nav-pills small justify-self-end align-self-center">
-                    <li class="nav-item shadow">
-                      <a class="nav-link border border-primary border-2 fs-header" href="#">
-                      <i class="fas fa-angle-double-left"></i></a>
-                    </li>
-                    <li class="nav-item ml-2 shadow">
-                      <a class="nav-link border border-primary border-2 fs-header" href="#">Prev</a>
-                    </li>
-                    <li class="nav-item ml-2 shadow fs-header bg-primary rounded">
-                      <a class="nav-link active rounded" href="#">2</a>
-                    </li>  
-                    <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow fs-header">
-                      <a class="nav-link bg-white rounded" href="#">Next</a>
-                    </li>
-                    <li class="nav-item shadow">
-                      <a class="nav-link ml-2 border border-primary border-2 fs-header" href="#">
-                      <i class="fas fa-angle-double-right"></i></a>
-                    </li>
-                  </ul>
-                </div>
-                
-                <!-- View completed auction button-->
-                <div class="col-md-5 pt-3 d-flex" id="comp-auction-btn">
-                  <button class="w-100 border border-2 rounded border-primary btn btn-primary bg-transparent text-primary fs-header shadow">
-                    View Closed Auction
-                  </button>
-                </div>
-              </div>
 
               <!--Auctioned Item Description-->
               <div>
-                <div class="">
+                <div class="fs-header">
                   <h3>Lapu Lapu Medal</h3>
                   <p>
-                    <span>Goa, </span><span>PH |</span> 
                     <a href="#">Numisworks Auction Product Trading</a>
                   </p>
                 </div>
                 <div class="row">
-                  <div class="col-md-7">
-                    <img src="../src/img/sale-1.png" class="pr-5 w-100" alt="">
+                  <div class="col-md-6 d-flex justify-content-center">
+                    <img src="../src/img/sale-1.png" class="pl-5 pr-5 pb-5 w-100" alt="">
                   </div>
-                  <div class="col-md-5">
+                  <div class="col-md-6">
                     <div class="bg-white rounded p-4">
+                      Current Bid: P1,000 <br>
                       Estimate: P1,000 <br>
-                      Price: P1,000 <br>
                       Max Bid: P500 <br>
                       Ends in: 5 hours, 29 minutes <br>
                       Bidders: 5
                     </div>
                     <div class="bg-white rounded mt-2 p-4">
-                      Composition: <br>
-                      Diameter:  <br>
-                      Weight:  <br>
-                      Other Description:  <br>
+                      Notes and Description:  <br>
+                    </div>
+                    <!-- buttons for bidding -->
+                    <div class="row p-3">
+                      <!-- container for bid button -->
+                      <div class="col-6 justify-content-center d-flex">
+                        <button class="btn btn-primary shadow-sm">
+                          <i class="fas fa-gavel"></i>&nbsp;
+                          Bid
+                        </button>
+                      </div>
+                      <!-- container for the watch button -->
+                      <div class="col-6 justify-content-center d-flex">
+                        <button class="btn btn-secondary shadow-sm">
+                          <i class="fas fa-binoculars"></i>&nbsp;
+                          Watch
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

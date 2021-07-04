@@ -1,6 +1,7 @@
 <?php
 require('connect.php');
 require('session.php');
+
 if (isset($_POST['btnlogin'])) {
   $con = openCon();
   $email = trim($_POST['email']);
@@ -14,7 +15,7 @@ if (isset($_POST['btnlogin'])) {
       window.location = "../../index.php";
     </script>
     <?php
-  }else{
+  } else{
   //create some sql statement             
     $sql = "SELECT * FROM  `users` u INNER JOIN `user_accounts` ua ON u.`user_id` = ua.`user_id` WHERE u.`email` = '$email'";
 

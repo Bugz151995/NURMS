@@ -308,7 +308,7 @@
           <!--Auctioned Item Section-->
           <section>
             <!-- navigation links -->
-            <div class="fs-nav pt-2">
+            <div class="container fs-nav pt-2">
               <!-- nav-tabs container -->
               <div id="other-nav" class="nav nav-tabs no-gutters row">
                 <!-- live auction link -->
@@ -326,277 +326,281 @@
               </div>
             </div>
 
-            <div class="container bg-white">
-              <div class="row other-nav-fs">
-                <!--Page number navigation -->
-                <div class="col-md-7 pt-4 other-nav-fs" id="page-nav">
-                  <ul class="nav nav-pills justify-self-end align-self-center">
-                    <li class="nav-item shadow-sm">
-                      <a class="nav-link border border-primary border-2" href="#">
-                      <i class="fas fa-angle-double-left"></i></a>
-                    </li>
-                    <li class="nav-item ml-2 shadow-sm">
-                      <a class="nav-link border border-primary border-2" href="#">Prev</a>
-                    </li>
-                    <li class="nav-item ml-2 shadow-sm bg-primary rounded">
-                      <a class="nav-link active rounded" href="#">2</a>
-                    </li>  
-                    <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow-sm">
-                      <a class="nav-link bg-white rounded" href="#">Next</a>
-                    </li>
-                    <li class="nav-item shadow-sm">
-                      <a class="nav-link ml-2 border border-primary border-2" href="#">
-                      <i class="fas fa-angle-double-right"></i></a>
-                    </li>
-                  </ul>
-                </div>
+            <div class="bg-white">
+              <div class="container">
+                <div class="row other-nav-fs">
+                  <!--Page number navigation -->
+                  <div class="col-md-7 pt-4 other-nav-fs" id="page-nav">
+                    <ul class="nav nav-pills justify-self-end align-self-center">
+                      <li class="nav-item shadow-sm">
+                        <a class="nav-link border border-primary border-2" href="#">
+                        <i class="fas fa-angle-double-left"></i></a>
+                      </li>
+                      <li class="nav-item ml-2 shadow-sm">
+                        <a class="nav-link border border-primary border-2" href="#">Prev</a>
+                      </li>
+                      <li class="nav-item ml-2 shadow-sm bg-primary rounded">
+                        <a class="nav-link active rounded" href="#">2</a>
+                      </li>  
+                      <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow-sm">
+                        <a class="nav-link bg-white rounded" href="#">Next</a>
+                      </li>
+                      <li class="nav-item shadow-sm">
+                        <a class="nav-link ml-2 border border-primary border-2" href="#">
+                        <i class="fas fa-angle-double-right"></i></a>
+                      </li>
+                    </ul>
+                  </div>
 
-                <!-- Search Bar -->
-                <div class="col-md-5 pt-4" id="comp-auction-btn">
-                  <div class="d-flex rounded border border-2 border-primary shadow-sm">
-                    <div class="w-100">
-                      <input type="search" id="form1" class="border-0 form-control rounded-left other-nav-fs" placeholder="Search an item in this Shop...">
+                  <!-- Search Bar -->
+                  <div class="col-md-5 pt-4" id="comp-auction-btn">
+                    <div class="d-flex rounded border border-2 border-primary shadow-sm">
+                      <div class="w-100">
+                        <input type="search" id="form1" class="border-0 form-control rounded-left other-nav-fs" placeholder="Search an item in this Shop...">
+                      </div>
+                      <button type="button" class="btn">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
-                    <button type="button" class="btn">
-                      <i class="fas fa-search"></i>
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="container bg-white pt-4 pb-4">
-              <!-- flexbox container of the products -->
-              <div id="off-auction-products" class="d-flex flex-wrap no-gutters">
-                <!-- product number 1 -->
-                <div class="p-1 col-md-6">
-                  <div class="card position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-1.png" alt="">
+            <div class="bg-white">
+              <div class="container pt-4 pb-4">
+                <!-- flexbox container of the products -->
+                <div id="off-auction-products" class="d-flex flex-wrap no-gutters">
+                  <!-- product number 1 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card position-relative shadow">
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-1.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>500.00</span></span></h5>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>500.00</span></span></h5>
 
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Lapu-Lapu Medal</span>
+                      <!-- badge that displays ongoing -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Lapu-Lapu Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                      
+                      <!-- container with a bg-warning -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                <!-- product number 2 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-2.png" alt="">
+                  
+                  <!-- product number 2 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card rounded bg-white position-relative shadow">
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-2.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>700.00</span></span></h5>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>700.00</span></span></h5>
 
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Araw ng Republika Medal</span>
+                      <!-- badge that displays ongoing -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Araw ng Republika Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,500</span></div>
+                      
+                      <!-- container with a bg-warning -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,500</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                <!-- product number 3 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-3.png" alt="">
+                  
+                  <!-- product number 3 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card rounded bg-white position-relative shadow">
+                      <div class="card-header mb-n3 border-0 bg-white">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-3.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>800.00</span></span></h5>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>800.00</span></span></h5>
 
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Araw ng Kalayaan Medal</span>
+                      <!-- badge that displays ongoing -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Araw ng Kalayaan Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                      
+                      <!-- container with a bg-warning -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
+                  <!-- product number 4 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card rounded bg-white position-relative shadow">
+                      <!-- card header -->
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-4.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
+                      <!-- badges -->
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
+                      <!--card body -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Gabriela Silang Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                      
+                      <!-- card footer -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
+                  <!-- product number 4 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card rounded bg-white position-relative shadow">
+                      <!-- card header -->
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-4.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
+                      <!-- badges -->
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
+                      <!--card body -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Gabriela Silang Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                      
+                      <!-- card footer -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
+                  <!-- product number 4 -->
+                  <div class="p-1 col-md-6">
+                    <div class="card rounded bg-white position-relative shadow">
+                      <!-- card header -->
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
+                          <img src="../src/img/sale-4.png" alt="">
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
+                      <!-- badges -->
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
+                      <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
+                      <!--card body -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">Gabriela Silang Medal</span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">Numisworks Auction Product Trading</a>
+                        </div>
                       </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                      
+                      <!-- card footer -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
+                          </div>
                         </div>
                       </div>
                     </div>

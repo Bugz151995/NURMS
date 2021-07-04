@@ -16,17 +16,17 @@
   <?php confirm_logged_in();?>
   <body class="sb-nav-fixed">
 
-    <!--Top Navbar-->
+  <!--Top Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Top navigation numisworks logo -->
+    <!-- Top navigation numisworks logo -->
       <div class="d-flex text-white bg-transparent" style="width: 225px">
         <div class="p-2">
           <img src="../src/img/logo_light.png" width="30" alt="">
         </div>
       </div>
-      <!-- Top navigation link icons-->
+    <!-- Top navigation link icons-->
       <div class="navbar-nav">
-        <!-- Sidebar Toggle-->
+      <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-lg-0" id="sidebarToggle" href="#!">
           <i class="fas fa-bars fa-lg"></i>
         </button>

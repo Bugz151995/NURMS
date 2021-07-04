@@ -1,4 +1,10 @@
-<?php require 'src/api/session.php'?>
+<?php 
+require('src/api/session.php');
+//destroy all session if the user is signed in, after redirecting to this page.
+if(logged_in()){
+	session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -19,28 +19,54 @@ function stickyNav(){
   var myBidLink = $('#my-bid-link');
 
   var tabs = new Array(liveAuLink, closedAuLink, myBidLink);
-  var activeTab = "nav-item col-4 text-center text-nowrap active";
 
+  //set the style for active and inactive navigation item and links
+  //styles differ if the nav is fixed on top or below the carousel
   if (window.pageYOffset >= sticky) {
     otherNav.setAttribute("class", "nav bg-dark shadow text-white no-gutters");
     otherNav.classList.add("sticky");
-    styleStickyNav(tabs, activeTab, 'text-white');
+    styleStickyNav(tabs, 'text-white', 'active');
   } else {
     otherNav.classList.remove("sticky");
     otherNav.setAttribute("class", "nav nav-tabs no-gutters row");
-    styleStickyNav(tabs, activeTab, 'text-dark');
+    styleStickyNav(tabs, 'text-white', 'inactive');
   }
 }
 
-function styleStickyNav(tabs, activeTab, textColor){
+function styleStickyNav(tabs, activeTxtStyle, status){
   var i = 0;
+  var activeTab = "nav-item col-4 text-center text-nowrap active";
   while(i < 3){
+    //if the status is active then change the style of the active item
+    //and change the style of the inactive tabs
     if(tabs[i].attr("class") === activeTab){
       tabs[i].children().each(function(){
-        $(this).attr("class", "nav-link "+textColor+" active");
+        if(status == 'active') {
+          $(this).attr("class", "nav-link active text-light");
+        } else {
+          $(this).attr("class", "nav-link active");
+        }
       });
-    } else tabs[i].attr("class", "nav-item col-4 text-center text-nowrap");
+    } else {
+      tabs[i].children().each(function(){
+        if(status == 'inactive') {
+          $(this).attr("class", "nav-link text-primary");
+        } else {
+          $(this).attr("class", "nav-link active");
+        }
+      });
+    }
     i++;
+  }
+}
+
+function styleStickyNavContainer(){
+  if (window.pageYOffset >= sticky) {
+    otherNav.setAttribute("class", "nav bg-dark shadow text-white no-gutters");
+    otherNav.classList.add("sticky");
+  } else {
+    otherNav.classList.remove("sticky");
+    otherNav.setAttribute("class", "nav nav-tabs no-gutters row");
   }
 }
 

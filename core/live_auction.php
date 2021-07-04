@@ -1,6 +1,10 @@
-<?php require('../src/api/session.php');?>
-<?php
-  confirm_logged_in();
+<?php 
+require('../src/api/session.php');
+require('../src/api/connect.php');
+require('live_auction/fetch_shops.php');
+require('live_auction/fetch_auction_products.php');
+$con = openCon();
+confirm_logged_in();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,21 +100,21 @@
               <!--Home link-->
               <a class="nav-link" href="home.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-home"></i>
+                  <i class="fas fa-home fa-fw"></i>
                 </div>
                 Home
               </a>
               <!--Numismatic Product Link-->
               <a class="nav-link" href="products.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fab fa-product-hunt"></i>
+                  <i class="fab fa-product-hunt fa-fw"></i>
                 </div>
                 Numismatic Products
               </a>
               <!--Auction Product Link-->
               <a class="nav-link dropdown-toggle active" role="button" href="#" data-toggle="dropdown" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-gavel"></i>
+                  <i class="fas fa-gavel fa-fw"></i>
                 </div>
                 Auction <span class="text-right w-100"></span>
               </a>
@@ -118,7 +122,7 @@
                 <li class="text-decoration-none">
                   <a class="nav-link active" href="live_auction.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-search-dollar"></i>
+                      <i class="fas fa-search-dollar fa-fw"></i>
                     </div>
                     Live Auction
                   </a>
@@ -126,7 +130,7 @@
                 <li class="text-decoration-none">
                   <a class="nav-link" href="closed_auction.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-file-invoice-dollar"></i>
+                      <i class="fas fa-file-invoice-dollar fa-fw"></i>
                     </div>
                     Closed Auction
                   </a>
@@ -134,7 +138,7 @@
                 <li class="text-decoration-none">
                   <a class="nav-link" href="my_bids.php">
                     <div class="sb-nav-link-icon">
-                      <i class="fas fa-bold"></i>
+                      <i class="fas fa-bold fa-fw"></i>
                     </div>
                     My Bids
                   </a>
@@ -145,28 +149,28 @@
               <!--Account Verification-->
               <a class="nav-link collapsed" href="../services/account_verification.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-check"></i>
+                  <i class="fas fa-user-check fa-fw"></i>
                 </div>
                 Account Verification
               </a>
               <!--Events-->
               <a class="nav-link collapsed" href="../services/events.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-calendar-check"></i>
+                  <i class="fas fa-calendar-check fa-fw"></i>
                 </div>
                 Events
               </a>
               <!--My Orders-->
               <a class="nav-link collapsed" href="../services/myorders.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-list"></i>
+                  <i class="fas fa-list fa-fw"></i>
                 </div>
                 My Orders
               </a>
               <!--Cart-->
               <a class="nav-link collapsed" href="../services/mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i class="fas fa-shopping-cart fa-fw"></i>
                 </div>
                 My Cart
               </a>
@@ -177,21 +181,21 @@
               <!--My Account-->
               <a class="nav-link collapsed" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-circle"></i>
+                  <i class="fas fa-user-circle fa-fw"></i>
                 </div>
                 My Account
               </a>
               <!--Help-->
               <a class="nav-link collapsed" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-question-circle"></i>
+                  <i class="fas fa-question-circle fa-fw"></i>
                 </div>
                 Help
               </a>
               <!--Logout-->
               <a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-sign-out-alt"></i>
+                  <i class="fas fa-sign-out-alt fa-fw"></i>
                 </div>
                 Sign Out
               </a>
@@ -204,7 +208,7 @@
       <div id="layoutSidenav_content">
         <main >
           <!--Contains Breadcrumbs, shop selection, and shop description-->
-          <div class="slide-downward bg-home p-3 pb-5">
+          <div class="slide-downward bg-home p-3">
             <!--Breadcrumb-->
             <div class="page__section mb-4 ">
               <nav class="breadcrumb bg-light breadcrumb_type" aria-label="Breadcrumb">
@@ -233,10 +237,25 @@
                     <span class="input-group-text">
                       <i class="fas fa-store-alt"></i>
                     </span>
+                    <?php
+                      //initialization of the decoded shops data
+                      //decoding the json into an associative array
+                      $shops = getShops($con);
+                      $totalShops = count($shops);
+                    ?>
                     <select name="" id="shops" class="custom-select fs-header">
-                      <option value="">Numisworks Auction Product Trading</option>
-                      <option value="">Abe Reyes Auction</option>
-                      <option value="">Taimatsu's Collection</option>
+                      <?php
+                        //display the shops in option tag using while loop
+                        $i = 0;
+                        while ($i < $totalShops){
+                          ?> 
+                            <option value="<?php echo $shops[$i]['shop_id'];?>">
+                              <?php echo $shops[$i]['shop_name'];?>
+                            </option>
+                          <?php
+                          $i++;
+                        }
+                      ?>
                     </select>
                   </div>
                 </div>
@@ -244,28 +263,22 @@
             </div>
 
             <!--Shop Details-->
-            <table class="w-100 mt-5 fs-header table table-borderless shop-details-bg">
+            <table class="w-100 mt-5 rounded fs-header table table-borderless shop-details-bg">
               <tbody>
                 <!--Shop Description-->
                 <tr>
-                  <td class="pl-3">
-                    <img src="../src/img/logo.png" alt="" class="shop-logo shadow rounded-circle mt-n5">
+                  <?php 
+                    $shopLogo = getShopLogo($con, '1');
+                  ?>
+                  <td class="pl-3 w-25 pr-5">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($shopLogo).'"/  class="shop-logo shadow rounded-circle mt-n5">';?>
                   </td>
                   <td>
                     <div class="fs-header pt-2">
                       <h5 class="fw-bolder fs-header">Shop Description</h5>
-                      <ul>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <!--Shop Products-->
-                <tr>
-                  <td colspan="2">
-                    <div class="text-center">
-                      <p>View Shop's Events? <a href="events.php">Click here.</a><p>
+                      <p>
+                          <?php echo $shops[0]['shop_description']?>
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -321,285 +334,146 @@
                 </div>
               </div>
             </div>
-
-            <div class="container bg-white">
-              <div class="row other-nav-fs">
-                <!--Page number navigation -->
-                <div class="col-md-7 pt-4 other-nav-fs" id="page-nav">
-                  <ul class="nav nav-pills justify-self-end align-self-center">
-                    <li class="nav-item shadow-sm">
-                      <a class="nav-link border border-primary border-2" href="#">
-                      <i class="fas fa-angle-double-left"></i></a>
-                    </li>
-                    <li class="nav-item ml-2 shadow-sm">
-                      <a class="nav-link border border-primary border-2" href="#">Prev</a>
-                    </li>
-                    <li class="nav-item ml-2 shadow-sm bg-primary rounded">
-                      <a class="nav-link active rounded" href="#">2</a>
-                    </li>  
-                    <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow-sm">
-                      <a class="nav-link bg-white rounded" href="#">Next</a>
-                    </li>
-                    <li class="nav-item shadow-sm">
-                      <a class="nav-link ml-2 border border-primary border-2" href="#">
-                      <i class="fas fa-angle-double-right"></i></a>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="col-md-5 pt-4" id="comp-auction-btn">
-                  <div class="d-flex rounded border border-2 border-primary shadow-sm">
-                    <div class="w-100">
-                      <input type="search" id="form1" class="border-0 form-control rounded-left other-nav-fs" placeholder="Search an item in this Shop...">
-                    </div>
-                    <button type="button" class="btn">
-                      <i class="fas fa-search"></i>
-                    </button>
+            
+            <!-- page number and search bar -->
+            <div class="bg-white">
+              <div class="container">
+                <div class="row other-nav-fs">
+                  <!--Page number navigation -->
+                  <div class="col-md-6 pt-4 other-nav-fs" id="page-nav">
+                    <ul class="nav nav-pills justify-self-end align-self-center">
+                      <li class="nav-item shadow-sm">
+                        <a class="nav-link border border-primary border-2" href="#">
+                        <i class="fas fa-angle-double-left"></i></a>
+                      </li>
+                      <li class="nav-item ml-2 shadow-sm">
+                        <a class="nav-link border border-primary border-2" href="#">Prev</a>
+                      </li>
+                      <li class="nav-item ml-2 shadow-sm bg-primary rounded">
+                        <a class="nav-link active rounded" href="#">2</a>
+                      </li>
+                      <li class="nav-item ml-2 border border-primary border-2 rounded bg-white shadow-sm">
+                        <a class="nav-link bg-white rounded" href="#">Next</a>
+                      </li>
+                      <li class="nav-item shadow-sm">
+                        <a class="nav-link ml-2 border border-primary border-2" href="#">
+                        <i class="fas fa-angle-double-right"></i></a>
+                      </li>
+                    </ul>
                   </div>
+
+                  <!-- Search Bar -->
+                  <div class="col-md-6 pt-4" id="comp-auction-btn">
+                    <div class="d-flex rounded border border-2 border-primary shadow-sm">
+                      <div class="w-100">
+                        <input type="search" id="form1" class="border-0 form-control rounded-left other-nav-fs" placeholder="Search an item in this Shop...">
+                      </div>
+                      <button type="button" class="btn">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+
+            <!-- catalogs of products -->
+            <div class="bg-white">
+              <div class="container pt-4 pb-4">
+                <!-- flexbox container of the products -->
+                <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
+                <?php 
+                  //initialization of the auction products, images, and bid status
+                  $auctionProducts = getAuctionProducts($con, "1");
+                  $auctionProductImg = getAuctionProductImg($con, "1");
+                  $totalProducts = count($auctionProducts);
+
+                  $i = 0;
+                  while($i < $totalProducts){
+                ?>
+                  <!-- product catalog -->
+                  <div class="p-1 col-md-6">
+                    <div class="card position-relative shadow">
+                    
+                      <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
+                        <!-- container for the product image -->
+                        <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
+                          <?php
+                            //call the obverse and reverse images from the result set with variable name $auctionProductImg.
+                            echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'"/>';
+                            echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'"/>';
+                          ?>
+                        </div>
+                      </div>
+
+                      <!-- badge that displays the total bidders -->
+                      <?php
+                        //get the total count of bids of an auctioned item
+                        $bidStatus = countTotalBid($con, $auctionProducts[$i]['auction_id']);
+                      ?>
+                      <h6>
+                        <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
+                          <span>
+                            <?php 
+                              echo $bidStatus;
+                            ?>
+                          </span>
+                          BIDDERS
+                        </span>
+                      </h6>
+                      
+                      <!-- badge that displays the maximum bid -->
+                      <h5>
+                        <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
+                          <span>
+                            &#8369;
+                            <?php echo $auctionProducts[$i]['maximum_bid'];?>
+                          </span>
+                        </span>
+                      </h5>
+
+                      <!-- badge that displays ongoing -->
+                      <div class="bg-warning card-body">
+                        <!-- container for the product name -->
+                        <div class="lh-sm">
+                          <span class="product-name">
+                            <?php echo $auctionProducts[$i]['product_name'];?>
+                          </span>
+                        </div>
+                        <!-- container for the auctioner -->
+                        <div class="lh-1">
+                          <a href="" class="auctioner">
+                            <?php echo $auctionProducts[$i]['shop_name'];?>
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <!-- container with a bg-warning -->
+                      <div class="card-footer border-0 bg-warning">
+                        <!-- status of the auction -->
+                        <div class="bid-status pt-3">
+                          <!-- estimate and current price of the item -->
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="">
+                              <strong>Estimate:</strong>
+                              <span>
+                                &#8369;
+                                <?php echo $auctionProducts[$i]['estimate_price'];?>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <?php
+                    $i++;
+                  }
+                ?>
                 </div>
               </div>
             </div>
-
-            <div class="container bg-white pt-4 pb-4">
-              <!-- flexbox container of the products -->
-              <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
-                <!-- product number 1 -->
-                <div class="p-1 col-md-6">
-                  <div class="card position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-1.png" alt="">
-                      </div>
-                    </div>
-
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">2 BIDDERS</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>500.00</span></span></h5>
-
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Lapu-Lapu Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- product number 2 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-2.png" alt="">
-                      </div>
-                    </div>
-
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">5 BIDDERS</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>700.00</span></span></h5>
-
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Araw ng Republika Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,500</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- product number 3 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <div class="card-header mb-n3 border-0 bg-white">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-3.png" alt="">
-                      </div>
-                    </div>
-
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">2 BIDDERS</h6>
-                    
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>800.00</span></span></h5>
-
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Araw ng Kalayaan Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
-                      </div>
-                    </div>
-
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
-
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
-                      </div>
-                    </div>
-
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
-
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- product number 4 -->
-                <div class="p-1 col-md-6">
-                  <div class="card rounded bg-white position-relative shadow">
-                    <!-- card header -->
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-center pt-2">
-                        <img src="../src/img/sale-4.png" alt="">
-                      </div>
-                    </div>
-
-                    <!-- badges -->
-                    <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
-                    <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
-
-                    <!--card body -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">Gabriela Silang Medal</span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">Numisworks Auction Product Trading</a>
-                      </div>
-                    </div>
-                    
-                    <!-- card footer -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class=""><strong>Estimate:</strong> &#8369;<span>1,200</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </section>
         </main>
         <footer class="py-4 bg-light mt-auto">

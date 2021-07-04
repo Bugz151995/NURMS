@@ -18,70 +18,78 @@
   ?>
   <body class="sb-nav-fixed">
 
-    <!--Top Navbar-->
+  <!--Top Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Top navigation numisworks logo -->
+    <!-- Top navigation numisworks logo -->
       <div class="d-flex text-white bg-transparent" style="width: 225px">
         <div class="p-2">
           <img src="../src/img/logo_light.png" width="30" alt="">
         </div>
       </div>
-      <!-- Top navigation link icons-->
+    <!-- Top navigation link icons-->
       <div class="navbar-nav">
-        <!-- Sidebar Toggle-->
+      <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-lg-0" id="sidebarToggle" href="#!">
           <i class="fas fa-bars fa-lg"></i>
         </button>
+      <!-- list of other navigation link in top navbar -->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <!-- shopping cart -->
           <li class="nav-item">
             <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-shopping-cart fa-lg fa-fw"></i>
             </a>
           </li>
+        <!-- notification bell -->
           <li class="nav-item">
             <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-bell fa-lg fa-fw"></i>
             </a>
           </li>
+        <!-- help -->
           <li class="nav-item">
             <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-question-circle fa-lg fa-fw"></i>
             </a>
           </li>
+        <!-- my profile / sign out dropdown menu -->
           <li class="nav-item dropdown">
+          <!-- user circle icon -->
             <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-user-circle fa-lg fa-fw"></i>
             </a>
+          <!-- dropdown menu containing my account and sign out -->
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li>
-                  <div class="d-flex align-items-center">
-                    <a class="dropdown-item ml-2 mr-2" href="#!">
-                      <i class="fas fa-sliders-h fa-fw"></i><span class="pl-2">My Account</span> 
-                    </a>
-                  </div>
-                </li>
-                
-                <li>
-                  <div class="d-flex align-items-center"> 
-                    <a class="dropdown-item ml-2 mr-2" href="#!">
-                      <i class="fas fa-sign-out-alt fa-fw"></i><span class="pl-2">Sign Out</span> 
-                    </a>
-                  </div>
-                </li>
+            <!-- my account -->
+              <li>
+                <div class="d-flex align-items-center">
+                  <a class="dropdown-item ml-2 mr-2" href="#!">
+                    <i class="fas fa-sliders-h fa-fw"></i><span class="pl-2">My Account</span> 
+                  </a>
+                </div>
+              </li>
+            <!-- sign out -->
+              <li>
+                <div class="d-flex align-items-center"> 
+                  <a class="dropdown-item ml-2 mr-2" href="#!">
+                    <i class="fas fa-sign-out-alt fa-fw"></i><span class="pl-2">Sign Out</span> 
+                  </a>
+                </div>
+              </li>
             </ul>
           </li>
         </ul>
       </div>      
     </nav>
 
-    <!--Contains layout of sidenav and the main content-->
+  <!-- Contains layout of sidenav and the main content -->
     <div id="layoutSidenav">
-
-      <!--Side Navbar-->
+    <!-- Side Navbar -->
       <div id="layoutSidenav_nav" class="side-nav-bg">
+      <!-- Menu of the side navbar -->
         <nav class="sb-sidenav accordion sb-sidenav-dark" style="opacity: 85%" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
-            <!--User's Profile Picture-->
+          <!--User's Profile Picture-->
             <div class="text-center my-2">
               <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
               <h5 class="text-white fs-6">
@@ -89,114 +97,120 @@
               </h5>
               <p class="text-warning">Semi-Verified</p>
             </div>
-            <!--Side Navbar's navigation links-->
+          <!-- Side Navbar's navigation links -->
             <div class="nav">
-              <!--Core links Header-->
+            <!-- Core links Header -->
               <div class="sb-sidenav-menu-heading"><h6>Core</h6></div>
-              <!--Home link-->
+            <!-- Home link -->
               <a class="nav-link active" href="#" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-home"></i>
+                  <i class="fas fa-home fa-fw"></i>
                 </div>
                 Home
               </a>
-              <!--Numismatic Product Link-->
+            <!-- Numismatic Product Link -->
               <a class="nav-link" href="products.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fab fa-product-hunt"></i>
+                  <i class="fab fa-product-hunt fa-fw"></i>
                 </div>
                 Numismatic Products
               </a>
-              <!--Auction Product Link-->
+            <!-- Auction Product Link -->
               <a class="nav-link" id="auction-toggle" role="button" href="#" aria-expanded="false">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-gavel"></i>
+                  <i class="fas fa-gavel fa-fw"></i>
                 </div>
                 Auction 
                 <span class="text-right w-100"> 
-                  <i id="auction-toggle-icon" class="fas fa-caret-right"></i>
+                  <i id="auction-toggle-icon" class="fas fa-caret-right fa-fw"></i>
                 </span>
               </a>
+              <!-- dropdown menu of the auction core interface -->
               <div style="display: none" id="auction-links">
                 <ul class="remove-list-style-type">
+                <!-- live auction link -->
                   <li class="text-decoration-none">
                     <a class="nav-link" href="live_auction.php">
                       <div class="sb-nav-link-icon">
-                        <i class="fas fa-search-dollar"></i>
+                        <i class="fas fa-search-dollar fa-fw"></i>
                       </div>
                       Live Auction
                     </a>
                   </li>
+                <!-- closed auction link -->
                   <li class="text-decoration-none">
                     <a class="nav-link" href="closed_auction.php">
                       <div class="sb-nav-link-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                        <i class="fas fa-file-invoice-dollar fa-fw"></i>
                       </div>
                       Closed Auction
                     </a>
                   </li>
+                <!-- my bid link -->
                   <li class="text-decoration-none">
                     <a class="nav-link" href="my_bids.php">
                       <div class="sb-nav-link-icon">
-                        <i class="fas fa-bold"></i>
+                        <i class="fas fa-bold fa-fw"></i>
                       </div>
                       My Bids
                     </a>
                   </li>
                 </ul>
               </div>            
-                
+            
+            <!-- Interface's links header -->
               <div class="sb-sidenav-menu-heading"><h6>Interface</h6></div>
-              <!--Account Verification-->
+            <!-- Account Verification link -->
               <a class="nav-link collapsed" href="../services/account_verification.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-check"></i>
+                  <i class="fas fa-user-check fa-fw"></i>
                 </div>
                 Account Verification
               </a>
-              <!--Events-->
+            <!-- Events link -->
               <a class="nav-link collapsed" href="../services/events.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-calendar-check"></i>
+                  <i class="fas fa-calendar-check fa-fw"></i>
                 </div>
                 Events
               </a>
-              <!--My Orders-->
+            <!-- My Orders link -->
               <a class="nav-link collapsed" href="../services/myorders.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-list"></i>
+                  <i class="fas fa-list fa-fw"></i>
                 </div>
                 My Orders
               </a>
-              <!--Cart-->
+            <!-- my cart link -->
               <a class="nav-link collapsed" href="../services/mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-shopping-cart"></i>
+                  <i class="fas fa-shopping-cart fa-fw"></i>
                 </div>
                 My Cart
               </a>
 
+            <!-- setting's links header -->
               <div class="sb-sidenav-menu-heading">
                 <h6>Settings</h6>
               </div>
-              <!--My Account-->
+            <!-- My Account link -->
               <a class="nav-link collapsed" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-circle"></i>
+                  <i class="fas fa-user-circle fa-fw"></i>
                 </div>
                 My Account
               </a>
-              <!--Help-->
+            <!-- Help link -->
               <a class="nav-link collapsed" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-question-circle"></i>
+                  <i class="fas fa-question-circle fa-fw"></i>
                 </div>
                 Help
               </a>
-              <!--Logout-->
+            <!-- sign out link -->
               <a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon">
-                  <i class="fas fa-sign-out-alt"></i>
+                  <i class="fas fa-sign-out-alt fa-fw"></i>
                 </div>
                 Sign Out
               </a>
@@ -205,7 +219,7 @@
         </nav>
       </div>
 
-      <!--Main Content-->
+    <!-- Main Content -->
       <div id="layoutSidenav_content">
         <main>
           <!--Contains Breadcrumbs, shop selection, and shop description-->

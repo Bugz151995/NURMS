@@ -204,10 +204,10 @@
       <!--Main Content-->
       <div id="layoutSidenav_content">
         <!--Main Content container-->
-        <div class="p-4">
+        <div>
           <main>
             <!--Contains Breadcrumbs, shop selection, and shop description-->
-          <div class="slide-downward bg-home p-3 pb-5">
+          <div class="slide-downward p-3 pb-5">
             <!--Breadcrumb-->
             <div class="page__section mb-4 ">
               <nav class="breadcrumb bg-light breadcrumb_type" aria-label="Breadcrumb">
@@ -228,100 +228,101 @@
             </div>
           </div>
             
-            <!-- Upload Profile picture-->
-            <div class="mb-4">
-              <div class="row p-2 pt-5"> 
+          
                 <!-- Upload image result-->
-                <div class="container col-md-3 pb-3 bg-warning rounded-left">
-                  <img id="imageResult" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="" width="150" height="150" class="mt-n5 rounded shadow rounded-circle">
-                </div>
-                <!-- Upload image input-->
-                <div class="container col-md-9 pb-4 pt-3 bg-warning rounded-right">
-                  <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                    <div class="input-group-append">
-                      <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose image</small></label>
+                <div class="container w-100">
+                    <div class="d-flex justify-self-center flex-wrap rounded bg-warning">
+                      <div class="w-100 col-12 d-flex justify-content-center">
+                        <img id=imageResult src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" class="mt-n5 shadow rounded-circle " alt="" width="150" height="150" >
+                      </div>
+                      <div class="w-100 col-12 d-flex justify-content-center pt-3">
+                        <label for="upload" class="btn btn-light m-0 rounded d-flex"> 
+                          <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose image</small>
+                        </label>
+                      </div>
+                      <div class="w-100">
+                        <input id="upload" type="file" onchange="readURL(this);" >
+                      </div>
                     </div>
-                  </div>
-                  <span class="small"><em><span class="text-danger">*</span> Choose an image for your profile picture.</em></span>
                 </div>
-              </div>
-            </div>
+               
+              
+               
 
             <!-- Verify Account form-->
             <div class="bg-light shadow"> 
               <div class="row p-2"> 
                 <div class="container">
                   <div class="bg-warning rounded">
-                    <h1 class="fs-4 p-3">Verify Account</h1>
+                    <h1 class="fs-4 p-3">My Account</h1>
                   </div>  
                 </div> 
-                  <form class="p-4">
+                <form class="p-4">
                     <!-- 1st row of the form-->
-                    <div class="fs-5"><u>Full Name</u></div>
+                    <div class="pb-3 fs-5"><u>Full Name</u></div>
                     <div class="row form-group"> 
                       <div class="col-md-4">
-                        <label for="exampleInputLastname">Last Name</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputLastname" aria-describedby="LastnameHelp" placeholder="Last Name">
+                       
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputLastname" aria-describedby="LastnameHelp" placeholder="Last Name">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputFirstname">First Name</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputFirstname" aria-describedby="FirstnameHelp" placeholder="First Name">
+                        
+                        <input type="text" class="shadow rounded-pill form-control form-control-md"  id="exampleInputFirstname" aria-describedby="FirstnameHelp" placeholder="First Name">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputMiddlename">Middle Name</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputMiddlename" aria-describedby="MiddlenameHelp" placeholder="Middle Name">
+                        
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputMiddlename" aria-describedby="MiddlenameHelp" placeholder="Middle Name">
                       </div>    
                     </div>
-                    <hr class="p-2">
+                    
                     <!-- 2nd row of the form-->
-                    <div class="fs-5"><u>Permanent Address</u></div>
+                    <div class="pb-3 fs-5"><u>Permanent Address</u></div>
                     <div class="row form-group">
                       <div class="col-md-4">
-                        <label for="exampleInputStreet">Street Name</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputStreet" aria-describedby="StreetHelp" placeholder="Street Name">
+                       
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputStreet" aria-describedby="StreetHelp" placeholder="Street Name">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputBarangay">Barangay</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputBarangay" aria-describedby="BarangayHelp" placeholder="Barangay">
+                        
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputBarangay" aria-describedby="BarangayHelp" placeholder="Barangay">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputCity/Municipality">Municipality</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputMunicipality" aria-describedby="MunicipalityHelp" placeholder="Municipality">
+                        
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputMunicipality" aria-describedby="MunicipalityHelp" placeholder="Municipality">
                       </div>
                     </div>
                       <!-- 3rd row of the form-->
                     <div class="row form-group">
                       <div class="col-md-4">
-                        <label for="exampleInputProvince">Province</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputProvince" aria-describedby="ProvinceHelp" placeholder="Province">
+                        
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputProvince" aria-describedby="ProvinceHelp" placeholder="Province">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputZip Codee">Zip Code</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputZip Code" aria-describedby="Zip CodeHelp" placeholder="Zip Code">
+                       
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputZip Code" aria-describedby="Zip CodeHelp" placeholder="Zip Code">
                       </div>
                     </div>
-                    <hr class="p-2">
+                 
                     <!-- 4rd row of the form-->
-                    <div class="fs-5"><u>Contact Information</u></div>
+                    <div class="pb-3 fs-5"><u>Contact Information</u></div>
                     <div class="row form-group ">
                       <div class="col-md-4">
-                        <label for="exampleInputFacebooklink">Facebook Link</label>
-                        <input type="url" class="form-control form-control-sm" id="exampleInputFacebooklink" placeholder="http:\\">
+                       
+                        <input type="url" class="shadow rounded-pill form-control form-control-md" id="exampleInputFacebooklink" placeholder="http:\\">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        
+                        <input type="email" class="shadow rounded-pill form-control form-control-md" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                       </div>
                       <div class="col-md-4">
-                        <label for="exampleInputContact Number">Contact Number</label>
-                        <input type="text" class="form-control form-control-sm" id="exampleInputContact Number" aria-describedby="Contact NumberHelp" placeholder="Contact Number">
+                       
+                        <input type="text" class="shadow rounded-pill form-control form-control-md" id="exampleInputContact Number" aria-describedby="Contact NumberHelp" placeholder="Contact Number">
                       </div>
                     </div>
-                    <hr class="p-2">
+               
                     <div class="row">
                       <div class="col-md-12 d-flex justify-content-center">
-                        <button type="submit" class="shadow-sm btn btn-primary">Submit</button>
+                        <button type="submit" class="shadow-sm btn btn-success">Update</button>
                       </div>
                     </div>
                     

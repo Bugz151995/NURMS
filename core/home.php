@@ -14,7 +14,7 @@
     <link href="../src/css/custom.css" rel="stylesheet" />
   </head>
   <?php
-    confirm_logged_in();
+    confirm_logged_in(); 
   ?>
   <body class="sb-nav-fixed">
 
@@ -223,7 +223,7 @@
       <div id="layoutSidenav_content">
         <main>
           <!--Contains Breadcrumbs, shop selection, and shop description-->
-          <div class="slide-downward bg-home p-3 pb-5">
+          <div class="slide-downward p-3 pb-5">
             <!--Breadcrumb-->
             <div class="page__section mb-4 ">
               <nav class="breadcrumb bg-light breadcrumb_type" aria-label="Breadcrumb">

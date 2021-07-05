@@ -32,4 +32,3 @@ function getShopLogo($con, $shopId){
   }
   return $logo;
 }
-?>

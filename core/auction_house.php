@@ -17,10 +17,9 @@ confirm_logged_in();
     <title>Dashboard - SB Admin</title>
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    <link href="../src/css/styles.css" rel="stylesheet" />
     <link href="../src/css/custom.css" rel="stylesheet" />
   </head>
-  <body class="sb-nav-fixed bg-light" onload="responsiveLayout('#on-auction-products'),responsiveNav()">
+  <body class="sb-nav-fixed bg-light">
 
 
     <!--Contains layout of sidenav and the main content-->
@@ -156,14 +155,14 @@ confirm_logged_in();
       <!--Main Content-->
       <div id="layoutSidenav_content">
         <!--Top Navbar-->
-        <nav class=" sb-topnav navbar navbar-expand navbar-dark bg-dark shadow">
+        <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white">
           <!-- Top navigation link icons-->
           <div class="navbar-nav">
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-lg-0" id="sidebarToggle" href="#!">
+            <button class="btn btn-link btn-sm me-lg-0" id="sidebarToggle" href="#!">
               <i class="fas fa-bars fa-lg"></i>
             </button>
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 d-flex justify-content-end w-100">
               <li class="nav-item">
                 <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fas fa-shopping-cart fa-lg fa-fw"></i>
@@ -175,31 +174,14 @@ confirm_logged_in();
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" id="navbarDropdown" href="#" role="button" aria-expanded="false">
                   <i class="fas fa-question-circle fa-lg fa-fw"></i>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li class="nav-item">
+                <a class="nav-link" id="navbarDropdown" href="#" role="button" aria-expanded="false">
                   <i class="fas fa-user-circle fa-lg fa-fw"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li>
-                      <div class="d-flex align-items-center">
-                        <a class="dropdown-item ml-2 mr-2" href="#!">
-                          <i class="fas fa-sliders-h fa-fw"></i><span class="pl-2">My Account</span> 
-                        </a>
-                      </div>
-                    </li>
-                    
-                    <li>
-                      <div class="d-flex align-items-center"> 
-                        <a class="dropdown-item ml-2 mr-2" href="#!">
-                          <i class="fas fa-sign-out-alt fa-fw"></i><span class="pl-2">Sign Out</span> 
-                        </a>
-                      </div>
-                    </li>
-                </ul>
               </li>
             </ul>
           </div>      
@@ -231,10 +213,10 @@ confirm_logged_in();
           <!--Auctioned Item Section-->
           <section>
             <!-- search auction shop -->
-            <div class="p-5"> <!-- padding for the search bar -->
+            <div class="pl-5 pr-5 pb-5 pt-4"> <!-- padding for the search bar -->
               <!-- search bar -->
               <div class="input-group bg-white rounded shadow-sm"> 
-                <input type="search" list="shop-list" class="form-control border-0" placeholder="Search shop...">
+                <input type="search" list="shop-list" class="form-control form-control-lg border-0" placeholder="Search shop...">
                 <div class="input-group-append">
                   <button class="btn">
                     <i class="fas fa-search fa-fw"></i>
@@ -249,7 +231,7 @@ confirm_logged_in();
               while($i < $totalShops){
             ?>
               <!-- shops -->
-              <div class="bg-white d-flex mt-4 shadow pt-3">
+              <div class="bg-white d-flex mb-4 shadow-sm pt-3 rounded">
                 <!-- container of the shop logo -->
                 <div class="col-5">
                   <?php
@@ -306,6 +288,5 @@ confirm_logged_in();
     <script src="../src/js/toggle-nav-links.js"></script>
     <script src="../src/js/responsive-item-layout.js"></script>
     <script src="../src/js/redirect.js"></script>
-    <script src="../src/js/sticky_nav.js"></script>
   </body>
 </html>

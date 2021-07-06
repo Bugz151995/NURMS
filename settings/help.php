@@ -1,4 +1,10 @@
-<?php require('../src/api/session.php');?>
+<?php 
+require('../src/api/session.php');
+require('../src/api/sign_in_confirm.php');
+$sign_in = new SignIn();
+$sign_in->status();
+$sign_in->confirm();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +19,6 @@
     <link href="../src/css/styles.css" rel="stylesheet" />
     <link href="../src/css/custom.css" rel="stylesheet" />
   </head>
-  <?php
-    confirm_logged_in();
-  ?>
   <body class="sb-nav-fixed bg-light">
 
     <!--Top Navbar-->

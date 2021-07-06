@@ -131,9 +131,7 @@ DEMO
    margin-top: 2.5rem;
 }
 
-.side-nav-bg{
-  background-image: url("../img/sidenav-bg.png");
-}
+
 
 /*
 *
@@ -208,16 +206,6 @@ DEMO
   animation: 1s ease-out 0s 1 slideOutToLeft;
 }
 
-.fs-header{
-  font-family: 'Poppins', sans-serif;
-  font-size: 14pt;
-}
-
-.fs-nav{
-  font-family: 'Poppins', sans-serif;
-  font-size: 14pt;
-}
-
 .product-title{
   font-family: 'Poppins', sans-serif;
   font-size: 11pt;
@@ -268,11 +256,6 @@ DEMO
   font-size: 13pt;
 }
 
-.remove-list-style-type{
-  list-style-type: none;
-  padding-left: 5px;
-}
-
 .product-img{
   height: 150px;
 }
@@ -302,17 +285,6 @@ DEMO
   font-size: 12pt;
 }
 
-.fs-sidenav{
-  font-family: 'Poppins', sans-serif;
-  font-size: 11pt;
-}
-
-/* shop logo size */
-.shop-logo-auction-size{
-  width: 300px;
-  height: 150px;
-  object-fit: contain;
-}
 /***************************/
   @keyframes slideDownward {
     0% {
@@ -359,6 +331,103 @@ DEMO
     }
   }
 
+.remove-list-style-type{
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.img-resize
+{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+#badges
+{
+  font-size: 15pt;
+}
+
+.position-badge-topleft{
+  top: 1rem;
+  left: 2rem;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 56px;
+  left: 0pc;
+  z-index: 1000;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 40px;
+}
+
+/* Page content */
+.content {
+  padding: 30px;
+}
+
+/*********************************************/
+/********Standard fonts used by all pages*****/
+
+.fs-search{
+  font-family: 'Poppins', sans-serif;
+  font-size: 11pt;
+}
+
+.fs-breadcrumb{
+  font-family: 'Poppins', sans-serif;
+  font-size: 11pt;
+}
+
+.fs-sidenav{
+  font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
+}
+
+.fs-shop-name{
+  font-family: 'Poppins', sans-serif;
+  font-size: 12pt;
+}
+
+.fs-shop-description{
+  font-family: 'Poppins', sans-serif;
+  font-size: 9pt;
+}
+
+.fs-footer{
+  font-family: 'Poppins', sans-serif;
+  font-size: 10pt;
+}
+
+.fs-topnav{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16pt;
+}
+
+.fs-header{
+  font-family: 'Poppins', sans-serif;
+  font-size: 12pt;
+}
+
+.fs-nav{
+  font-family: 'Poppins', sans-serif;
+  font-size: 14pt;
+}
+
+/* shop logo size */
+.shop-logo-auction-size{
+  width: 300px;
+  height: 150px;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 1920px) and (min-width: 1401px) {
   
 }
@@ -390,6 +459,11 @@ DEMO
   .bid-price{
     font-size: 11pt;
   }
+  .shop-logo-auction-size{
+    width: 250px;
+    height: 175px;
+    object-fit: contain;
+  }
 }
 
 @media screen and  (max-width: 768px) and (min-width: 577px){
@@ -407,6 +481,11 @@ DEMO
   }
   .bid-price{
     font-size: 10pt;
+  }
+  .shop-logo-auction-size{
+    width: 200px;
+    height: 125px;
+    object-fit: contain;
   }
 }
 
@@ -455,307 +534,4 @@ DEMO
     height: 75px;
     object-fit: contain;
   }
-}
-
-.remove-list-style-type{
-  list-style-type: none;
-  padding-left: 20px;
-}
-
-.img-resize
-{
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-}
-
-#badges
-{
-  font-size: 15pt;
-}
-
-.position-badge-topleft{
-  top: 1rem;
-  left: 2rem;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 56px;
-  left: 0pc;
-  z-index: 1000;
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 40px;
-}
-
-/* Page content */
-.content {
-  padding: 30px;
-}
-
-/* Search Bar */
-input[type="search"] {
-  border: 1px solid gray;
-  padding: .2em .4em;
-  border-radius: .2em;
-}
-
-input[type="search"].dark {
-  background: #222;
-  color: #fff;
-}
-
-input[type="search"].light {
-  background: #fff;
-  color: #222;
-}
-
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  height: 1em;
-  width: 1em;
-  border-radius: 50em;
-  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
-  background-size: contain;
-  opacity: 0;
-  pointer-events: none;
-}
-
-input[type="search"]:focus::-webkit-search-cancel-button {
-  opacity: .3;
-  pointer-events: all;
-}
-
-input[type="search"].dark::-webkit-search-cancel-button {
-  filter: invert(1);
-}
-
-/* styles for the top nav and side nav */
-/****************************************/
-
-.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav{
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
-
-#layoutSidenav {
-  display: flex;
-}
-#layoutSidenav #layoutSidenav_nav {
-  flex-basis: 225px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1038;
-  transform: translateX(-225px);
-}
-#layoutSidenav #layoutSidenav_content #top-navbar{
-  flex-basis: 225px;
-  flex-shrink: 0px;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1039;
-  transform: translateX(0px);
-}
-#layoutSidenav #layoutSidenav_content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 0;
-  flex-grow: 1;
-  min-height: calc(100vh - 56px);
-  margin-left: -225px;
-}
-
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
-  width: 225px;
-  height: 100vh;
-  z-index: 1038;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-  padding-top: 0px;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-  overflow-y: auto;
-}
-.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
-  padding-left: 225px;
-  top: 56px;
-}
-.sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav{
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(0);
-}
-.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 1037;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
-}
-.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content #top-navbar{
-  transition: margin 0.3s ease-in-out;
-  margin-left: -225px;
-}
-
-@media (min-width: 992px) {
-  #layoutSidenav #layoutSidenav_nav {
-    transform: translateX(0);
-  }
-  #layoutSidenav #layoutSidenav_content {
-    margin-left: 0;
-    transition: margin 0.3s ease-in-out;
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav{
-    transform: translateX(-225px);
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content #top-navbar{
-    transition: margin 0.3s ease-in-out;
-    margin-left: -225px;
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content{
-    margin-left: -225px;
-  }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
-    display: none;
-  }
-  #layoutSidenav #layoutSidenav_content #top-navbar{
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(225px);
-  }
-}
-
-.nav .nav-link .sb-nav-link-icon,
-.sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  margin-right: 0.5rem;
-}
-.sb-topnav {
-  left: 0;
-  height: 56px;
-  z-index: 1039;
-}
-.sb-topnav .navbar-brand {
-  width: 225px;
-  margin: 0;
-}
-.sb-topnav.navbar-dark #sidebarToggle {
-  color: rgba(255, 255, 255, 0.5);
-}
-.sb-topnav.navbar-light #sidebarToggle {
-  color: #212529;
-}
-.sb-sidenav {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  flex-wrap: nowrap;
-}
-.sb-sidenav .sb-sidenav-menu {
-  flex-grow: 1;
-}
-.sb-sidenav .sb-sidenav-menu .nav {
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
-  padding: 1.75rem 1rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.sb-sidenav .sb-sidenav-menu .nav .nav-link {
-  display: flex;
-  align-items: center;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  position: relative;
-}
-.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
-  font-size: 0.9rem;
-}
-.sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
-  display: inline-block;
-  margin-left: auto;
-  transition: transform 0.15s ease;
-}
-.sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
-  transform: rotate(-90deg);
-}
-.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
-  margin-left: 1.5rem;
-  flex-direction: column;
-}
-.sb-sidenav .sb-sidenav-footer {
-  padding: 0.75rem;
-  flex-shrink: 0;
-}
-.sb-sidenav-dark {
-  background-color: #212529;
-  color: rgba(255, 255, 255, 0.5);
-}
-.sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(255, 255, 255, 0.25);
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
-  color: rgba(255, 255, 255, 0.25);
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
-  color: #fff;
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
-  color: #fff;
-}
-.sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
-  color: #fff;
-}
-.sb-sidenav-dark .sb-sidenav-footer {
-  background-color: #343a40;
-}
-.sb-sidenav-light {
-  background-color: #f8f9fa;
-  color: #212529;
-}
-.sb-sidenav-light .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: #adb5bd;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link {
-  color: #212529;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: #adb5bd;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
-  color: #adb5bd;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link:hover {
-  color: #0d6efd;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link.active {
-  color: #0d6efd;
-}
-.sb-sidenav-light .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
-  color: #0d6efd;
-}
-.sb-sidenav-light .sb-sidenav-footer {
-  background-color: #e9ecef;
 }

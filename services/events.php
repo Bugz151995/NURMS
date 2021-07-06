@@ -1,4 +1,10 @@
-<?php require('../src/api/session.php');?>
+<?php 
+require('../src/api/session.php');
+require('../src/api/sign_in_confirm.php');
+$sign_in = new SignIn();
+$sign_in->status();
+$sign_in->confirm();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,9 +20,6 @@
     <link href="../src/css/custom.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.8.0/main.min.css,npm/fullcalendar@5.8.0/main.min.css">
   </head>
-  <?php
-      confirm_logged_in();
-  ?>
   <body class="sb-nav-fixed">
     <!--Top Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

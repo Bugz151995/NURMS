@@ -13,9 +13,6 @@
     <link href="../src/css/styles.css" rel="stylesheet" />
     <link href="../src/css/custom.css" rel="stylesheet" />
   </head>
-  <?php
-    confirm_logged_in();
-  ?>
   <body class="sb-nav-fixed bg-light">
 
     <!--Top Navbar-->

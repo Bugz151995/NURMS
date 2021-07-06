@@ -1,9 +1,9 @@
 <?php 
 require('src/api/session.php');
-//destroy all session if the user is signed in, after redirecting to this page.
-if(logged_in()){
-	session_destroy();
-}
+require('src/api/sign_in_confirm.php');
+$signIn = new SignIn();
+$signIn->status();
+$signIn->destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@ if(logged_in()){
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<form class="login100-form validate-form" action="src/api/authenticate.php" method="POST">
+					<form class="login100-form validate-form" enctype="application/x-www-form-urlencoded" action="src/api/authenticate.php" method="POST">
 						<span class="login100-form-title p-b-46 p-t-80">
 							Sign in to continue
 						</span>

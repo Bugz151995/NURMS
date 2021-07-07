@@ -4,15 +4,18 @@ require('../src/api/connect.php');
 require('../src/api/sign_in_confirm.php');
 require('live_auction/fetch_shops.php');
 require('live_auction/fetch_auction_products.php');
+
+//start session and confirm sign in status of a user
 $sign_in = new SignIn();
 $sign_in->status();
 $sign_in->confirm();
+
 //instantiate a new database object
 $db = new Database();
 //access the database class connect() method to connect to the database
 $con = $db->connect();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,21 +28,20 @@ $con = $db->connect();
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <link href="../src/css/custom.css" rel="stylesheet" />
     <link href="../src/css/layout.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed">
 
     <!--Top Navbar-->
-    <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between ">
+    <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
       <!-- Top navigation link icons-->
       <div class="navbar-brand">
         <div class="bg-transparent d-flex align-items-center justify-content-between fs-topnav" style="width: 250px">
           <img src="../src/img/logo_dark.png" class="pl-3" width="56" height="56" style="object-fit: contain" id="appLogo" alt="">
           <!-- Sidebar Toggle-->
-          <div class="pl-4">
-            <button class="side-nav-toggle-bg btn" style="color: #5E35B1;" id="sidebarToggle" href="#!">
+          <div class="pl-4" id="sidebarToggle">
+            <button class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
               <i class="lni lni-menu"></i>
             </button>
           </div>
@@ -113,7 +115,12 @@ $con = $db->connect();
                 </a>
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link active bg-transparent" href="live_auction.php">
+                    <a class="nav-link active bg-transparent" href="#">
+                      Auction House
+                    </a>
+                  </li>
+                  <li class="text-decoration-none">
+                    <a class="nav-link bg-transparent" href="live_auction.php">
                       Live Auction
                     </a>
                   </li>
@@ -221,7 +228,7 @@ $con = $db->connect();
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Live Auction</span>
+                    <span href="#" class="breadcrumb__point">Auction House</span>
                   </li>
                 </ol>
               </nav>
@@ -253,22 +260,24 @@ $con = $db->connect();
                 while($i < $totalShops){
               ?>
                 <!-- shops -->
-                <div class="bg-white d-flex mb-4 shadow-sm pt-3 rounded">
+                <div class="bg-white row no-gutters mb-4 shadow-sm pt-3 rounded">
                   <!-- container of the shop logo -->
                   <div class="col-5">
-                    <?php
-                      $shopLogo = getShopLogo($con, $shops[$i]['shop_id']);
-                      if($shopLogo != NULL){
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode($shopLogo).'"/ class="shop-logo-auction-size pb-3 rounded">';
-                      } else {
-                        echo '<img src="https://dummyimage.com/300x150/000/fff"/ class="shop-logo-auction-size pb-3 rounded">';
-                      }
-                    ?>
+                    <div class="px-3">
+                      <?php
+                        $shopLogo = getShopLogo($con, $shops[$i]['shop_id']);
+                        if($shopLogo != NULL){
+                          echo '<img src="data:image/jpeg;base64,'.base64_encode($shopLogo).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                        } else {
+                          echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                        }
+                      ?>
+                    </div>
                   </div>
                   <!-- containre of the shop name and description -->
                   <div class="col-7">
                     <!-- shop name -->
-                    <div>
+                    <div class="px-3">
                       <h6 class="fs-shop-name">
                         <?php echo $shops[$i]['shop_name'];?>
                       </h6>

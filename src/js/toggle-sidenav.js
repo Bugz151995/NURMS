@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 $(document).ready(function(){
-    $('#sidebarToggle').hover(
+    $('#sidebarToggle').children().hover(
         function(){$(this).attr("style", "color: #ffffff");},
         function(){$(this).attr("style", "color: #5E35B1");}
     );

@@ -6,133 +6,6 @@ Tasks:
 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 /*
-=====
-DEPENDENCES
-=====
-*/
-
-.r-list{
-  --uirListPaddingLeft: var(--rListPaddingLeft, 0);
-  --uirListMarginTop: var(--rListMarginTop, 0);
-  --uirListMarginBottom: var(--rListMarginBottom, 0);
-  --uirListListStyle: var(--rListListStyle, none);
-
-  padding-left: var(--uirListPaddingLeft) !important;
-  margin-top: var(--uirListMarginTop) !important;
-  margin-bottom: var(--uirListMarginBottom) !important;
-  list-style: var(--uirListListStyle) !important;
-}
-
-.r-link{
-  --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
-  --uirLinkTextColor: var(--rLinkTextColor);
-  --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
-  display: var(--uirLinkDisplay) !important;
-  color: var(--uirLinkTextColor) !important;
-  text-decoration: var(--uirLinkTextDecoration) !important;
-}
-
-/*
-=====
-COMPONENT
-=====
-*/
-
-.breadcrumb{
-  --uiBreadcrumbDividerColor: var(--breadcrumbDividerColor, inherit);
-  --uiBreadcrumbDividerSize: var(--breadcrumbDividerSize, 1rem);
-  --uiBreadcrumbIndent:  var(--breadcrumbIndent, .75rem);
-}
-
-.breadcrumb__list{
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--uiBreadcrumbIndent);
-}
-
-.breadcrumb__group{
-  display: inline-flex;
-  align-items: center;
-}
-
-.breadcrumb__divider{
-  margin-left: var(--uiBreadcrumbIndent);
-  font-size: var(--uiBreadcrumbDividerSize);
-}
-
-/*
-=====
-SKIN
-=====
-*/
-
-.breadcrumb{
-  --uiBreadcrumbTextColor: var(--breadcrumbTextColor);
-  --uiBreadcrumbTextColorActive: var(--breadcrumbTextColorActive);
-  
-  --breadcrumbDividerColor: var(--uiBreadcrumbTextColor);
-  --rLinkTextColor: var(--uiBreadcrumbTextColor);
-}
-
-.breadcrumb__divider{
-  color: var(--uiBreadcrumbDividerColor);
-}
-
-span.breadcrumb__point{
-  color: var(--uiBreadcrumbTextColorActive);
-}
-
-/*
-=====
-SETTINGS
-=====
-*/
-
-:root{
-  --breadcrumbTextColor: #4d4d4d;  
-  --breadcrumbTextColorActive: rgb(36, 36, 36);  
-}
-
-.breadcrumb_type2{
-  --breadcrumbDividerSize: 20px;
-}
-
-.breadcrumb_type3{
-  --breadcrumbDividerSize: 18px;
-}
-
-.breadcrumb_type4{
-  --breadcrumbDividerSize: 14px;
-}
-
-.breadcrumb_type5{
-  --breadcrumbDividerSize: 20px;
-}
-
-.breadcrumb_type6{
-  --breadcrumbDividerSize: 14px;
-}
-
-/*
-=====
-DEMO
-=====
-*/
-
-
-.page{
-  box-sizing: border-box;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;    
-}
-
-.page__section:nth-of-type(n+2){
-   margin-top: 2.5rem;
-}
-
-
-
 /*
 *
 * ==========================================
@@ -373,6 +246,16 @@ DEMO
   padding: 30px;
 }
 
+.item-search{
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.search-input-group{
+  border-radius: 0.5rem;
+}
 /*********************************************/
 /********Standard fonts used by all pages*****/
 
@@ -421,13 +304,37 @@ DEMO
   font-size: 14pt;
 }
 
+.fs-alert{
+  font-family: 'Poppins', sans-serif;
+  font-size: 11pt;
+}
+
 /* shop logo size */
 .shop-logo-auction-size{
-  width: 300px;
+  width: 100%;
   height: 150px;
   object-fit: contain;
 }
 
+.shop-info-bg{
+  border-radius: 1rem;
+  color: #673ab7;
+}
+
+.chat-button{
+  background-color: #d1b4ff;
+  border-radius: 0.5rem;
+  right: 2rem;
+  color: #673ab7;
+}
+
+.chat-button:hover{
+  background-color: #673ab7;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+
+/***********   pagination override class  **********/
 @media screen and (max-width: 1920px) and (min-width: 1401px) {
   
 }
@@ -459,11 +366,6 @@ DEMO
   .bid-price{
     font-size: 11pt;
   }
-  .shop-logo-auction-size{
-    width: 250px;
-    height: 175px;
-    object-fit: contain;
-  }
 }
 
 @media screen and  (max-width: 768px) and (min-width: 577px){
@@ -482,11 +384,6 @@ DEMO
   .bid-price{
     font-size: 10pt;
   }
-  .shop-logo-auction-size{
-    width: 200px;
-    height: 125px;
-    object-fit: contain;
-  }
 }
 
 @media screen and (max-width: 576px){
@@ -494,7 +391,11 @@ DEMO
     font-size: 8pt;
   }
   .fs-header{
-    font-size: 10pt;
+    font-size: 11pt;
+  }
+  .fs-breadcrumb{
+    font-family: 'Poppins', sans-serif;
+    font-size: 9pt;
   }
   .fs-nav{
     font-size: 10pt;
@@ -503,7 +404,7 @@ DEMO
     padding: 0em 1em 1em 1em;
   } 
   .shop-logo{
-    width: 110px;
+    width: 100%;
   } 
   .product-name{
     font-size: 10pt;
@@ -529,9 +430,10 @@ DEMO
   .other-nav-fs{
     font-size: 10pt;
   }
-  .shop-logo-auction-size{
-    width: 150px;
-    height: 75px;
-    object-fit: contain;
+  .item-search{
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
 }

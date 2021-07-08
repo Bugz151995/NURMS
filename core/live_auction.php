@@ -252,34 +252,27 @@ $con = $db->connect();
           </div>
           <!-- page information -->
           <div class="main-bg p-4 mt-5">
-            <!-- shop information -->
-            <div class="d-flex pb-3">
-              <!-- shop logo -->
-              <div>
-                <div class="bg-info rounded p-2">
-                  <img src="https://dummyimage.com/200x100/000/fff" class="rounded mt-n5 shadow shop-logo" alt="">
-                </div>
-                
-                <!-- shop name -->
-                <div class="pt-4 fs-header">
-                  <h5>Shop's Name</h5>
-                </div>
-              </div>
+            <!-- shop logo -->
+            <div class="bg-info rounded p-2">
+              <img src="https://dummyimage.com/300x150/000/fff" class="rounded mt-n5 shadow shop-logo" alt="">
+            </div>
+            <!-- shop name and chat button -->
+            <div class="d-flex align-items-center justify-content-between w-100 pt-4 pb-3">
+              <!-- shop name -->
+              <h5>Shop's Name</h5>
               <!-- chat button -->
-              <div>
-                <span class="fs-alert btn shadow-sm position-absolute chat-button"><i class="fas fa-comment-dots"></i> Chat</span>
-              </div>
+              <span class="fs-alert btn shadow-sm chat-button"><i class="fas fa-comment-dots"></i> Chat</span>
             </div>
             <!-- alert info -->
             <div class="alert alert-success shadow-sm">
-              <h5 class="fs-header">Ongoing Live Auction!</h5>
+              <h5 class="fs-header font-weight-bold">Ongoing Live Auction!</h5>
               <p class="fs-alert">Welcome to the <span>Shop's Name</span> Auction House!
             Please feel free to browse and bid in any of our numismatic items. </p>
             </div>
 
             <!-- alert info -->
             <div class="alert alert-primary shadow-sm fs-alert">
-              Tip: Click on the image of the catalog to view the item and start bidding.
+              Tip: Click the image of the catalog to view the item and start bidding.
             </div>
           </div>
           <!-- auctioned items -->
@@ -325,8 +318,8 @@ $con = $db->connect();
                       <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
                         <?php
                           //call the obverse and reverse images from the result set with variable name $auctionProductImg.
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'"/>';
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['reverse_img'] ).'"/>';
+                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'" class="p-2"/>';
+                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['reverse_img'] ).'" class="p-2"/>';
                         ?>
                       </div>
                     </div>
@@ -424,6 +417,5 @@ $con = $db->connect();
     <script src="../src/js/toggle-nav-links.js"></script>
     <script src="../src/js/responsive-item-layout.js"></script>
     <script src="../src/js/redirect.js"></script>
-    <script src="../src/js/sticky_nav.js"></script>
   </body>
 </html>

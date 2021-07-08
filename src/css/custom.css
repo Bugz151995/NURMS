@@ -1,13 +1,4 @@
-/*
-Tasks:
--- create responsive breadcrumb with scroller
--- create responsive breadcrumb with the first and last item and a button that shows all options
-
-*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-/*
-/*
-*
+/* 
 * ==========================================
 * CUSTOM UTIL CLASSES
 * ==========================================
@@ -48,40 +39,12 @@ Tasks:
   position: relative;
 }
 
-.bg-home{
-  background-image: url('../img/bg-home.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .company-intro{
   text-align: justify;
 }
 
 .shop-details-bg{
   background-color: rgba(248, 249, 250, 0.85);
-}
-
-.slide-downward{
-  animation: 1s ease-out 0s 1 slideDownward;
-}
-
-.slide-inward{
-  animation: 1s ease-out 0s 1 slideInFromLeft;
-}
-
-.slide-upward{
-  animation: 1s ease-out 0s 1 slideUpdward;
-}
-
-.slide-outward{
-  animation: 1s ease-out 0s 1 slideOutToLeft;
-}
-
-.product-title{
-  font-family: 'Poppins', sans-serif;
-  font-size: 11pt;
 }
 
 .vl {
@@ -93,40 +56,7 @@ Tasks:
 }
 
 .shop-logo{
-  width: 200px;
-}
-
-.product-name{
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase !important;
-  font-weight: bold;
-  font-size: 11pt;
-}
-
-.auctioner{
-  font-family: 'Poppins', sans-serif;
-  font-size: 10pt;
-  text-decoration: none;
-  color: #212529;
-}
-
-.auctioner:hover{
-  text-decoration: none;
-  color: #0d6efd;
-}
-
-.bid-duration{
-  font-family: 'Poppins', sans-serif;
-}
-
-.bid-status{
-  font-family: 'Poppins', sans-serif;
-  font-size: 10pt;
-}
-
-.bid-price{
-  font-family: 'Poppins', sans-serif;
-  font-size: 13pt;
+  width: 300px;
 }
 
 .product-img{
@@ -152,58 +82,6 @@ Tasks:
   right: 0;
   top: 0;
 }
-
-.other-nav-fs{
-  font-family: 'Poppins', sans-serif;
-  font-size: 12pt;
-}
-
-/***************************/
-  @keyframes slideDownward {
-    0% {
-      transform: translateY(-25%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideOutToLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  @keyframes slideUpdward {
-    0% {
-      transform: translateY(30%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes zoomOut {
-    0% {
-      transform: scale(1.5,1.5);
-    }
-    100% {
-      transform: scale(1,1);
-    }
-  }
-
 .remove-list-style-type{
   list-style-type: none;
   padding-left: 20px;
@@ -256,58 +134,6 @@ Tasks:
 .search-input-group{
   border-radius: 0.5rem;
 }
-/*********************************************/
-/********Standard fonts used by all pages*****/
-
-.fs-search{
-  font-family: 'Poppins', sans-serif;
-  font-size: 11pt;
-}
-
-.fs-breadcrumb{
-  font-family: 'Poppins', sans-serif;
-  font-size: 11pt;
-}
-
-.fs-sidenav{
-  font-family: 'Poppins', sans-serif;
-  font-size: 10pt;
-}
-
-.fs-shop-name{
-  font-family: 'Poppins', sans-serif;
-  font-size: 12pt;
-}
-
-.fs-shop-description{
-  font-family: 'Poppins', sans-serif;
-  font-size: 9pt;
-}
-
-.fs-footer{
-  font-family: 'Poppins', sans-serif;
-  font-size: 10pt;
-}
-
-.fs-topnav{
-  font-family: 'Poppins', sans-serif;
-  font-size: 16pt;
-}
-
-.fs-header{
-  font-family: 'Poppins', sans-serif;
-  font-size: 12pt;
-}
-
-.fs-nav{
-  font-family: 'Poppins', sans-serif;
-  font-size: 14pt;
-}
-
-.fs-alert{
-  font-family: 'Poppins', sans-serif;
-  font-size: 11pt;
-}
 
 /* shop logo size */
 .shop-logo-auction-size{
@@ -334,16 +160,9 @@ Tasks:
   color: #ffffff;
 }
 
+
 /***********   pagination override class  **********/
-@media screen and (max-width: 1920px) and (min-width: 1401px) {
-  
-}
-
-@media screen and (max-width: 1400px) and (min-width: 1201px) {
-  
-}
-
-@media screen and (max-width: 1200px) and (min-width: 993px){
+@media screen and (min-width: 992px){
 
 }
 

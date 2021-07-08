@@ -1,7 +1,4 @@
-/*=====
-DEPENDENCES
-=====
-*/
+@import url('fonts.css');
 
 .r-list{
   --uirListPaddingLeft: var(--rListPaddingLeft, 0);

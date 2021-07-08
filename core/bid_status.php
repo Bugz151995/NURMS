@@ -120,7 +120,7 @@ $con = $db->connect();
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="live_auction.php">
+                    <a class="nav-link active bg-transparent" href="live_auction.php">
                       Live Auction
                     </a>
                   </li>
@@ -130,7 +130,7 @@ $con = $db->connect();
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link active bg-transparent" href="my_bids.php">
+                    <a class="nav-link bg-transparent" href="my_bids.php">
                       My Bids
                     </a>
                   </li>
@@ -229,62 +229,69 @@ $con = $db->connect();
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Auction House</span>
+                    <a href="auction_house.php" class="breadcrumb__point r-link">Auction House</a>
+                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                  </li>
+                  <li class="breadcrumb__group">
+                    <span href="#" class="breadcrumb__point">Bid Status</span>
+                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                 </ol>
               </nav>
             </div>
-          </div>
+            <!--Auctioned Item Section-->
+            <section>
+              <div class="container mt-4">
 
-          <!--Auctioned Item Section-->
-          <section>
-            <div class="container mt-4">
-
-              <!--Auctioned Item Description-->
-              <div>
-                <div class="fs-header">
-                  <h3>Lapu Lapu Medal</h3>
-                  <p>
-                    <a href="#">Numisworks Auction Product Trading</a>
-                  </p>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 d-flex justify-content-center">
-                    <img src="../src/img/sale-1.png" class="pl-5 pr-5 pb-5 w-100" alt="">
+                <!--Auctioned Item Description-->
+                <div>
+                  <div class="fs-header">
+                    <h3>Lapu Lapu Medal</h3>
+                    <p>
+                      <a href="#">Numisworks Auction Product Trading</a>
+                    </p>
                   </div>
-                  <div class="col-md-6">
-                    <div class="bg-white rounded p-4">
-                      Current Bid: P1,000 <br>
-                      Estimate: P1,000 <br>
-                      Max Bid: P500 <br>
-                      Ends in: 5 hours, 29 minutes <br>
-                      Bidders: 5
-                    </div>
-                    <div class="bg-white rounded mt-2 p-4">
-                      Notes and Description:  <br>
-                    </div>
-                    <!-- buttons for bidding -->
-                    <div class="row p-3">
-                      <!-- container for bid button -->
-                      <div class="col-6 justify-content-center d-flex">
-                        <button class="btn btn-primary shadow-sm">
-                          <i class="fas fa-gavel"></i>&nbsp;
-                          Bid
-                        </button>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="d-flex img-fluid">
+                        <img src="../src/img/sale-1.png" class="img-fluid" alt="">
+                        <img src="../src/img/sale-1.png" class="img-fluid" alt="">
                       </div>
-                      <!-- container for the watch button -->
-                      <div class="col-6 justify-content-center d-flex">
-                        <button class="btn btn-secondary shadow-sm">
-                          <i class="fas fa-binoculars"></i>&nbsp;
-                          Watch
-                        </button>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="bg-white rounded p-4">
+                        Current Bid: P1,000 <br>
+                        Estimate: P1,000 <br>
+                        Max Bid: P500 <br>
+                        Ends in: 5 hours, 29 minutes <br>
+                        Bidders: 5
+                      </div>
+                      <div class="bg-white rounded mt-2 p-4">
+                        Notes and Description:  <br>
+                      </div>
+                      <!-- buttons for bidding -->
+                      <div class="row p-3">
+                        <!-- container for bid button -->
+                        <div class="col-6 justify-content-center d-flex">
+                          <button class="btn btn-primary shadow-sm">
+                            <i class="fas fa-gavel"></i>&nbsp;
+                            Bid
+                          </button>
+                        </div>
+                        <!-- container for the watch button -->
+                        <div class="col-6 justify-content-center d-flex">
+                          <button class="btn btn-secondary shadow-sm">
+                            <i class="fas fa-binoculars"></i>&nbsp;
+                            Watch
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">

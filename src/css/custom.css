@@ -147,112 +147,36 @@
   color: #673ab7;
 }
 
-.chat-button{
+.chat-btn{
   background-color: #d1b4ff;
   border-radius: 0.5rem;
-  right: 2rem;
   color: #673ab7;
 }
 
-.chat-button:hover{
+.chat-btn:hover{
   background-color: #673ab7;
   border-radius: 0.5rem;
   color: #ffffff;
 }
 
-
-/***********   pagination override class  **********/
-@media screen and (min-width: 992px){
-
+.view-profile-btn{
+  background-color: #d1b4ff;
+  border-radius: 0.5rem;
+  color: #673ab7;
 }
 
-@media screen and  (max-width: 992px) and (min-width: 769px){
-  .company-intro{
-    font-size: 12pt;
-  }
-  .sm-intro-bg{
-    padding: 0em 3em 3em 3em;
-  }
-  .product-name{
-    font-size: 11pt;
-  }
-  .auctioner{
-    font-size: 10pt;
-  }
-  .bid-status{
-    font-size: 10pt;
-  }
-  .bid-price{
-    font-size: 11pt;
-  }
+.view-profile-btn:hover{
+  background-color: #673ab7;
+  border-radius: 0.5rem;
+  color: #ffffff;
 }
 
-@media screen and  (max-width: 768px) and (min-width: 577px){
-  .company-intro{
-    font-size: 11pt;
-  }
-  .sm-intro-bg{
-    padding: 0em 2em 2em 2em;
-  }
-  #page-nav{
-    order: 2;
-  }
-  #comp-auction-btn{
-    order: 1;
-  }
-  .bid-price{
-    font-size: 10pt;
-  }
+.obverse-img{
+  width: 100%;
+  object-fit: contain;
 }
 
-@media screen and (max-width: 576px){
-  .shop-detail{
-    font-size: 8pt;
-  }
-  .fs-header{
-    font-size: 11pt;
-  }
-  .fs-breadcrumb{
-    font-family: 'Poppins', sans-serif;
-    font-size: 9pt;
-  }
-  .fs-nav{
-    font-size: 10pt;
-  }
-  .sm-intro-bg{
-    padding: 0em 1em 1em 1em;
-  } 
-  .shop-logo{
-    width: 100%;
-  } 
-  .product-name{
-    font-size: 10pt;
-  }
-  .auctioner{
-    font-size: 9pt;
-  }
-  .bid-duration{
-    font-size: 9pt;
-  }
-  .bid-status{
-    font-size: 9pt;
-  }
-  .bid-price{
-    font-size: 11pt;
-  }
-  #page-nav{
-    order: 2;
-  }
-  #comp-auction-btn{
-    order: 1;
-  }
-  .other-nav-fs{
-    font-size: 10pt;
-  }
-  .item-search{
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-  }
+.reverse-img{
+  width: 100%;
+  object-fit: contain;
 }

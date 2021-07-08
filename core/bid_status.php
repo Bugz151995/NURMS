@@ -28,8 +28,7 @@ $con = $db->connect();
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <link href="../src/css/custom.css" rel="stylesheet" />
-    <link href="../src/css/layout.css" rel="stylesheet" />
+    <link href="../src/css/main.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed bg-light">
 
@@ -242,7 +241,6 @@ $con = $db->connect();
                   </li>
                   <li class="breadcrumb__group">
                     <span href="#" class="breadcrumb__point">Bid Status</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                 </ol>
               </nav>
@@ -254,17 +252,15 @@ $con = $db->connect();
                 <!--Auctioned Item Description-->
                 <div>
                   <div class="fs-header">
-                    <h3>Lapu Lapu Medal</h3>
+                    <h4>Lapu Lapu Medal</h4>
                     <p>
                       <a href="#">Numisworks Auction Product Trading</a>
                     </p>
                   </div>
                   <div class="row">
-                    <div class="col-md-7">
-                      <div class="d-flex img-fluid">
-                        <img src="../src/img/sale-1.png" class="img-fluid" alt="">
-                        <img src="../src/img/sale-1.png" class="img-fluid" alt="">
-                      </div>
+                    <div class="col-md-7 row align-items-start">
+                      <img src="../src/img/sale-1.png" class="col-6 obverse-img" alt="">
+                      <img src="../src/img/sale-1.png" class="col-6 reverse-img" alt="">
                     </div>
                     <div class="col-md-5">
                       <div class="bg-white rounded p-4">

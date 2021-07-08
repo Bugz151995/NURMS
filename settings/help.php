@@ -17,8 +17,7 @@ $sign_in->confirm();
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <link href="../src/css/custom.css" rel="stylesheet" />
-    <link href="../src/css/layout.css" rel="stylesheet" />
+    <link href="../src/css/main.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed bg-light">
 

@@ -18,8 +18,7 @@ $sign_in->confirm();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css">
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <link href="../src/css/custom.css" rel="stylesheet" />
-    <link href="../src/css/layout.css" rel="stylesheet" />
+    <link href="../src/css/main.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed">
 

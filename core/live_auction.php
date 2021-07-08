@@ -28,8 +28,7 @@ $con = $db->connect();
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
-    <link href="../src/css/custom.css" rel="stylesheet" />
-    <link href="../src/css/layout.css" rel="stylesheet" />
+    <link href="../src/css/main.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed">
 
@@ -250,20 +249,28 @@ $con = $db->connect();
                 </ol>
               </nav>
             </div>
-          </div>
-          <!-- page information -->
-          <div class="main-bg p-4 mt-5">
-            <!-- shop logo -->
-            <div class="bg-info rounded p-2">
-              <img src="https://dummyimage.com/300x150/000/fff" class="rounded mt-n5 shadow shop-logo" alt="">
+            <!-- shop information -->
+            <div class="row pb-3 pt-2">
+              <div class="col-8 row no-gutters">
+                <!-- shop logo -->
+                <div class="col-md-5 col-sm-5">
+                  <img src="../src/img/logo.png" class="shop-logo-auction-size" alt="">
+                </div>
+                <!-- shop name and chat button -->
+                <div class="col-md-7 col-sm-7 d-flex align-items-center">
+                  <!-- shop name -->
+                  <h6 class="fs-shop-name p-3">Shop's Name</h6>
+                </div>
+              </div>
+              
+              <div class="col-4 w-100 d-inline-flex flex-column align-items-end justify-content-center">
+                <!-- view profile button -->
+                <a class="fs-btn btn btn-sm shadow-sm view-profile-btn mb-3" href="products.php"><i class="fas fa-eye"></i> View</a>
+                <!-- chat button -->
+                <button class="fs-btn btn btn-sm shadow-sm chat-btn"><i class="fas fa-comment-dots"></i> Chat</button>
+              </div>
             </div>
-            <!-- shop name and chat button -->
-            <div class="d-flex align-items-center justify-content-between w-100 pt-4 pb-3">
-              <!-- shop name -->
-              <h5>Shop's Name</h5>
-              <!-- chat button -->
-              <span class="fs-alert btn shadow-sm chat-button"><i class="fas fa-comment-dots"></i> Chat</span>
-            </div>
+            
             <!-- alert info -->
             <div class="alert alert-success shadow-sm">
               <h5 class="fs-header font-weight-bold">Ongoing Live Auction!</h5>
@@ -273,7 +280,7 @@ $con = $db->connect();
 
             <!-- alert info -->
             <div class="alert alert-primary shadow-sm fs-alert">
-              Tip: Click the image of the catalog to view the item and start bidding.
+              <strong>Tip:</strong> Click the image of the catalog to view the item and start bidding.
             </div>
           </div>
           <!-- auctioned items -->
@@ -415,8 +422,6 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
-    <script src="../src/js/toggle-nav-links.js"></script>
-    <script src="../src/js/responsive-item-layout.js"></script>
     <script src="../src/js/redirect.js"></script>
   </body>
 </html>

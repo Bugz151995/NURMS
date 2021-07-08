@@ -51,6 +51,19 @@ $con = $db->connect();
       <div class="navbar-nav fs-topnav">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <div class="input-group search-bar">
+              <button class="search-btn" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+                <i class="lni lni-search-alt"></i>
+              </button>
+              <input type="search" class="search-input" placeholder="Search" name="" id="">
+            </div>
+          </li>
+          <li class="nav-item d-none">
+            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+              <i class="lni lni-search-alt"></i>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
               <i class="lni lni-cart"></i>
             </a>
@@ -236,18 +249,6 @@ $con = $db->connect();
                   </li>
                 </ol>
               </nav>
-            </div>
-            <!-- search auction shop -->
-            <div class="item-search"> <!-- padding for the search bar -->
-              <!-- search bar -->
-              <div class="input-group bg-white search-input-group shadow-sm"> 
-                <input type="search" list="shop-list" class="form-control form-control-lg fs-search border-0" placeholder="Search an Item...">
-                <div class="input-group-append">
-                  <button class="btn">
-                    <i class="fas fa-search fa-fw"></i>
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
           <!-- page information -->

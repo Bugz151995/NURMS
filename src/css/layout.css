@@ -104,6 +104,52 @@ SETTINGS
 
 /* styles for the top nav, side nav and main content */
 /****************************************/
+.search-bar{
+  position: relative;
+}
+
+.search-input{
+  height: 37px;
+  width: 37px;
+  border-style: none;
+  right: 0;
+  font-size: 14px;
+  text-indent: 15px;
+  outline: none;
+  margin-left: 20px;
+  border-radius: .5rem;
+  transition: all .5s ease-in-out;
+  background-color: #EDE7F6;
+  transition: width 1s ease-in-out;
+}
+
+.search-bar .search-input:focus{
+  width: 285px;
+}
+
+.search-btn{
+  position: absolute;
+  background-color:transparent;
+  right: 0;
+  width: 37px;
+  height: 37px;
+  border-radius: .5rem;
+  border: 0px;
+  background-color:#d1b4ff;
+  pointer-events: none;
+}
+
+.search-btn:focus{
+  background-color:#673AB7;
+  pointer-events: auto;
+}
+
+.search-btn:hover{
+  cursor: pointer;
+  background-color:#673AB7;
+  pointer-events: auto;
+}
+
 .main-bg{
   background: #e3f2fd;
   border-radius: 1em;

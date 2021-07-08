@@ -40,6 +40,14 @@ $sign_in->confirm();
       <div class="navbar-nav fs-topnav">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <div class="input-group search-bar">
+              <button class="search-btn" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+                <i class="lni lni-search-alt"></i>
+              </button>
+              <input type="search" class="search-input" placeholder="Search" name="" id="">
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
               <i class="lni lni-cart"></i>
             </a>

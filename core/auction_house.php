@@ -12,7 +12,7 @@ $sign_in->confirm();
 
 //instantiate a new database object
 $db = new Database();
-//access the database class method to connect to the database
+//access the database class connect() method to connect to the database
 $con = $db->connect();
 ?>
 
@@ -57,11 +57,6 @@ $con = $db->connect();
               <input type="search" class="search-input" placeholder="Search" name="" id="">
             </div>
           </li>
-          <li class="nav-item d-none">
-            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
-              <i class="lni lni-search-alt"></i>
-            </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
               <i class="lni lni-cart"></i>
@@ -85,7 +80,7 @@ $con = $db->connect();
         </ul>
       </div>      
     </nav>
-
+    
     <!--Contains layout of sidenav and the main content-->
     <div id="layoutSidenav">
 
@@ -127,12 +122,12 @@ $con = $db->connect();
                 </a>
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="auction_house.php">
+                    <a class="nav-link active bg-transparent" href="#">
                       Auction House
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link active bg-transparent" href="live_auction.php">
+                    <a class="nav-link bg-transparent" href="live_auction.php">
                       Live Auction
                     </a>
                   </li>
@@ -222,173 +217,81 @@ $con = $db->connect();
           </div>
         </nav>
       </div>
-
+      
       <!--Main Content-->
       <div id="layoutSidenav_content">
-
+        
         <main id="mainContent">
-          <!--Contains Breadcrumbs, shop selection, and shop description-->
           <div class="main-bg p-4">
             <!--Breadcrumb-->
             <div class="page__section">
               <nav class="breadcrumb p-0 pt-1 bg-transparent fs-breadcrumb" aria-label="Breadcrumb">
                 <ol class="breadcrumb__list r-list">
                   <li class="breadcrumb__group">
+
                     <i class="fas fa-home fa-sm ml-2"></i>
                     
                     <a href="home.php" class="breadcrumb__point r-link ml-2">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <a href="auction_house.php" class="breadcrumb__point r-link">Auction House</a>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
-                  </li>
-                  <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Live Auction</span>
+                    <span href="#" class="breadcrumb__point">Auction House</span>
                   </li>
                 </ol>
               </nav>
             </div>
-            <!-- shop information -->
-            <div class="row pb-3 pt-2">
-              <div class="col-8 row no-gutters">
-                <!-- shop logo -->
-                <div class="col-md-5 col-sm-5">
-                  <img src="../src/img/logo.png" class="shop-logo-auction-size" alt="">
-                </div>
-                <!-- shop name and chat button -->
-                <div class="col-md-7 col-sm-7 d-flex align-items-center">
-                  <!-- shop name -->
-                  <h6 class="fs-shop-name p-3">Shop's Name</h6>
+
+            <?php
+              $shops = getShops($con);
+              $totalShops = count($shops);
+            ?>
+
+            <!--Auctioned Item Section-->
+            <section>
+              <!-- search auction shop -->
+              <div class="pl-5 pr-5 pb-5 pt-4"> <!-- padding for the search bar -->
+                <!-- search bar -->
+                <div class="input-group bg-white rounded shadow-sm"> 
+                  <input type="search" list="shop-list" class="form-control form-control-lg fs-search border-0" placeholder="Search shop...">
+                  <div class="input-group-append">
+                    <button class="btn">
+                      <i class="fas fa-search fa-fw"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               
-              <div class="col-4 w-100 d-inline-flex flex-column align-items-end justify-content-center">
-                <!-- view profile button -->
-                <a class="fs-btn btn btn-sm shadow-sm view-profile-btn mb-3" href="products.php"><i class="fas fa-eye"></i> View</a>
-                <!-- chat button -->
-                <button class="fs-btn btn btn-sm shadow-sm chat-btn"><i class="fas fa-comment-dots"></i> Chat</button>
-              </div>
-            </div>
-            
-            <!-- alert info -->
-            <div class="alert alert-success shadow-sm">
-              <h5 class="fs-header font-weight-bold">Ongoing Live Auction!</h5>
-              <p class="fs-alert">Welcome to the <span>Shop's Name</span> Auction House!
-            Please feel free to browse and bid in any of our numismatic items. </p>
-            </div>
-
-            <!-- alert info -->
-            <div class="alert alert-primary shadow-sm fs-alert">
-              <strong>Tip:</strong> Click the image of the catalog to view the item and start bidding.
-            </div>
-          </div>
-          <!-- auctioned items -->
-          <div class="main-bg p-4 mt-4">
-            <!-- pagination -->
-            <nav aria-label="Page Navigation Page" class="pt-3 pb-2">
-              <ul class="pagination align-items-center justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fas fa-angle-double-left fa-sm"></i>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    <i class="fas fa-angle-double-right fa-sm"></i>
-                  </a>
-                </li>
-              </ul>
-            </nav>           
-
-            <!-- catalogs of products -->
-            <div class="pt-2 pb-4">
-              <!-- flexbox container of the products -->
-              <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
-              <?php 
-                //initialization of the auction products, images, and bid status
-                $auctionProducts = getAuctionProducts($con, "1");
-                $auctionProductImg = getAuctionProductImg($con, "1");
-                $totalProducts = count($auctionProducts);
-
+              <?php
+                //get all the shops from the database
                 $i = 0;
-                while($i < $totalProducts){
+                while($i < $totalShops){
               ?>
-                <!-- product catalog -->
-                <div class="p-1 col-md-6">
-                  <div class="card position-relative shadow-sm">
-                  
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
-                        <?php
-                          //call the obverse and reverse images from the result set with variable name $auctionProductImg.
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'" class="p-2"/>';
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['reverse_img'] ).'" class="p-2"/>';
-                        ?>
-                      </div>
+                <!-- shops -->
+                <div class="bg-white row no-gutters mb-4 shadow-sm pt-3 rounded">
+                  <!-- container of the shop logo -->
+                  <div class="col-5">
+                    <div class="px-3">
+                      <?php
+                        $shopLogo = getShopLogo($con, $shops[$i]['shop_id']);
+                        if($shopLogo != NULL){
+                          echo '<img src="data:image/jpeg;base64,'.base64_encode($shopLogo).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                        } else {
+                          echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                        }
+                      ?>
                     </div>
-
-                    <!-- badge that displays the total bidders -->
-                    <?php
-                      //get the total count of bids of an auctioned item
-                      $bidStatus = countTotalBid($con, $auctionProducts[$i]['auction_id']);
-                    ?>
-                    <h6>
-                      <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
-                        <span>
-                          <?php 
-                            echo $bidStatus;
-                          ?>
-                        </span>
-                        BIDDERS
-                      </span>
-                    </h6>
-                    
-                    <!-- badge that displays the maximum bid -->
-                    <h5>
-                      <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
-                        <span>
-                          &#8369;
-                          <?php echo $auctionProducts[$i]['maximum_bid'];?>
-                        </span>
-                      </span>
-                    </h5>
-
-                    <!-- badge that displays ongoing -->
-                    <div class="bg-warning card-body">
-                      <!-- container for the product name -->
-                      <div class="lh-sm">
-                        <span class="product-name">
-                          <?php echo $auctionProducts[$i]['product_name'];?>
-                        </span>
-                      </div>
-                      <!-- container for the auctioner -->
-                      <div class="lh-1">
-                        <a href="" class="auctioner">
-                          <?php echo $auctionProducts[$i]['shop_name'];?>
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- container with a bg-warning -->
-                    <div class="card-footer border-0 bg-warning">
-                      <!-- status of the auction -->
-                      <div class="bid-status pt-3">
-                        <!-- estimate and current price of the item -->
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="">
-                            <strong>Estimate:</strong>
-                            <span>
-                              &#8369;
-                              <?php echo $auctionProducts[$i]['estimate_price'];?>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
+                  <!-- containre of the shop name and description -->
+                  <div class="col-7">
+                    <!-- shop name -->
+                    <div class="px-3">
+                      <h6 class="fs-shop-name">
+                        <?php echo $shops[$i]['shop_name'];?>
+                      </h6>
+                    <!-- shop description -->
+                      <p class="fs-shop-description">
+                        <?php echo $shops[$i]['shop_description'];?>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -396,11 +299,11 @@ $con = $db->connect();
                   $i++;
                 }
               ?>
-              </div>
-            </div>
+            </section>
           </div>
+          
         </main>
-        <footer class="py-4 bg-light mt-auto">
+        <footer class="py-3 bg-white mt-auto fs-footer">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
                     <div class="text-muted">&copy; Numisworks Auction Product Trading est. 2021</div>

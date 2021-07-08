@@ -1,4 +1,10 @@
-<?php require 'src/api/session.php'?>
+<?php 
+require('src/api/session.php');
+require('src/api/sign_in_confirm.php');
+$signIn = new SignIn();
+$signIn->status();
+$signIn->destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +33,7 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<form class="login100-form validate-form" action="src/api/authenticate.php" method="POST">
+					<form class="login100-form validate-form" enctype="application/x-www-form-urlencoded" action="src/api/authenticate.php" method="POST">
 						<span class="login100-form-title p-b-46 p-t-80">
 							Sign in to continue
 						</span>

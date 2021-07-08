@@ -282,7 +282,8 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
+                <img class="d-block w-100" src="../src/img/sale-1.png" alt="First slide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum minima similique, optio rem cumque quam perspiciatis nihil autem est. Harum asperiores magni labore eos mollitia eaque quaerat. Voluptatum, alias non!</p>
               </div>
               <div class="carousel-item">
                 <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">

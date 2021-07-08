@@ -89,7 +89,7 @@ SETTINGS
 */
 
 :root{
-  --breadcrumbTextColor: #888888;  
+  --breadcrumbTextColor: #755c5c;  
   --breadcrumbTextColorActive: rgb(83, 83, 83);  
 }
 
@@ -178,7 +178,7 @@ DEMO
 }
 
 .bg-home{
-  background-image: url('../img/bg-home.png');
+  background-image: default;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

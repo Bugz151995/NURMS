@@ -19,7 +19,7 @@
   <body class="sb-nav-fixed">
 
     <!--Top Navbar-->
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-secondary">
       <!-- Top navigation numisworks logo -->
       <div class="d-flex text-white bg-transparent" style="width: 225px">
         <div class="p-2">
@@ -212,7 +212,7 @@
           <div class="slide-downward bg-home p-3 pb-5">
             <!--Breadcrumb-->
             <div class="page__section mb-4 ">
-              <nav class="breadcrumb bg-light breadcrumb_type" aria-label="Breadcrumb">
+              <nav class="breadcrumb bg- breadcrumb_type" aria-label="Breadcrumb">
                 <ol class="breadcrumb__list r-list">
                   <li class="breadcrumb__group">
                     <div class="bg-warning rounded p-2 mt">
@@ -228,45 +228,19 @@
             <!--Shop Selection-->
             <div class="row">
               <div class="sm-intro-bg container slide-upward">
-                <div class="rounded pl-4 pr-4 pt-2 pb-1 shop-details-bg shadow">
-                  <label for="#shops" class="mt-n5 fs-header text-center w-100 fw-bolder">Shops</label>
-                  <div class="form-group input-group">
-                    <span class="input-group-text">
-                      <i class="fas fa-store-alt"></i>
-                    </span>
-                    <select name="" id="shops" class="custom-select fs-header">
-                      <option value="">Numisworks Auction Product Trading</option>
-                      <option value="">Abe Reyes Auction</option>
-                      <option value="">Taimatsu's Collection</option>
-                    </select>
-                  </div>
-                </div>
               </div>
             </div>
 
             <!--Shop Details-->
             <table class="w-100 mt-5 fs-header table table-borderless shop-details-bg">
               <tbody>
-                <!--Shop Description-->
-                <tr>
-                  <td class="pl-3">
-                    <img src="../src/img/logo.png" alt="" class="shop-logo shadow rounded-circle mt-n5">
-                  </td>
-                  <td>
-                    <div class="fs-header pt-2">
-                      <h5 class="fw-bolder fs-header">Shop Description</h5>
-                      <ul>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
+               
                 <!--Shop Products-->
                 <tr>
                   <td colspan="2">
                     <div class="text-center">
-                      <p>View Shop's Events? <a href="events.php">Click here.</a><p>
+                      <h6>View Shop's Events? <a href="events.php">Click here.</a><h6>
+                    </div>
                     </div>
                   </td>
                 </tr>
@@ -281,17 +255,41 @@
               <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
               <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
             </ol>
+            
+            <!-- container of the carousel-items -->
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_3.png" alt="Third slide">
-              </div>
+              <!-- container of the products -->
+              <div class="carousel-item active d-flex justify-content-center">  
+
+                <!-- product 1 -->
+                <div class="w-100">
+                  <!-- product image container -->
+                  <div class="d-flex justify-content-center">
+                    <!-- image -->
+                    <img width="150" class="" src="../src/img/sale-1.png"  alt="First slide" />
+                  </div>
+                  <!-- product description -->
+                  <div class="d-flex justify-content-center">
+                    <p>Lapu-lapu.</p>
+                  </div>
+                </div>
+
+                <!-- product 2 -->
+                <div class="w-100">
+                  <!-- product image container -->
+              <div class="d-flex">
+                    <!-- image -->
+                    <img width="150" class="" src="../src/img/sale-1.png"  alt="Second slide" />
+                  </div>
+                    <!-- product description -->
+                    <div class="d-flex justify-container-center">
+                      <p>Lorem ipsum, dolor sit. </p>
+                    </div>
+                  </div>                                                      
+               </div>
+                  
             </div>
+            
             <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -319,7 +317,7 @@
                   </select>
                 </div>
               </div>
-              <div class="  row">
+              <div class=" row">
                 <div class="mb-3 shadow col-md-4">
                   <div class="card h-100">
                     <!-- Sale badge-->

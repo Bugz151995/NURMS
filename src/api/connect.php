@@ -17,8 +17,8 @@ class Database {
     if(!$this->db_connect){
       $con = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
 
-      if(mysqli_connect_error($con)){
-        die("Connection Error: " . mysqli_connect_error($con));
+      if(mysqli_connect_error()){
+        die("Connection Error: " . mysqli_connect_error());
       } else return $con;
     }
   }

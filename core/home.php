@@ -28,10 +28,12 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../src/css/carousel.css">
   </head>
   <body class="sb-nav-fixed">
 
   <!--Top Navbar-->
+  
     <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
       <!-- Top navigation link icons-->
       <div class="navbar-brand">
@@ -80,10 +82,9 @@ $con = $db->connect();
       </div>      
     </nav>
 
-  <!-- Contains layout of sidenav and the main content -->
+    <!-- Contains layout of sidenav and the main content -->
     <div id="layoutSidenav">
-
-    <!-- Side Navbar -->
+      <!-- Side Navbar -->
       <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-light bg-white fs-sidenav" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
@@ -215,7 +216,7 @@ $con = $db->connect();
             </div>
           </div>
         </nav>
-      </div>
+     </div>
 
     <!-- Main Content -->
       <div id="layoutSidenav_content">
@@ -237,182 +238,302 @@ $con = $db->connect();
             </div>
           </div>
 
-          <!-- Carousel for upcoming products-->
-          <div id="upcomingProductCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-            </ol>
-            
-            <!-- container of the carousel-items -->
-            <div class="carousel-inner">
-              <!-- container of the products -->
-              <div class="carousel-item active d-flex justify-content-center">  
-
-                <!-- product 1 -->
-                <div class="w-100">
-                  <!-- product image container -->
-                  <div class="d-flex justify-content-center">
-                    <!-- image -->
-                    <img width="150" class="" src="../src/img/sale-1.png"  alt="First slide" />
-                  </div>
-                  <!-- product description -->
-                  <div class="d-flex justify-content-center">
-                    <p>Lapu-lapu.</p>
-                  </div>
-                </div>
-
-                <!-- product 2 -->
-                <div class="w-100">
-                  <!-- product image container -->
-              <div class="d-flex">
-                    <!-- image -->
-                    <img width="150" class="" src="../src/img/sale-1.png"  alt="Second slide" />
-                  </div>
-                    <!-- product description -->
-                    <div class="d-flex justify-container-center">
-                      <p>Lorem ipsum, dolor sit. </p>
-                    </div>
-                  </div>                                                      
-               </div>
-                  
-            </div>
-            
-            <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+          <div class="container">
+                    <span class="text-center">
+                      <h3>View More events?</h3>
+                      <div><a href="../services/events.php">Click HERE</a></div>
+                    </span>
+              </div>
+          <div class="container">
+            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+            </p>
           </div>
 
-          <!-- Section-->
-          <section class="container">
-          <span class="info-label fw-bolder"><h3>Featured Items</h3></span>
-            <div class="product-layout container-fluid px-3 px-lg-5 mt-5">
-              <div class="row pb-4">
-              <div class=" shadow input-group mb-1 ">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Sort by:</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Sort by...</option>
-                    <option value="1">Date</option>
-                    <option value="2">Price</option>
-                    <option value="3">Shop</option>
-                  </select>
-                </div>
+          
+            <!--Header-->
+            <div class="container">
+              <header>
+                <h1>Top Hottest Product</h1>
+                  <p>
+                    <span>&#139;</span>
+                    <span>&#155;</span> 
+                  </p>
+              </header>
               </div>
-              <div class=" row">
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="zoom img-resize card-img-top" src="../src/img/sale-1.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Lapu-Lapu Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                            <div class="pb-2 card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-2.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Republika Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-3.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Kalayaan</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-4.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Gabriela Silang Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,500.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-          </section>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-      </div>
-    </div>
 
+            <!--Product 1-->
+              <section>
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product One</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                <!--Product 2-->
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product two</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                  <!--Product 3-->
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product three </b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                  <!--Product 4-->                
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product four</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                  <!--Product 5-->                
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product five</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+              </section>
+
+              <div class="container">
+                    <span class="text-center">
+                      <h3>View More events?</h3>
+                      <div><a href="../services/events.php">Click HERE</a></div>
+                    </span>
+              </div>
+                 <div class="container">
+                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+                    </p>
+                 </div>
+
+              <div class="container">
+                  <header>
+                    <h1>Top Hottest Product</h1>
+                    <p>
+                      <span>&#139;</span>
+                      <span>&#155;</span> 
+                    </p>
+                  </header>                  
+              </div>
+
+              <!--Second Carousel-->
+              <section>
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                <div class="details">
+                  <p>
+                    <b>Product One</b>
+                    <small>New arrival</small>
+                  </p>
+                  <samp>P 4,000</samp>
+                </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                <!--Product 2-->
+               <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                    <p>
+                      <b>Product two</b>
+                      <small>New arrival</small>
+                    </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                    </div>
+                </div>
+
+                  <!--Product 3-->
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product three </b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                      <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+                <!--Product 3-->                
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product four</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                  <div class="button">
+                      <p class="star">
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                          <strong>&star;</strong>
+                      </p>
+                          <a href="#">Add-Cart</a>
+                  </div>
+                </div>
+
+               <!--Product 4-->                
+                <div class="product">
+                  <picture>
+                      <img src="../src/img/sale-1.png" alt="">
+                  </picture>
+                  <div class="details">
+                     <p>
+                        <b>Product five</b>
+                        <small>New arrival</small>
+                     </p>
+                     <samp>P 4,000</samp>
+                  </div>
+                      <div class="button">
+                          <p class="star">
+                              <strong>&star;</strong>
+                              <strong>&star;</strong>
+                              <strong>&star;</strong>
+                              <strong>&star;</strong>
+                              <strong>&star;</strong>
+                          </p>
+                          <a href="#">Add-Cart</a>
+                      </div>
+                  </div>                                
+               </div>  
+          </section>        
+      </main>
+  </div>  
+      
+  
+
+  
   <!--===============================================================================================-->
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

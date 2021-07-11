@@ -1,9 +1,5 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/sign_in_confirm.php');
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
+require('../src/api/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +14,7 @@ $sign_in->confirm();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
+    <link href="../src/css/myaccount.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed">
 
@@ -234,103 +231,174 @@ $sign_in->confirm();
           </div>
           
           <!-- Upload Profile picture-->
-          <div class="mb-4">
-            <div class="row p-2 pt-5"> 
-              <!-- Upload image result-->
-              <div class="container col-md-3 pb-3 bg-warning rounded-left">
-                <img id="imageResult" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="" width="150" height="150" class="mt-n5 rounded shadow rounded-circle">
-              </div>
-              <!-- Upload image input-->
-              <div class="container col-md-9 pb-4 pt-3 bg-warning rounded-right">
-                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                  <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                  <div class="input-group-append">
-                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose image</small></label>
-                  </div>
-                </div>
-                <span class="small"><em><span class="text-danger">*</span> Choose an image for your profile picture.</em></span>
-              </div>
-            </div>
-          </div>
+          <div class=" shadow"> 
+              <div class="row justify-content-center myaccnt-body"> 
+                <div class="container">
+                  
+                    <div class="my-account-heading text-center text-secondary shadow-sm fs-4 p-3">My Account</div>
+                    
+                </div> 
+               
+            <form action="#" class=" p-5">
+                    <!-- 1st row of the form-->
+                          <div class="row  px-5 align-items-center">
+                                <div class="img-upload-bg-color shadow-sm col-md-5 pr-lg-5 p-4 mb-md-0">
+                              <div class="d-flex justify-content-center col-sm-12">             
+                                  <div class=""><img id="imageResult" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" 
+                                    alt=""  width="200" height="200" class="img-fluid rounded-circle shadow-md "></div>
+                              </div>
+                              <div class="d-flex justify-content-center col-sm-12 pt-3">
+                                    <div class="input-group upload-img  rounded-pill bg-white shadow-sm">
+                                      <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                                        <label id="upload-label" for="upload"  class="font-weight-light text-muted">Choose Image</label> 
+                                    </div>
+                                  </div>  
+                            </div>
 
-          <!-- Verify Account form-->
-          <div class="bg-light shadow"> 
-            <div class="row p-2"> 
-              <div class="container">
-                <div class="bg-warning rounded">
-                  <h1 class="fs-4 p-3">Verify Account</h1>
-                </div>  
-              </div> 
-              <form class="p-4">
-                <!-- 1st row of the form-->
-                <div class="fs-5"><u>Full Name</u></div>
-                <div class="row form-group"> 
-                  <div class="col-md-4">
-                    <label for="exampleInputLastname">Last Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputLastname" aria-describedby="LastnameHelp" placeholder="Last Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputFirstname">First Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputFirstname" aria-describedby="FirstnameHelp" placeholder="First Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputMiddlename">Middle Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputMiddlename" aria-describedby="MiddlenameHelp" placeholder="Middle Name">
-                  </div>    
-                </div>
-                <hr class="p-2">
-                <!-- 2nd row of the form-->
-                <div class="fs-5"><u>Permanent Address</u></div>
-                <div class="row form-group">
-                  <div class="col-md-4">
-                    <label for="exampleInputStreet">Street Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputStreet" aria-describedby="StreetHelp" placeholder="Street Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputBarangay">Barangay</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputBarangay" aria-describedby="BarangayHelp" placeholder="Barangay">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputCity/Municipality">Municipality</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputMunicipality" aria-describedby="MunicipalityHelp" placeholder="Municipality">
-                  </div>
-                </div>
-                  <!-- 3rd row of the form-->
-                <div class="row form-group">
-                  <div class="col-md-4">
-                    <label for="exampleInputProvince">Province</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputProvince" aria-describedby="ProvinceHelp" placeholder="Province">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputZip Codee">Zip Code</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputZip Code" aria-describedby="Zip CodeHelp" placeholder="Zip Code">
-                  </div>
-                </div>
-                <hr class="p-2">
-                <!-- 4rd row of the form-->
-                <div class="fs-5"><u>Contact Information</u></div>
-                <div class="row form-group ">
-                  <div class="col-md-4">
-                    <label for="exampleInputFacebooklink">Facebook Link</label>
-                    <input type="url" class="form-control form-control-sm" id="exampleInputFacebooklink" placeholder="http:\\">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputContact Number">Contact Number</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputContact Number" aria-describedby="Contact NumberHelp" placeholder="Contact Number">
-                  </div>
-                </div>
-                <hr class="p-2">
-                <div class="row">
-                  <div class="col-md-12 d-flex justify-content-center">
-                    <button type="submit" class="shadow-sm btn btn-primary">Submit</button>
-                  </div>
-                </div>
+                              	<!-- Registeration Form -->
+                              	<div class="col-sm-6 col-sm-7 ml-auto">
+                                      <div class="pt-4 row">
+
+                                      <div class="row fullname-bg-color shadow-sm ">
+                                      <!-- Divider Text -->
+                                      <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                                              <div class="border-bottom w-100 ml-5"></div>
+                                              <span class="px-2 small text-muted font-weight-bold text-muted">Full.Name</span>
+                                              <div class="border-bottom w-100 mr-5"></div>
+                                          </div>
+
+                                          <!-- First Name -->
+                                          <div class="col-sm-6 mb-3">
+                                              
+                                              <input id="firstName" type="text" name="firstname" placeholder="First Name"
+                                               class="rounded-pill shadow-sm form-control bg-white border-0">
+                                          </div>
+
+                                          <!-- Middle Name -->
+                                          <div class="col-sm-6 mb-4">
+                                        
+                                              <input id="middleName" type="text" name="middlename" placeholder="Middle Name" 
+                                              class="rounded-pill shadow-sm form-control bg-white border-0">
+                                          </div>
+
+                                          <!-- Last Name -->
+                                          <div class="col-sm-6 mb-4">
+                                             
+                                              <input id="lastName" type="text" name="lastname" placeholder="Last Name" 
+                                              class="rounded-pill shadow-sm form-control bg-white border-0">
+                                          </div>
+
+                                          <!--Name Extension-->
+                                          <div class=" col-lg-6 mb-4">
+                                              
+                                              <input id="nameExtension" type="text" name="nameextensio" placeholder="Name Extension" 
+                                              class="rounded-pill shadow-sm form-control bg-white border-0">
+                                          </div>
+                                         </div> 
+
+                                         <div class="row contact-bg-color shadow-sm">
+                                          <!-- Divider Text -->
+                                         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                                              <div class="border-bottom w-100 ml-5"></div>
+                                              <span class="px-2 small text-muted font-weight-bold text-muted">Contact.Info</span>
+                                              <div class="border-bottom w-100 mr-5"></div>
+                                          </div>
+
+                                           <!-- Facebook -->
+                                           <div class="input-group col-lg-12 mb-4">
+                                              
+                                              <input id="url" type="url" name="facebook" placeholder="Facebook" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+
+
+                                          <!-- Email Address -->
+                                          <div class="input-group col-lg-12 mb-4">
+                                              
+                                              <input id="email" type="email" name="email" placeholder="Email Address"
+                                               class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+
+                                         
+
+                                           <!-- Phone Number -->
+                                           <div class="input-group col-lg-12 mb-4">
+                                              
+                                              <input id="phoneNumber" type="tel" name="phone" placeholder="Phone Number" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+                                          </div>
+                                          
+                                          <div class="row address-bg-color shadow-sm">
+                                           <!-- Divider Text -->
+                                         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                                              <div class="border-bottom w-100 ml-5"></div>
+                                              <span class="px-2 small text-muted font-weight-bold text-muted">Address</span>
+                                              <div class="border-bottom w-100 mr-5"></div>
+                                          </div>
+
+                                         <!--Barangay -->
+                                         <div class="input-group col-lg-6 mb-4">
+                                            
+                                              <input id="barangay" type="text" name="barangay" placeholder="Barangay" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+
+                                          <!-- Municipality -->
+                                          <div class="input-group col-lg-6 mb-4">
+                                              
+                                              <input id="municipality" type="text" name="municipality" placeholder="Municipality" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+
+                                          <!-- Province -->
+                                          <div class="input-group col-lg-6 mb-4">
+                                              
+                                              <input id="province" type="text" name="province" placeholder="Province" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+
+                                          <!--Zipcode-->
+                                          <div class="input-group col-lg-6 mb-4">
+                                              
+                                              <input id="zipcode" type="text" name="zipcode" placeholder="Zipcode" 
+                                              class="rounded-pill form-control shadow-sm bg-white border-0 border-md">
+                                          </div>
+                                          </div>
+
+                                          <!-- Submit Button -->
+                                          <div class="text-center form-group col-sm-3 mx-auto mb-0">
+                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                              Update
+                                            </button>
+                                          </div>
+
+                                          <!-- Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-color border-0 shadow-lg modal-content">
+                                                  <div class=" modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirm Password</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                  </div>
+                                                  <div class="modal-body  ">
+                                                  Password: <input type="password"  id="myInput">
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                      </div>
+                              </div>
+                          </div>
               </form>
-            </div>
+            </div> 
           </div>
         </main>
         <footer class="py-5 bg-light mt-auto">

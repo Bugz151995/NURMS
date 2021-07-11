@@ -1,19 +1,15 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
+require('../src/api/header.php');
+require('../src/api/shop.php');
 
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
-
-//instantiate a new database object
-$db = new Database();
-//access the database class method to connect to the database
-$con = $db->connect();
+//if the user selected a shop from the auction house page the get the shop details else get the shop of the web app owner
+if(isset($_POST['auction_house_btn'])){
+  $shop = new Shop($_SESSION['USER_ID']);
+  $shop->fetchShop($mysqli, $_POST['shop_id']);
+} else {
+  $shop = new Shop($_SESSION['USER_ID']);
+  $shop->fetchShop($mysqli, '1');
+}
 ?>
 
 <!DOCTYPE html>
@@ -225,7 +221,6 @@ $con = $db->connect();
 
       <!--Main Content-->
       <div id="layoutSidenav_content">
-
         <main id="mainContent">
           <!--Contains Breadcrumbs, shop selection, and shop description-->
           <div class="main-bg p-4">
@@ -249,17 +244,22 @@ $con = $db->connect();
                 </ol>
               </nav>
             </div>
+
             <!-- shop information -->
             <div class="row pb-3 pt-2">
               <div class="col-8 row no-gutters">
                 <!-- shop logo -->
                 <div class="col-md-5 col-sm-5">
-                  <img src="../src/img/logo.png" class="shop-logo-auction-size" alt="">
+                  <?php                    
+                    if($shop->getShopLogo() !== NULL){
+                      echo '<img src="data:image/jpeg;base64,'.base64_encode($shop->getShopLogo()).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                    } else echo '<img src="https://dummyimage.com/300x150/000/fff"/ class="shop-logo-auction-size pb-3 rounded">';                    
+                  ?>
                 </div>
                 <!-- shop name and chat button -->
                 <div class="col-md-7 col-sm-7 d-flex align-items-center">
                   <!-- shop name -->
-                  <h6 class="fs-shop-name p-3">Shop's Name</h6>
+                  <h6 class="fs-shop-name p-3"><?php echo $shop->getShopName()?></h6>
                 </div>
               </div>
               
@@ -274,8 +274,13 @@ $con = $db->connect();
             <!-- alert info -->
             <div class="alert alert-success shadow-sm">
               <h5 class="fs-header font-weight-bold">Ongoing Live Auction!</h5>
-              <p class="fs-alert">Welcome to the <span>Shop's Name</span> Auction House!
-            Please feel free to browse and bid in any of our numismatic items. </p>
+              <p class="fs-alert">
+                Welcome to the 
+                  <span>
+                    <?php echo $shop->getShopName()?>
+                  </span> 
+                Auction House! Please feel free to browse and bid in any of our numismatic items. 
+              </p>
             </div>
 
             <!-- alert info -->
@@ -283,18 +288,19 @@ $con = $db->connect();
               <strong>Tip:</strong> Click the image of the catalog to view the item and start bidding.
             </div>
           </div>
+
           <!-- auctioned items -->
           <div class="main-bg p-4 mt-4">
             <!-- pagination -->
-            <nav aria-label="Page Navigation Page" class="pt-3 pb-2">
+            <nav aria-label="Page Navigation" class="pt-3 pb-2">
               <ul class="pagination align-items-center justify-content-center">
                 <li class="page-item">
                   <a class="page-link" href="#">
                     <i class="fas fa-angle-double-left fa-sm"></i>
                   </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                   <a class="page-link" href="#">
@@ -309,6 +315,7 @@ $con = $db->connect();
               <!-- flexbox container of the products -->
               <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
               <?php 
+
                 //initialization of the auction products, images, and bid status
                 $auctionProducts = getAuctionProducts($con, "1");
                 $auctionProductImg = getAuctionProductImg($con, "1");
@@ -335,7 +342,7 @@ $con = $db->connect();
                     <!-- badge that displays the total bidders -->
                     <?php
                       //get the total count of bids of an auctioned item
-                      $bidStatus = countTotalBid($con, $auctionProducts[$i]['auction_id']);
+                      $bidStatus = countTotalBid($con, $auctionProducts[$i]['lot_id']);
                     ?>
                     <h6>
                       <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
@@ -353,7 +360,7 @@ $con = $db->connect();
                       <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
                         <span>
                           &#8369;
-                          <?php echo $auctionProducts[$i]['maximum_bid'];?>
+                          <?php echo $auctionProducts[$i]['current_bid'];?>
                         </span>
                       </span>
                     </h5>

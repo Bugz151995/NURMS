@@ -1,19 +1,5 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
-
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
-
-//instantiate a new database object
-$db = new Database();
-//access the database class connect() method to connect to the database
-$con = $db->connect();
+require('../src/api/header.php');
 ?>
 
 <!DOCTYPE html>

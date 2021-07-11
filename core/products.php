@@ -1,19 +1,5 @@
 <?php
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
-
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
-
-//instantiate a new database object
-$db = new Database();
-//access the database class connect() method to connect to the database
-$con = $db->connect();
+require('../src/api/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +14,7 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
+    <link href="../src/css/products.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed">
 
@@ -243,10 +230,10 @@ $con = $db->connect();
             <!--Shop Selection-->
             <div class="row">
               <div class="sm-intro-bg container slide-upward">
-                <div class="rounded pl-4 pr-4 pt-2 pb-1 shop-details-bg shadow-sm">
+                <div class="color_con rounded pl-4 pr-4 pt-2 pb-1 shadow-sm">
                   <label for="#shops" class="fs-header text-center w-100 fw-bolder">Shops</label>
-                  <div class="form-group input-group">
-                    <span class="input-group-text">
+                  <div class="input-group mb-3 input-group-sm">
+                    <span class=" input-group-text">
                       <i class="fas fa-store-alt"></i>
                     </span>
                     <select name="" id="shops" class="custom-select fs-header">
@@ -260,22 +247,98 @@ $con = $db->connect();
             </div>
 
             <!--Shop Details-->
-            <table class="w-100 mt-5 fs-header table table-borderless shop-details-bg">
+            <table class="w-100 mt-5 fs-header table table-borderless shop-description-bg">
               <tbody>
                 <!--Shop Description-->
                 <tr>
-                  <td class="pl-3">
-                    <img src="../src/img/logo.png" alt="" class="shop-logo shadow rounded-circle mt-n5">
+                  <td class="pl-3 col-4 logo-position">
+                    <div class="logo-position">
+                    <img src="../src/img/logo.png" alt=""  class="shop-logo  shadow rounded-circle mt-n5">
+                    </div>
                   </td>
-                  <td>
-                    <div class="fs-header pt-2">
+                  <td class="pt-5">
+                  <span class="heading">Shop Rating</span>
+                  <div class="">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                    <p>4.1 over all on 254 reviews. &nbsp
+                    <a href=""><i class="fas fa-info"></i></a></p>
+                    <hr style="border:3px solid #f1f1f1">
+
+                    <div class="row m-1" id="ratebars">
+                    <div class="side">
+                      <div>5 star</div>
+                    </div>
+                    <div class="middle">
+                      <div class="bar-container">
+                        <div class="bar-5"></div>
+                      </div>
+                    </div>
+                    <div class="side right">
+                      <div>150</div>
+                    </div>
+                    <div class="side">
+                      <div>4 star</div>
+                    </div>
+                    <div class="middle">
+                      <div class="bar-container">
+                        <div class="bar-4"></div>
+                      </div>
+                    </div>
+                    <div class="side right">
+                      <div>63</div>
+                    </div>
+                    <div class="side">
+                      <div>3 star</div>
+                    </div>
+                    <div class="middle">
+                      <div class="bar-container">
+                        <div class="bar-3"></div>
+                      </div>
+                    </div>
+                    <div class="side right">
+                      <div>15</div>
+                    </div>
+                    <div class="side">
+                      <div>2 star</div>
+                    </div>
+                    <div class="middle">
+                      <div class="bar-container">
+                        <div class="bar-2"></div>
+                      </div>
+                    </div>
+                    <div class="side right">
+                      <div>6</div>
+                    </div>
+                    <div class="side">
+                      <div>1 star</div>
+                    </div>
+                    <div class="middle">
+                      <div class="bar-container">
+                        <div class="bar-1"></div>
+                      </div>
+                    </div>
+                    <div class="side right">
+                      <div>20</div>
+                    </div>
+                  </div>
+
+                  </td>
+                <tr>
+                  <td colspan="2">
+                    <div class="pt-2">
                       <h5 class="fw-bolder fs-header">Shop Description</h5>
                       <ul>
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.Lorem, ipsum dolor.Lorem, ipsum dolor.</li>
+                        <li>Lorem, ipsum dolor.Lorem, ipsum dolor.</li>
                       </ul>
                     </div>
                   </td>
+                </tr> 
                 </tr>
                 <!--Shop Products-->
                 <tr>
@@ -319,117 +382,136 @@ $con = $db->connect();
 
           <!-- Section-->
           <section class="container pl-5 pr-5">
-            <div class="row no-gutters bg-light">
-              <!-- Carousel for upcoming events-->
-              <div id="eventsCarousel" class="p-2 col-md-6 carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#eventsCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#eventsCarousel" data-slide-to="1"></li>
-                  <li data-target="#eventsCarousel" data-slide-to="2"></li>
-                </ol>
-                <a class="carousel-control-prev" href="#eventsCarousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#eventsCarousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-              <!-- Carousel for upcoming products-->
-             
+          <div class="featured-product-header pt-2 ">
+              <b>Featured Product</b>
             </div>
-            
-            <div class="row">
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-1.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Lapu-Lapu Medal</p>
-                        <!-- Product price-->
-                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
-                            <div class="pcard-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
+            <hr>
+          <div class="f-product-color d-flex p-4 pl-5 ">
+            <div class="card card-color pt-2  card-size" id="card1">
+              <div class="badge badge-warning position-absolute position-badge-topleft">Best Seller</div>
+                <div class="text-center"><img src="../src/img/sale-1.png" alt="" class=" img-size"></div>
+                  <div class="text-center"><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <txt>5.0</txt>
                   </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-2.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Republika Medal</p>
-                        <!-- Product price-->
-                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
+                    <div class="card-body">
+                      <div class="product-name">Lapu-Lapu Medal</div>
+                      <div class="auctioner">
+                        <p> <span>Goa, PH</span>
+                        <span>|</span>
+                        <a href="#">Numisworks Auction Product Trading</a>
+                        </p>
+                        <span>Price: ₱0.00</span>
+                     </div>
+                   </div>
+            </div> 
+
+            <div class="card card-color pt-2  card-size" id="card2">
+              <div class="badge badge-warning position-absolute position-badge-topleft">Best Seller</div>
+                <div class="text-center"><img src="../src/img/sale-1.png" alt="" class=" img-size"></div>
+                  <div class="text-center"><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <txt>5.0</txt>
                   </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-3.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Kalayaan</p>
-                        <!-- Product price-->
-                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
+                    <div class="card-body">
+                      <div class="product-name">Lapu-Lapu Medal</div>
+                      <div class="auctioner">
+                        <p> <span>Goa, PH</span>
+                        <span>|</span>
+                        <a href="#">Numisworks Auction Product Trading</a>
+                        </p>
+                        <span>Price: ₱0.00</span>
+                     </div>
+                   </div>
+            </div> 
+
+            <div class="card card-color pt-2  card-size" id="card3">
+              <div class="badge badge-warning position-absolute position-badge-topleft">Best Seller</div>
+                <div class="text-center"><img src="../src/img/sale-1.png" alt="" class=" img-size"></div>
+                  <div class="text-center"><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <txt>4.2</txt>
                   </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-4.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Gabriela Silang Medal</p>
-                        <!-- Product price-->
-                        <span class="text muted text-decoration-line-through">&#8369;1,200.00</span>>&#8369;1,000.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-           
+                    <div class="card-body">
+                      <div class="product-name">Lapu-Lapu Medal</div>
+                      <div class="auctioner">
+                        <p> <span>Goa, PH</span>
+                        <span>|</span>
+                        <a href="#">Numisworks Auction Product Trading</a>
+                        </p>
+                        <span>Price: ₱0.00</span>
+                     </div>
+                   </div>
+            </div> 
+
+          </div>  
+         
+         <div class="featured-product-header pt-2 ">
+              <b>Shop Items</b>
+            </div>
+
+         <table class="f-product-color p-4 pl-5 ">
+            <tbody class="pt-2    card-shopitem-size">
+              <tr>
+              <td class=""><img src="../src/img/sale-2.png" alt="" class=" img-shopitem-size"></td>
+              <td class=""><img src="../src/img/sale-2.png" alt="" class=" img-shopitem-size"></td>
+              <td class="location">
+                <span class="item-name"><b>ARAW NG REPUBLIKA MEDAL</b></span>
+                  <p> <span class="location">Goa, PH</span>
+                      <span>|</span>
+                      <a class="shop-name-item" href="#">Numisworks Auction Product Trading</a>
+                  </p>
+                   <span>Price: ₱0.00</span>
+              </td>
+               </tr>
+          </tbody> 
+        </table>  
+
+        <span><hr></span>
+
+        <table class="f-product-color p-4 pl-5 ">
+            <tbody class="pt-2    card-shopitem-size">
+              <tr>
+              <td class=""><img src="../src/img/sale-3.png" alt="" class=" img-shopitem-size"></td>
+              <td class=""><img src="../src/img/sale-3.png" alt="" class=" img-shopitem-size"></td>
+              <td class="location">
+                  <span class="item-name"><b>ARAW NG KALAYAAN MEDAL</b></span>
+                  <p> <span class="location">Goa, PH</span>
+                      <span>|</span>
+                      <a class="shop-name-item" href="#">Numisworks Auction Product Trading</a>
+                  </p>
+                   <span>Price: ₱0.00</span>
+              </td>
+               </tr>
+          </tbody> 
+        </table>  
+        <span><hr></span>
+
+      <table class="f-product-color p-4 pl-5 ">
+            <tbody class="pt-2    card-shopitem-size">
+              <tr>
+              <td class="si-obverse"><img src="../src/img/sale-4.png" alt="" class=" img-shopitem-size"></td>
+              <td class="si-reverse"><img src="../src/img/sale-4.png" alt="" class=" img-shopitem-size"></td>
+              <td class="location">
+                  <span class="item-name"><b>GABRIELA SILANG MEDAL</b></span>
+                  <p> <span class="location">Goa, PH</span>
+                      <span>|</span>
+                      <a class="shop-name-item" href="#">Numisworks Auction Product Trading</a>
+                  </p>
+                   <span>Price: ₱0.00</span>
+              </td>
+               </tr>
+          </tbody> 
+        </table>
           </section>
         </main>
         <footer class="py-4 bg-light mt-auto">

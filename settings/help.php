@@ -1,10 +1,7 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/sign_in_confirm.php');
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
+require('../src/api/header.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

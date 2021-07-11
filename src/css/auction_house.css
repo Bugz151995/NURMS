@@ -1,0 +1,15 @@
+#auctionHouseCatalog{
+  border-radius: 0.5rem;
+  background-color: #EDDDD1;
+}
+
+#auctionHouseCatalog:hover{
+  border-radius: 0.5rem;
+  background-color: #BD8357;
+}
+
+#auctionHouseCatalog:focus{
+  border-radius: 0.5rem;
+  background-color: #BD8357;
+  outline: none;
+}

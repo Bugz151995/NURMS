@@ -1,21 +1,12 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
+require('../src/api/header.php');
+require('../src/api/shop.php');
 
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
+$shop = new Shop($_SESSION['USER_ID']);
+$shop->fetchAllShop($mysqli);
+$shops = $shop->getShopArr();
 
-//instantiate a new database object
-$db = new Database();
-//access the database class connect() method to connect to the database
-$con = $db->connect();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,7 +74,7 @@ $con = $db->connect();
     
     <!--Contains layout of sidenav and the main content-->
     <div id="layoutSidenav">
-
+      
       <!--Side Navbar-->
       <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-light bg-white fs-sidenav" id="sidenavAccordion">
@@ -241,11 +232,6 @@ $con = $db->connect();
               </nav>
             </div>
 
-            <?php
-              $shops = getShops($con);
-              $totalShops = count($shops);
-            ?>
-
             <!--Auctioned Item Section-->
             <section>
               <!-- search auction shop -->
@@ -264,37 +250,39 @@ $con = $db->connect();
               <?php
                 //get all the shops from the database
                 $i = 0;
-                while($i < $totalShops){
+                while($i < count($shops)){
               ?>
                 <!-- shops -->
-                <div class="bg-white row no-gutters mb-4 shadow-sm pt-3 rounded">
-                  <!-- container of the shop logo -->
-                  <div class="col-5">
-                    <div class="px-3">
-                      <?php
-                        $shopLogo = getShopLogo($con, $shops[$i]['shop_id']);
-                        if($shopLogo != NULL){
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode($shopLogo).'"/ class="shop-logo-auction-size pb-3 rounded">';
-                        } else {
-                          echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
-                        }
-                      ?>
+                <form action="live_auction.php" method="post">
+                  <input type="hidden" name="shop_id" value="<?php echo $shops[$i]['shop_id'];?>">
+                  <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row no-gutters mb-4 shadow-sm pt-3" style="cursor: pointer">
+                    <!-- container of the shop logo -->
+                    <div class="col-5">
+                      <div class="px-3">
+                        <?php
+                          if($shops[$i]['shop_img'] !== NULL){
+                            echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$i]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                          } else {
+                            echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                          }
+                        ?>
+                      </div>
                     </div>
-                  </div>
-                  <!-- containre of the shop name and description -->
-                  <div class="col-7">
-                    <!-- shop name -->
-                    <div class="px-3">
-                      <h6 class="fs-shop-name">
-                        <?php echo $shops[$i]['shop_name'];?>
-                      </h6>
-                    <!-- shop description -->
-                      <p class="fs-shop-description">
-                        <?php echo $shops[$i]['shop_description'];?>
-                      </p>
+                    <!-- containre of the shop name and description -->
+                    <div class="col-7">
+                      <!-- shop name -->
+                      <div class="px-3">
+                        <h6 class="fs-shop-name">
+                          <?php echo $shops[$i]['shop_name'];?>
+                        </h6>
+                      <!-- shop description -->
+                        <p class="fs-shop-description">
+                          <?php echo $shops[$i]['shop_description'];?>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </button>
+                </form>
               <?php
                   $i++;
                 }

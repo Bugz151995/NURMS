@@ -1,19 +1,5 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
-
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
-
-//instantiate a new database object
-$db = new Database();
-//access the database class connect() method to connect to the database
-$con = $db->connect();
+require('../src/api/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +14,12 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../src/css/home.css">
   </head>
   <body class="sb-nav-fixed">
 
   <!--Top Navbar-->
+  
     <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
       <!-- Top navigation link icons-->
       <div class="navbar-brand">
@@ -80,10 +68,10 @@ $con = $db->connect();
       </div>      
     </nav>
 
-  <!-- Contains layout of sidenav and the main content -->
+    <!-- Contains layout of sidenav and the main content -->
     <div id="layoutSidenav">
 
-    <!-- Side Navbar -->
+      <!--Side Navbar-->
       <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-light bg-white fs-sidenav" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
@@ -94,7 +82,7 @@ $con = $db->connect();
               <!--Home link-->
               
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link active" href="#" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link active" href="home.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-home fa-fw"></i>
                   </div>
@@ -121,7 +109,7 @@ $con = $db->connect();
                 </a>
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="live_auction.php">
+                    <a class="nav-link bg-transparent" href="auction_house.php">
                       Auction House
                     </a>
                   </li>
@@ -236,159 +224,16 @@ $con = $db->connect();
               </nav>
             </div>
           </div>
+          <section>  
+          </section>        
+      </main>
+  </div>  
+      
+  
 
-          <!-- Carousel for upcoming products-->
-          <div id="upcomingProductCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_3.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-
-          <!-- Section-->
-          <section class="container">
-          <span class="info-label fw-bolder"><h3>Featured Items</h3></span>
-            <div class="product-layout container-fluid px-3 px-lg-5 mt-5">
-              <div class="row pb-4">
-              <div class=" shadow input-group mb-1 ">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Sort by:</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Sort by...</option>
-                    <option value="1">Date</option>
-                    <option value="2">Price</option>
-                    <option value="3">Shop</option>
-                  </select>
-                </div>
-              </div>
-              <div class="  row">
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="zoom img-resize card-img-top" src="../src/img/sale-1.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Lapu-Lapu Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                            <div class="pb-2 card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-2.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Republika Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-3.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Araw ng Kalayaan</p>
-                        <!-- Product price-->
-                        &#8369;1,200.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-                <div class="mb-3 shadow col-md-4">
-                  <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-danger text-white position-absolute" id="badges" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="img-resize card-img-top" src="../src/img/sale-4.png" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                      <div class="text-left">
-                        <!-- Product name-->
-                        <p class="d-flex fw-bolder">Gabriela Silang Medal</p>
-                        <!-- Product price-->
-                        &#8369;1,500.00
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">   
-                            </div>
-                      <div class="text-center"><a class="bg-primary text-white btn btn-outline-dark mt-auto" href="#">Add to cart</a><span>&nbsp;&nbsp;</span>
-                        <a class="bg-success text-white btn btn-outline-dark mt-auto" href="#">Buy now</a></div>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                  </div>
-                </div>
-          </section>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-      </div>
-    </div>
-
+  
   <!--===============================================================================================-->
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

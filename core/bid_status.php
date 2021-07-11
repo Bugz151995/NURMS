@@ -1,19 +1,20 @@
 <?php 
 require('../src/api/session.php');
 require('../src/api/connect.php');
-require('../src/api/sign_in_confirm.php');
-require('../core/live_auction/fetch_shops.php');
-require('../core/live_auction/fetch_auction_products.php');
-
-//start session and confirm sign in status of a user
-$sign_in = new SignIn();
-$sign_in->status();
-$sign_in->confirm();
+require('live_auction/fetch_shops.php');
+require('live_auction/fetch_auction_products.php');
 
 //instantiate a new database object
 $db = new Database();
-//access the database class connect() method to connect to the database
+
+//instantiate a new user object
+$user = new User($db);
+//set the database connection to prepare the query for user data
+$db = $user->getDatabase();
 $con = $db->connect();
+//start the session and confirm the sign in status of user.
+$user->startSession();
+$user->confirmSignIn();
 ?>
 
 <!DOCTYPE html>
@@ -266,12 +267,15 @@ $con = $db->connect();
                       <div class="bg-white rounded p-4">
                         Current Bid: P1,000 <br>
                         Estimate: P1,000 <br>
-                        Max Bid: P500 <br>
-                        Ends in: 5 hours, 29 minutes <br>
+                        Current Bid: P500 <br>
+                        Ends in: 08/15/1995 5 hours, 29 minutes <br>
                         Bidders: 5
                       </div>
                       <div class="bg-white rounded mt-2 p-4">
                         Notes and Description:  <br>
+                      </div>
+                      <div class="bg-white rounded mt-2 p-4">
+                        Rules:  <br>
                       </div>
                       <!-- buttons for bidding -->
                       <div class="row p-3">
@@ -319,6 +323,5 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
-    <script src="../src/js/toggle-nav-links.js"></script>
   </body>
 </html>

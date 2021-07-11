@@ -1,9 +1,14 @@
 <?php 
-require('src/api/session.php');
-require('src/api/sign_in_confirm.php');
-$signIn = new SignIn();
-$signIn->status();
-$signIn->destroy();
+require('src/api/mysqli_connect.php');
+
+session_start();
+
+//instantiate a new database object which automatically connects to the database.
+$db = new Database();
+$mysqli = $db->connect();
+
+//reset the session every time the user goes back to this page
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">

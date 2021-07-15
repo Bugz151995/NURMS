@@ -28,7 +28,7 @@ $con = $db->connect();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../src/css/carousel.css">
+    <link rel="stylesheet" href="../src/css/home.css">
   </head>
   <body class="sb-nav-fixed">
 
@@ -240,41 +240,42 @@ $con = $db->connect();
 
           <div class="container">
                     <span class="text-center">
-                      <h3>View More events?</h3>
+                      <h4 class="mt-3">View More events?</h4>
                       <div><a href="../services/events.php">Click HERE</a></div>
                     </span>
               </div>
           <div class="container">
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+            <p class="home-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
             </p>
           </div>
-
-          
+         
             <!--Header-->
-            <div class="container">
-              <header>
-                <h1>Top Hottest Product</h1>
-                  <p>
-                    <span>&#139;</span>
-                    <span>&#155;</span> 
-                  </p>
-              </header>
-              </div>
+            <div class="container">                             
+                <div class="hottest">
+                  <header class="home-header">
+                    <h4 class=>Top Hottest Product</h4>
+                      <p class="home-paragraph">
+                        <span>&#139;</span>
+                        <span>&#155;</span> 
+                      </p>
+                  </header>  
+              </div>                             
+            </div>
 
-            <!--Product 1-->
-              <section>
+             <!--Product 1-->
+              <section class="section">
                 <div class="product">
-                  <picture>
-                      <img src="../src/img/sale-1.png" alt="">
+                  <picture class="home-picture">
+                      <img class="img" src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product One</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -282,23 +283,27 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                        <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
+                      
+                        
                   </div>
                 </div>
 
                 <!--Product 2-->
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product two</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -306,23 +311,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                   <!--Product 3-->
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product three </b>
-                        <small>New arrival</small>
+                        <small clas="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -330,23 +337,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                   <!--Product 4-->                
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product four</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -354,23 +363,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                   <!--Product 5-->                
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product five</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -378,46 +389,52 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
               </section>
 
               <div class="container">
                     <span class="text-center">
-                      <h3>View More events?</h3>
+                      <h4 class="mt-3">View More events?</h4>
                       <div><a href="../services/events.php">Click HERE</a></div>
                     </span>
               </div>
                  <div class="container">
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+                    <p class="home-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
                     </p>
                  </div>
+                 
 
-              <div class="container">
-                  <header>
-                    <h1>Top Hottest Product</h1>
-                    <p>
-                      <span>&#139;</span>
-                      <span>&#155;</span> 
-                    </p>
-                  </header>                  
-              </div>
+               <!--Header-->
+            <div class="container">                             
+                <div class="hottest">
+                  <header class="home-header">
+                    <h4>Top Hottest Product</h4>
+                      <p class="home-paragraph">
+                        <span>&#139;</span>
+                        <span>&#155;</span> 
+                      </p>
+                  </header>  
+              </div>                             
+            </div>
 
               <!--Second Carousel-->
-              <section>
+              <section class="section">
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                <div class="details">
+                <div class="home-details">
                   <p>
                     <b>Product One</b>
-                    <small>New arrival</small>
+                    <small class="home-small">New arrival</small>
                   </p>
                   <samp>P 4,000</samp>
                 </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -425,23 +442,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                 <!--Product 2-->
                <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                     <p>
                       <b>Product two</b>
-                      <small>New arrival</small>
+                      <small class="home-small">New arrival</small>
                     </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -449,23 +468,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                     </div>
                 </div>
 
                   <!--Product 3-->
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product three </b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -473,23 +494,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                      <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                 <!--Product 3-->                
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product four</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                  <div class="button">
+                  <div class="home-button">
                       <p class="star">
                           <strong>&star;</strong>
                           <strong>&star;</strong>
@@ -497,23 +520,25 @@ $con = $db->connect();
                           <strong>&star;</strong>
                           <strong>&star;</strong>
                       </p>
-                          <a href="#">Add-Cart</a>
+                      <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                   </div>
                 </div>
 
                <!--Product 4-->                
                 <div class="product">
-                  <picture>
+                  <picture class="home-picture">
                       <img src="../src/img/sale-1.png" alt="">
                   </picture>
-                  <div class="details">
+                  <div class="home-details">
                      <p>
                         <b>Product five</b>
-                        <small>New arrival</small>
+                        <small class="home-small">New arrival</small>
                      </p>
                      <samp>P 4,000</samp>
                   </div>
-                      <div class="button">
+                      <div class="home-button">
                           <p class="star">
                               <strong>&star;</strong>
                               <strong>&star;</strong>
@@ -521,7 +546,9 @@ $con = $db->connect();
                               <strong>&star;</strong>
                               <strong>&star;</strong>
                           </p>
-                          <a href="#">Add-Cart</a>
+                          <div class="home-cart">
+                           <a href="#">Add-Cart</a>
+                        </div>
                       </div>
                   </div>                                
                </div>  

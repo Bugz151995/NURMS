@@ -1,0 +1,75 @@
+#bidStatusItem {
+  border-radius: 0.5rem;
+  background-color: #DED6D1;
+}
+
+#bidEndDateTime {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background-color: #DED6D1;
+}
+
+.bid-status-data {
+  background-color: #CCC9C8;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.bid-status-other-info {
+  background-color: #CCC9C8;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.bid-btn-container {
+  border-radius: 0.5em;
+  background-color: #EDE7F6;
+}
+
+.form-control.input-rounded-2 {
+  box-shadow: none;
+  background-color: #EDE7F6;
+}
+
+.btn.bid-btn {
+  border-radius: 0.5rem;
+  background-color: #EDE7F6;
+  color: #673ab7;
+}
+
+.btn.bid-btn:hover {
+  background-color: #673ab7;
+  color: #ffffff;
+}
+
+.input-group-text.bid-peso-sign {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  background-color: #EDE7F6;
+}
+
+.bid-product-header {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  background-color: #CFE5FA;
+  top: 0; 
+  z-index: 1020;
+}
+
+.fs-header a {
+  color: #673ab7;
+}
+
+.fs-minute.time-border {
+  padding: 3px;
+}
+
+.time-border {
+  padding: 0.25rem;
+}

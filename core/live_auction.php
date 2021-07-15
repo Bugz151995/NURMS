@@ -1,15 +1,28 @@
 <?php 
 require('../src/api/header.php');
 require('../src/api/shop.php');
+require('../src/api/auction.php');
+require('../src/api/lot.php');
+require('../src/api/item.php');
+require('../src/api/bid.php');
 
+const NAPT_SHOP_ID = 1;
 //if the user selected a shop from the auction house page the get the shop details else get the shop of the web app owner
 if(isset($_POST['auction_house_btn'])){
   $shop = new Shop($_SESSION['USER_ID']);
   $shop->fetchShop($mysqli, $_POST['shop_id']);
+  $auction = new Auction($shop->getShopId());
 } else {
   $shop = new Shop($_SESSION['USER_ID']);
-  $shop->fetchShop($mysqli, '1');
+  $shop->fetchShop($mysqli, NAPT_SHOP_ID);
+  $auction = new Auction(NAPT_SHOP_ID);
 }
+
+$auction->countLot($mysqli);
+$auction->fetchAllAuctionLot($mysqli);
+$auctionLot = $auction->getAuctionLot();
+date_default_timezone_set('asia/manila');
+$current_date = date("Y-m-d H:m:i");
 ?>
 
 <!DOCTYPE html>
@@ -133,8 +146,8 @@ if(isset($_POST['auction_house_btn'])){
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -289,10 +302,135 @@ if(isset($_POST['auction_house_btn'])){
             </div>
           </div>
 
-          <!-- auctioned items -->
-          <div class="main-bg p-4 mt-4">
+          <!-- ongoing live auctioned items -->
+          <div class="live-event-bg p-4 mt-4 position-relative">
+
+            <!-- section title -->
+            <div class="fs-alert position-absolute w-100 p-3 live-event-header">
+              <strong>Ongoing Live Bidding!</strong>
+            </div>
+
+            <!-- ongoing live auction -->
+            <div class="pt-5 pb-4">
+              <!-- flexbox container of the products -->
+              <div id="onAuctionItems" class="d-flex flex-wrap no-gutters">
+
+                <?php 
+                $i = 0;
+                while($i < $auction->getLotCount()){
+                  $auction_start = $auctionLot[$i]['auction_start'];
+                  $auction_end = $auctionLot[$i]['auction_end'];
+
+                  //fetch the lot of the auction house 
+                  $lot = new Lot($auctionLot[$i]['lot_id']);
+                  $lot->fetchLot($mysqli);
+                  
+                  //fetch the bid of the auction lot 
+                  $bid = new Bid($auctionLot[$i]['lot_id']);
+                  $bid->fetchCurrentBid($mysqli);
+                  $bid->countBid($mysqli);
+                  $bid_count = $bid->getBidCount();
+
+                  //fetch the item information of the auction lot 
+                  $item = new Item($shop->getShopId(), $lot->getLotItemId());
+                  $item->fetchItem($mysqli);
+                  
+                  if(strtotime($auction_start) < strtotime($current_date) &&  strtotime($current_date) < strtotime($auction_end)){
+                ?>
+
+                <!-- product catalog -->
+                <div class="p-1 col-md-6">
+                  <div id="liveAuctionCatalog" class="border-0 card position-relative shadow-sm">
+                    <div class="card-header p-0 mb-n3 border-0 bg-white">
+                      <form action="lot_status.php" method="post">
+                        <!-- container for the product image -->
+                        <input type="hidden" name="LOT_ID" value="<?php echo $auctionLot[$i]['lot_id']?>">
+                        <input type="hidden" name="SHOP_ID" value="<?php echo $shop->getShopId()?>">
+                        <button type="submit" class="w-100 btn m-0 p-0">
+                          <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
+                            <?php
+                              //call the obverse and reverse images from the result set with variable name $auctionProductImg.
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemObverseImg()).'" class="p-2"/>';
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemReverseImg()).'" class="p-2"/>';
+                            ?>
+                          </div>
+                        </button>
+                      </form>
+                    </div>
+
+                    <!-- badge that displays the total bidders -->
+                    <h6>
+                      <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
+                        <span>
+                          <?php 
+                            echo $bid_count;
+                          ?>
+                        </span>
+                        <?php
+                          if($bid_count > 1) {
+                            echo "BIDDERS";
+                          } else echo "BIDDER";
+                        ?>
+                      </span>
+                    </h6>
+                    
+                    <!-- badge that displays the maximum bid -->
+                    <h5>
+                      <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
+                        <span>
+                          &#8369;
+                          <?php echo $bid->getBidPrice();?>
+                        </span>
+                      </span>
+                    </h5>
+
+                    <!-- badge that displays ongoing -->
+                    <div class="bg-warning card-body">
+                      <!-- container for the product name -->
+                      <div class="lh-sm">
+                        <span class="product-name">
+                          <?php echo $item->getItemName();?>
+                        </span>
+                      </div>
+                      <!-- container for the auctioner -->
+                      <div class="lh-1">
+                        <a href="" class="auctioner">
+                          <?php  echo $shop->getShopName();?>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <!-- container with a bg-warning -->
+                    <div class="card-footer border-0 bg-warning">
+                      <!-- status of the auction -->
+                      <div class="bid-status pt-3">
+                        <!-- estimate and current price of the item -->
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="">
+                            <strong>Estimate:</strong>
+                            <span>
+                              &#8369;
+                              <?php echo $lot->getLotEstimate();?>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <?php
+                  }
+                  $i++;
+                } ?>
+              </div>
+            </div>
+          </div>
+
+          <!-- upcoming auction items -->
+          <div class="upcoming-event-bg p-4 mt-4 position-relative">
             <!-- pagination -->
-            <nav aria-label="Page Navigation" class="pt-3 pb-2">
+            <nav aria-label="Page Navigation" class="pt-5 pb-2">
               <ul class="pagination align-items-center justify-content-center">
                 <li class="page-item">
                   <a class="page-link" href="#">
@@ -308,50 +446,65 @@ if(isset($_POST['auction_house_btn'])){
                   </a>
                 </li>
               </ul>
-            </nav>           
-
+            </nav>
+            <!-- section title -->
+            <div class="fs-alert position-absolute w-100 p-3 upcoming-event-header">
+              <strong>Upcoming Live Bidding Event!</strong>
+            </div>
             <!-- catalogs of products -->
             <div class="pt-2 pb-4">
               <!-- flexbox container of the products -->
-              <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
-              <?php 
+              <div id="closedItems" class="d-flex flex-wrap no-gutters">
 
-                //initialization of the auction products, images, and bid status
-                $auctionProducts = getAuctionProducts($con, "1");
-                $auctionProductImg = getAuctionProductImg($con, "1");
-                $totalProducts = count($auctionProducts);
+                <?php 
+                $j = 0;
+                while($j < $auction->getLotCount()){
+                  $auction_start = $auctionLot[$j]['auction_start'];
+                  $auction_end = $auctionLot[$j]['auction_end'];
 
-                $i = 0;
-                while($i < $totalProducts){
-              ?>
+                  //fetch the lot of the auction house 
+                  $lot = new Lot($auctionLot[$j]['lot_id']);
+                  $lot->fetchLot($mysqli);
+                  
+                  //fetch the bid of the auction lot 
+                  $bid = new Bid($auctionLot[$j]['lot_id']);
+                  $bid->fetchCurrentBid($mysqli);
+                  $bid->countBid($mysqli);
+                  $bid_count = $bid->getBidCount();
+
+                  //fetch the item information of the auction lot 
+                  $item = new Item($shop->getShopId(), $lot->getLotItemId());
+                  $item->fetchItem($mysqli);
+
+                  if(strtotime($current_date) < strtotime($auction_start) && strtotime($current_date) < strtotime($auction_end)){
+                ?>
+
                 <!-- product catalog -->
                 <div class="p-1 col-md-6">
-                  <div class="card position-relative shadow-sm">
-                  
-                    <div class="card-header mb-n3 border-0 bg-white" onclick="redirect('bid_status.php')">
-                      <!-- container for the product image -->
-                      <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
-                        <?php
-                          //call the obverse and reverse images from the result set with variable name $auctionProductImg.
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['obverse_img'] ).'" class="p-2"/>';
-                          echo '<img src="data:image/jpeg;base64,'.base64_encode( $auctionProductImg[$i]['reverse_img'] ).'" class="p-2"/>';
-                        ?>
-                      </div>
+                  <div id="liveAuctionCatalog" class="card position-relative shadow-sm">
+                    <div class="card-header p-0 mb-n3 border-0 bg-white">
+                      <form action="lot_status.php" method="post">
+                        <!-- container for the product image -->
+                        <input type="hidden" name="LOT_ID" value="<?php echo $auctionLot[$j]['lot_id']?>">
+                        <input type="hidden" name="SHOP_ID" value="<?php echo $shop->getShopId()?>">
+                        <button type="submit" class="w-100 btn m-0 p-0">
+                          <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
+                            <?php
+                              //call the obverse and reverse images from the result set with variable name $auctionProductImg.
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemObverseImg()).'" class="p-2"/>';
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemReverseImg()).'" class="p-2"/>';
+                            ?>
+                          </div>
+                        </button>
+                      </form>
                     </div>
 
                     <!-- badge that displays the total bidders -->
-                    <?php
-                      //get the total count of bids of an auctioned item
-                      $bidStatus = countTotalBid($con, $auctionProducts[$i]['lot_id']);
-                    ?>
                     <h6>
-                      <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
-                        <span>
-                          <?php 
-                            echo $bidStatus;
-                          ?>
-                        </span>
-                        BIDDERS
+                      <span class="bid-status badge badge-secondary position-absolute p-to-tl shadow-sm">
+                        <?php 
+                          echo date("F d", strtotime($auction_start));
+                        ?>
                       </span>
                     </h6>
                     
@@ -360,7 +513,7 @@ if(isset($_POST['auction_house_btn'])){
                       <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
                         <span>
                           &#8369;
-                          <?php echo $auctionProducts[$i]['current_bid'];?>
+                          <?php echo $bid->getBidPrice();?>
                         </span>
                       </span>
                     </h5>
@@ -370,13 +523,13 @@ if(isset($_POST['auction_house_btn'])){
                       <!-- container for the product name -->
                       <div class="lh-sm">
                         <span class="product-name">
-                          <?php echo $auctionProducts[$i]['product_name'];?>
+                          <?php echo $item->getItemName();?>
                         </span>
                       </div>
                       <!-- container for the auctioner -->
                       <div class="lh-1">
                         <a href="" class="auctioner">
-                          <?php echo $auctionProducts[$i]['shop_name'];?>
+                          <?php  echo $shop->getShopName();?>
                         </a>
                       </div>
                     </div>
@@ -391,7 +544,7 @@ if(isset($_POST['auction_house_btn'])){
                             <strong>Estimate:</strong>
                             <span>
                               &#8369;
-                              <?php echo $auctionProducts[$i]['estimate_price'];?>
+                              <?php echo $lot->getLotEstimate();?>
                             </span>
                           </div>
                         </div>
@@ -399,10 +552,147 @@ if(isset($_POST['auction_house_btn'])){
                     </div>
                   </div>
                 </div>
-              <?php
-                  $i++;
-                }
-              ?>
+
+                <?php
+                  }
+                  $j++;
+                } ?>
+              </div>
+            </div>
+          </div>
+
+          <!-- closed auction items -->
+          <div class="closed-event-bg p-4 mt-4 position-relative">
+            <!-- pagination -->
+            <nav aria-label="Page Navigation" class="pt-5 pb-2">
+              <ul class="pagination align-items-center justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-angle-double-left fa-sm"></i>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="fas fa-angle-double-right fa-sm"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>   
+
+            <!-- section title -->
+            <div class="fs-alert position-absolute w-100 p-3 closed-event-header">
+              <strong>Closed Lot!</strong>
+            </div>      
+
+            <!-- catalogs of products -->
+            <div class="pt-2 pb-4">
+              <!-- flexbox container of the products -->
+              <div id="closedItems" class="d-flex flex-wrap no-gutters">
+
+                <?php 
+                $j = 0;
+                while($j < $auction->getLotCount()){
+                  $auction_start = $auctionLot[$j]['auction_start'];
+                  $auction_end = $auctionLot[$j]['auction_end'];
+
+                  //fetch the lot of the auction house 
+                  $lot = new Lot($auctionLot[$j]['lot_id']);
+                  $lot->fetchLot($mysqli);
+                  
+                  //fetch the bid of the auction lot 
+                  $bid = new Bid($auctionLot[$j]['lot_id']);
+                  $bid->fetchCurrentBid($mysqli);
+                  $bid->countBid($mysqli);
+                  $bid_count = $bid->getBidCount();
+
+                  //fetch the item information of the auction lot 
+                  $item = new Item($shop->getShopId(), $lot->getLotItemId());
+                  $item->fetchItem($mysqli);
+
+                  if(strtotime($current_date) > strtotime($auction_start) && strtotime($current_date) > strtotime($auction_end)){
+                ?>
+
+                <!-- product catalog -->
+                <div class="p-1 col-md-6">
+                  <div id="liveAuctionCatalog" class="card position-relative shadow-sm">
+                    <div class="card-header p-0 mb-n3 border-0 bg-white">
+                      <form action="lot_status.php" method="post">
+                        <!-- container for the product image -->
+                        <input type="hidden" name="LOT_ID" value="<?php echo $auctionLot[$j]['lot_id']?>">
+                        <input type="hidden" name="SHOP_ID" value="<?php echo $shop->getShopId()?>">
+                        <button type="submit" class="w-100 btn m-0 p-0">
+                          <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
+                            <?php
+                              //call the obverse and reverse images from the result set with variable name $auctionProductImg.
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemObverseImg()).'" class="p-2"/>';
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemReverseImg()).'" class="p-2"/>';
+                            ?>
+                          </div>
+                        </button>
+                      </form>
+                    </div>
+
+                    <!-- badge that displays the total bidders -->
+                    <h6>
+                      <span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">
+                        <?php 
+                          echo "CLOSED";
+                        ?>
+                      </span>
+                    </h6>
+                    
+                    <!-- badge that displays the maximum bid -->
+                    <h5>
+                      <span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br d-flex align-items-center">
+                        <span>
+                          &#8369;
+                          <?php echo $bid->getBidPrice();?>
+                        </span>
+                      </span>
+                    </h5>
+
+                    <!-- badge that displays ongoing -->
+                    <div class="bg-warning card-body">
+                      <!-- container for the product name -->
+                      <div class="lh-sm">
+                        <span class="product-name">
+                          <?php echo $item->getItemName();?>
+                        </span>
+                      </div>
+                      <!-- container for the auctioner -->
+                      <div class="lh-1">
+                        <a href="" class="auctioner">
+                          <?php  echo $shop->getShopName();?>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <!-- container with a bg-warning -->
+                    <div class="card-footer border-0 bg-warning">
+                      <!-- status of the auction -->
+                      <div class="bid-status pt-3">
+                        <!-- estimate and current price of the item -->
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="">
+                            <strong>Estimate:</strong>
+                            <span>
+                              &#8369;
+                              <?php echo $lot->getLotEstimate();?>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <?php
+                  }
+                  $j++;
+                } ?>
               </div>
             </div>
           </div>

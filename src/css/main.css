@@ -1,3 +1,6 @@
+@import url(home.css);
+@import url(bid_status.css);
+@import url(live_auction.css);
 @import url(auction_house.css);
 @import url(custom.css);
 @import url(fonts.css);
@@ -5,8 +8,11 @@
 
 /***********   pagination override class  **********/
 /*********** Large Viewport ***********/
-@media screen and (min-width: 992px){
-
+@media screen and (min-width: 993px){
+  .product-img{
+    height: 175px;
+  }
+  
 }
 
 /*********** Medium Viewport ***********/
@@ -19,6 +25,9 @@
   }
   .product-name{
     font-size: 11pt;
+  }
+  .product-img{
+    height: 170px;
   }
   .auctioner{
     font-size: 10pt;
@@ -48,15 +57,57 @@
   .bid-price{
     font-size: 10pt;
   }
+  .fs-header{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12pt;
+  }
+  .module {
+    width: 100%;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+  }
+  .module p {
+    text-align: left;
+    margin: 0;
+  }
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+  }
+  #bidEndDateTime{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  #bidStatusItem{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .product-img{
+    height: 170px;
+  }
+  .bid-status-data {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
 }
 
 /*********** Small Viewport ***********/
 @media screen and (max-width: 576px){
   .shop-detail{
-    font-size: 8pt;
+    font-size: 9pt;
   }
+
+  /************ font sizes for all the pages ************/
   .fs-header{
-    font-size: 11pt;
+    font-size: 10pt;
   }
   .fs-shop-name{
     font-size: 8pt;
@@ -68,11 +119,29 @@
     font-size: 10pt;
   }
   .fs-alert{
-    font-size: 10pt;
+    font-size: 9pt;
   }
   .fs-btn{
-    font-size: 8pt;
+    font-size: 9pt;
   }
+  .fs-bid-status{
+    font-size: 9pt;
+  }
+  .fs-bid-status-other-info{
+    font-size: 9pt;
+  }
+  .fs-bid-time{
+    font-size: 9pt;
+  }
+  .fs-shop-description{
+    font-size: 6pt;
+  }
+  .fs-minute {
+    font-family: 'Poppins', sans-serif;
+    font-size: 7pt;
+  }
+
+  /************ products.php ************/
   .sm-intro-bg{
     padding: 0em 1em 1em 1em;
   } 
@@ -103,6 +172,22 @@
   .other-nav-fs{
     font-size: 10pt;
   }
+
+  /************ auction_house.php ************/
+  .module {
+    width: 100%;
+    margin: 0 0 1em 0;
+    overflow: hidden;
+  }
+  .module p {
+    text-align: left;
+    margin: 0;
+  }
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+  }
   .item-search{
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
@@ -110,6 +195,27 @@
     padding-bottom: 1.5rem !important;
   }
   .shop-logo-auction-size{
-    height: 50px;
+    height: 90px;
+  }
+
+  /************ lot.php ************/
+  #bidEndDateTime{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  #bidStatusItem{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .bid-status-data {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
   }
 }

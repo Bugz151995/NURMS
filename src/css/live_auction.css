@@ -1,0 +1,48 @@
+#liveAuctionCatalog:hover {
+  background-color: #A88722;
+}
+
+.live-event-bg{
+  background: #DEBDAB;
+  border-radius: 1em;
+}
+
+.live-event-header{
+  background: #D1855C;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 0;
+  left: 0;
+}
+
+.upcoming-event-bg{
+  background: #DDEDE7;
+  border-radius: 1em;
+}
+
+.upcoming-event-header{
+  background: #9BCFBD;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 0;
+  left: 0;
+}
+
+.closed-event-bg{
+  background: #DDEDE7;
+  border-radius: 1em;
+}
+
+.closed-event-header{
+  background: #9BCFBD;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 0;
+  left: 0;
+}

@@ -14,12 +14,10 @@ require('../src/api/header.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
     <link href="../src/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../src/css/home.css">
   </head>
   <body class="sb-nav-fixed">
 
-  <!--Top Navbar-->
-  
+    <!--Top Navbar-->
     <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
       <!-- Top navigation link icons-->
       <div class="navbar-brand">
@@ -119,8 +117,8 @@ require('../src/api/header.php');
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -224,8 +222,112 @@ require('../src/api/header.php');
               </nav>
             </div>
           </div>
-          <section>  
-          </section>        
+        <section>
+          <div class="container">
+            <span class="text-center">
+              <h3 class="mt-3">View More Upcoming Products?</h3>
+              <div><a href="../services/events.php">Click HERE</a></div>
+            </span>
+          </div>
+          <div class="container">
+            <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+            </p>
+          </div>
+         
+            <!--Header-->
+          <div class="container">                             
+            <div class="hottest">
+              <header class="header">
+                <h1 class=>Top Hottest Product</h1>
+                <p class="paragraph">
+                  <span>&#139;</span>
+                  <span>&#155;</span> 
+                </p>
+              </header>  
+            </div>                             
+          </div>
+
+          <!--Product 1-->
+          <section class="section">
+            <div class="product">
+              <picture class="picture">
+                  <img class="img" src="../src/img/sale-1.png" alt="">
+              </picture>
+              <div class="details">
+                  <p>
+                    <b>Product One</b>
+                    <small class="small">New arrival</small>
+                  </p>
+                  <samp>P 4,000</samp>
+              </div>
+              <div class="button">
+                <p class="star">
+                    <strong>&star;</strong>
+                    <strong>&star;</strong>
+                    <strong>&star;</strong>
+                    <strong>&star;</strong>
+                    <strong>&star;</strong>
+                </p>
+                  <div class="cart">
+                      <a href="#">Add-Cart</a>
+                  </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="container">
+            <span class="text-center">
+              <h3 class="mt-3">View More events?</h3>
+              <div><a href="../services/events.php">Click HERE</a></div>
+            </span>
+          </div>
+          <div class="container">
+            <p class="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus laboriosam assumenda illum odio! Impedit cupiditate, sequi harum expedita at non optio consectetur praesentium, corrupti quae necessitatibus adipisci dolor ducimus labore!                   
+            </p>
+          </div>
+                 
+
+          <!--Header-->
+          <div class="container">                             
+            <div class="hottest">
+              <header class="header">
+                <h1>Top Hottest Product</h1>
+                  <p class="paragraph">
+                    <span>&#139;</span>
+                    <span>&#155;</span> 
+                  </p>
+              </header>  
+            </div>                             
+          </div>
+
+          <!--Second Carousel-->
+          <section class="section">
+            <div class="product">
+              <picture class="picture">
+                  <img src="../src/img/sale-1.png" alt="">
+              </picture>
+              <div class="details">
+                <p>
+                  <b>Product One</b>
+                  <small class="small">New arrival</small>
+                </p>
+                <samp>P 4,000</samp>
+              </div>
+              <div class="button">
+                  <p class="star">
+                      <strong>&star;</strong>
+                      <strong>&star;</strong>
+                      <strong>&star;</strong>
+                      <strong>&star;</strong>
+                      <strong>&star;</strong>
+                  </p>
+                  <div class="cart">
+                        <a href="#">Add-Cart</a>
+                    </div>
+              </div>
+            </div>  
+          </section>  
+        </section>     
       </main>
   </div>  
       

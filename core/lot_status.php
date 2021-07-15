@@ -1,20 +1,31 @@
 <?php 
-require('../src/api/session.php');
-require('../src/api/connect.php');
-require('live_auction/fetch_shops.php');
-require('live_auction/fetch_auction_products.php');
+require('../src/api/header.php');
+require('../src/api/shop.php');
+require('../src/api/auction.php');
+require('../src/api/lot.php');
+require('../src/api/item.php');
+require('../src/api/bid.php');
 
-//instantiate a new database object
-$db = new Database();
+if(isset($_POST['SHOP_ID']) && isset($_POST['LOT_ID'])) {
+  $shop = new Shop($_SESSION['USER_ID']);
+  $shop->fetchShop($mysqli, $_POST['SHOP_ID']);
 
-//instantiate a new user object
-$user = new User($db);
-//set the database connection to prepare the query for user data
-$db = $user->getDatabase();
-$con = $db->connect();
-//start the session and confirm the sign in status of user.
-$user->startSession();
-$user->confirmSignIn();
+  $auction = new Auction($_POST['SHOP_ID']);
+  $auction->fetchAuctionLot($mysqli, $_POST['LOT_ID']);
+
+  $lot = new Lot($_POST['LOT_ID']);
+  $lot->fetchLot($mysqli);
+
+  $item = new Item($_POST['SHOP_ID'], $lot->getLotItemId());
+  $item->fetchItem($mysqli);
+
+  $bid = new Bid($lot->getLotId());
+  $bid->fetchCurrentBid($mysqli);
+
+  date_default_timezone_set("asia/manila");
+  $current_date = date("Y-m-d H:m:i");
+} else header("Location: live_auction.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +43,7 @@ $user->confirmSignIn();
     <link href="../src/css/main.css" rel="stylesheet" />
   </head>
   <body class="sb-nav-fixed bg-light">
-
+  
     <!--Top Navbar-->
     <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
       <!-- Top navigation link icons-->
@@ -121,7 +132,7 @@ $user->confirmSignIn();
                   </div>
                   Auction <span class="text-right w-100"></span>
                 </a>
-                <ul class="remove-list-style-type">
+                <ul class="remove-list-style-type mb-0">
                   <li class="text-decoration-none">
                     <a class="nav-link bg-transparent" href="auction_house.php">
                       Auction House
@@ -133,8 +144,8 @@ $user->confirmSignIn();
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -224,7 +235,7 @@ $user->confirmSignIn();
 
         <main id="mainContent">
           <!--Contains Breadcrumbs, shop selection, and shop description-->
-          <div class="main-bg p-4">
+          <div class="main-bg pt-2 pb-4 pl-3 pr-3">
             <!--Breadcrumb-->
             <div class="page__section">
               <nav class="breadcrumb p-0 pt-1 bg-transparent fs-breadcrumb" aria-label="Breadcrumb">
@@ -241,65 +252,179 @@ $user->confirmSignIn();
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Bid Status</span>
+                    <a href="live_auction.php" class="breadcrumb__point r-link">Live Auction</a>
+                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
+                  </li>
+                  <li class="breadcrumb__group">
+                    <span href="#" class="breadcrumb__point">Lot</span>
                   </li>
                 </ol>
               </nav>
             </div>
-            <!--Auctioned Item Section-->
-            <section>
-              <div class="container mt-4">
 
-                <!--Auctioned Item Description-->
-                <div>
-                  <div class="fs-header">
-                    <h4>Lapu Lapu Medal</h4>
-                    <p>
-                      <a href="#">Numisworks Auction Product Trading</a>
-                    </p>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-7 row align-items-start">
-                      <img src="../src/img/sale-1.png" class="col-6 obverse-img" alt="">
-                      <img src="../src/img/sale-1.png" class="col-6 reverse-img" alt="">
+            <div class="pt-2">
+              <div class="fs-alert alert alert-primary rounded shadow-sm">
+                <strong>Welcome to the auction lot page!</strong><br>
+                <?php
+                  if(strtotime($auction->getAuctionStart()) < strtotime($current_date) &&  strtotime($current_date) < strtotime($auction->getAuctionEnd())) {
+                ?>
+                 The lot that is currently on auction will end on 
+                  <!-- date -->
+                  <?php 
+                    echo "<strong>".date("F d, Y @ h:m a", strtotime($auction->getAuctionEnd()))."</strong>";
+
+                  } else if(strtotime($current_date) < strtotime($auction->getAuctionStart()) && strtotime($current_date) < strtotime($auction->getAuctionEnd())) {
+
+                    echo "The bidding on the lot will start on <strong>".date("F d, Y @ h:m a", strtotime($auction->getAuctionStart()))."</strong>";
+
+                  } else echo "We are sorry to inform you that the bidding for the lot has ended.";
+                  ?>
+                  <input type="hidden" value="<?php echo $auction->getAuctionStart()?>" id="auctionStartDate">
+                  <input type="hidden" value="<?php echo $auction->getAuctionEnd()?>" id="auctionEndDate">
+              </div>
+              <!-- rules -->
+              <div class="fs-alert alert alert-warning">
+                <strong>Rules:</strong>
+                <div class="pt-2">
+                  <?php
+                    echo $auction->getAuctionRules();
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Auctioned Item Section-->
+          <section class="main-bg mt-4 position-relative">
+            <div class="text-center bid-product-header position-absolute pl-3 pt-3 pb-1 pr-3 w-100">
+              <h4 class="fs-header font-weight-bold">
+                <span class="text-capitalize">
+                  <?php 
+                    echo $item->getItemName();
+                  ?>
+                </span>
+                <span>|</span>
+                <a href="live_auction.php">
+                  <?php echo $shop->getShopName();?>
+                </a>
+              </h4>
+            </div>
+            <div class="container-fluid mt-4">
+
+              <!--Auctioned Item Description-->
+              <div class="pt-5">
+                <div class="fs-alert alert alert-info p-2 mt-4">
+                  <strong>Tip:</strong> Click the bid button and select the desired bid to place your bid. You can also add it to watch list upon clicking the watch button.
+                </div>
+                <div class="row mb-4 pt-4">
+                  <div class="col-md-7">
+                    <div id="bidStatusItem" class="row no-gutters align-items-start shadow-sm">
+                      <?php
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemObverseImg()).'" class="p-2 reverse-img col-6"/>';
+                        echo '<img src="data:image/jpeg;base64,'.base64_encode($item->getItemReverseImg()).'" class="p-2 obverse-img col-6"/>';
+                      ?>
                     </div>
-                    <div class="col-md-5">
-                      <div class="bg-white rounded p-4">
-                        Current Bid: P1,000 <br>
-                        Estimate: P1,000 <br>
-                        Current Bid: P500 <br>
-                        Ends in: 08/15/1995 5 hours, 29 minutes <br>
-                        Bidders: 5
+                  </div>
+                  <div class="col-md-5">
+                    <div id="bidEndDateTime" class="p-2 d-flex align-items-center justify-content-center shadow-sm fs-bid-time">
+                      <div id="time" class="bg-secondary rounded text-white d-inline-flex align-items-center time-border">
+                        <span class="fs-minute bg-secondary rounded mr-1">
+                          Ends in :
+                        </span>
+                        <span id="days" class="fs-minute time-border bg-dark rounded ">
+                        </span>
+                        <span class="p-1">:</span>
+                        <span id="hours" class="fs-minute time-border bg-dark rounded ">
+                        </span>
+                        <span class="p-1">:</span>
+                        <span id="minutes" class="fs-minute time-border bg-dark rounded">
+                        </span>
+                        <span class="p-1">:</span>
+                        <span id="seconds" class="fs-minute time-border bg-dark rounded">
+                        </span>
+                      </div>                      
+                    </div>
+                    <div class="p-4 bid-status-data fs-bid-status">
+
+                      <!-- current bid -->
+                      <div class="pb-2">
+                        <span>Current Bid:</span>
+                        <span class="font-weight-bold">&#8369;
+                          <span>
+                            <?php
+                              echo $bid->getBidPrice();
+                            ?>
+                          </span>
+                        </span>
                       </div>
-                      <div class="bg-white rounded mt-2 p-4">
-                        Notes and Description:  <br>
+
+                      <!-- estimate price -->
+                      <div class="pb-2">
+                        <span>Estimate:</span>
+                        <span class="font-weight-bold">&#8369;
+                          <span>
+                            <?php
+                              echo $lot->getLotEstimate();
+                            ?>
+                          </span>
+                        </span>
                       </div>
-                      <div class="bg-white rounded mt-2 p-4">
-                        Rules:  <br>
+
+                      <!-- bid increment -->
+                      <div class="pb-2">
+                        <span>Increment:</span>
+                        <span class="font-weight-bold">&#8369;
+                          <span>
+                            <?php
+                              echo $lot->getLotBidInc();
+                            ?>
+                          </span>
+                        </span>
                       </div>
-                      <!-- buttons for bidding -->
-                      <div class="row p-3">
+                    </div>
+                    
+                    <!-- button for bidding -->
+                    <div class="pt-3">
+                      <form action="" class="fs-btn">
                         <!-- container for bid button -->
-                        <div class="col-6 justify-content-center d-flex">
-                          <button class="btn btn-primary shadow-sm">
+                        <div class="bid-btn-container input-group form-group shadow-sm">
+                          <span class="border-0 input-group-text bid-peso-sign fs-btn pr-0">
+                            &#8369;
+                          </span>
+                          <?php 
+                            $next_bid_price =  $bid->computeNextBidPrice($bid->getBidPrice(), $lot->getLotBidInc());
+                          ?>
+                          <input id="bidInputNumber" value="<?php echo $next_bid_price;?>" type="number" step="100" min="<?php echo $next_bid_price;?>" class="fs-btn form-control-lg form-control input-rounded-2 border-0">
+                          <button id="bidBtn" class="fs-btn btn bid-btn">
                             <i class="fas fa-gavel"></i>&nbsp;
                             Bid
                           </button>
-                        </div>
-                        <!-- container for the watch button -->
-                        <div class="col-6 justify-content-center d-flex">
-                          <button class="btn btn-secondary shadow-sm">
+                          <div id="watchBtn" class="fs-btn btn bid-btn d-flex align-items-center">
                             <i class="fas fa-binoculars"></i>&nbsp;
                             Watch
-                          </button>
+                          </div>
                         </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3 fs-bid-status-other-info">
+                  <div class="col-md-12 mb-4">
+                    <div class="bid-status-other-info p-4">
+                      <strong>
+                        Notes and Description:
+                      </strong>
+                      <div class="pt-2">
+                        <?php
+                          echo $item->getItemNoteDesc();
+                        ?>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </main>
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">
@@ -323,5 +448,7 @@ $user->confirmSignIn();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
+    <script src="../src/js/disable-keypress.js"></script>
+    <script src="../src/js/countdown-timer.js"></script>    
   </body>
 </html>

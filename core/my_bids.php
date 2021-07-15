@@ -118,8 +118,8 @@ require('../src/api/header.php');
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -221,10 +221,6 @@ require('../src/api/header.php');
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <a href="auction_house.php" class="breadcrumb__point r-link">Auction House</a>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
-                  </li>
-                  <li class="breadcrumb__group">
                     <span href="#" class="breadcrumb__point">My Bids</span>
                   </li>
                 </ol>
@@ -232,55 +228,8 @@ require('../src/api/header.php');
             </div>
           </div>
 
-          <!-- Carousel for upcoming products-->
-          <div id="upcomingProductCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_3.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-
-          <!--Auctioned Item Section-->
-          <section>
-            <!-- navigation links -->
-            <div class="fs-nav pt-2 pl-2">
-              <!-- nav-tabs container -->
-              <div id="other-nav" class="nav nav-tabs no-gutters row">
-                <!-- live auction link -->
-                <div id="live-au-link" class="nav-item col-4 text-center text-nowrap ">
-                  <a href="live_auction.php" class="nav-link ">Live Auction</a>
-                </div>
-                <!-- closed auction link -->
-                <div id="closed-au-link" class="nav-item col-4 text-center text-nowrap">
-                  <a href="closed_auction.php" class="nav-link">Closed Auction</a>
-                </div>
-                <!-- my bids link -->
-                <div id="my-bid-link" class="nav-item col-4 text-center text-nowrap active">
-                  <a href="#" class="nav-link active">My Bids</a>
-                </div>
-              </div>
-            </div>
-
+           <!--Auctioned Item Section-->
+           <section>
             <div class="bg-white">
               <div class="container">
                 <div class="row other-nav-fs">
@@ -325,7 +274,7 @@ require('../src/api/header.php');
             <div class="bg-white">
               <div class="container pt-4 pb-4">
                 <!-- flexbox container of the products -->
-                <div id="on-auction-products" class="d-flex flex-wrap no-gutters">
+                <div id="off-auction-products" class="d-flex flex-wrap no-gutters">
                   <!-- product number 1 -->
                   <div class="p-1 col-md-6">
                     <div class="card position-relative shadow">
@@ -336,7 +285,7 @@ require('../src/api/header.php');
                         </div>
                       </div>
 
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">2 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>500.00</span></span></h5>
 
@@ -375,7 +324,7 @@ require('../src/api/header.php');
                         </div>
                       </div>
 
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">5 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>700.00</span></span></h5>
 
@@ -414,7 +363,7 @@ require('../src/api/header.php');
                         </div>
                       </div>
 
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">2 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>800.00</span></span></h5>
 
@@ -455,7 +404,7 @@ require('../src/api/header.php');
                       </div>
 
                       <!-- badges -->
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
                       <!--card body -->
@@ -494,7 +443,7 @@ require('../src/api/header.php');
                       </div>
 
                       <!-- badges -->
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
                       <!--card body -->
@@ -533,7 +482,7 @@ require('../src/api/header.php');
                       </div>
 
                       <!-- badges -->
-                      <h6><span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">9 BIDDERS</h6>
+                      <h6><span class="bid-status badge badge-dark position-absolute p-to-tl shadow-sm">CLOSED</h6>
                       <h5><span class="bid-price badge badge-danger shadow-sm position-absolute p-to-br">&#8369;<span>1,000.00</span></span></h5>
 
                       <!--card body -->

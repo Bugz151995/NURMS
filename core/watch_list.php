@@ -26,9 +26,9 @@ require('../src/api/header.php');
           <img src="../src/img/logo_dark.png" class="pl-3" width="56" height="56" style="object-fit: contain" id="appLogo" alt="">
           <!-- Sidebar Toggle-->
           <div class="pl-4" id="sidebarToggle">
-            <button class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
+            <a class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
               <i class="lni lni-menu"></i>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -118,8 +118,8 @@ require('../src/api/header.php');
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link active bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link active bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -221,66 +221,15 @@ require('../src/api/header.php');
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <a href="auction_house.php" class="breadcrumb__point r-link">Auction House</a>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
-                  </li>
-                  <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Closed Auction</span>
+                    <span href="#" class="breadcrumb__point">Watch List</span>
                   </li>
                 </ol>
               </nav>
             </div>
           </div>
 
-          <!-- Carousel for upcoming products-->
-          <div id="upcomingProductCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#upcomingProductCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="1"></li>
-              <li data-target="#upcomingProductCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="../src/img/default_banner_1.png" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_2.png" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="../src/img/default_banner_3.png" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#upcomingProductCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#upcomingProductCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-
           <!--Auctioned Item Section-->
           <section>
-            <!-- navigation links -->
-            <div class="container fs-nav pt-2">
-              <!-- nav-tabs container -->
-              <div id="other-nav" class="nav nav-tabs no-gutters row">
-                <!-- live auction link -->
-                <div id="live-au-link" class="nav-item col-4 text-center text-nowrap">
-                  <a href="live_auction.php" class="nav-link">Live Auction</a>
-                </div>
-                <!-- closed auction link -->
-                <div id="closed-au-link" class="nav-item col-4 text-center text-nowrap active">
-                  <a href="#" class="nav-link active">Closed Auction</a>
-                </div>
-                <!-- my bids link -->
-                <div id="my-bid-link" class="nav-item col-4 text-center text-nowrap">
-                  <a href="my_bids.php" class="nav-link">My Bids</a>
-                </div>
-              </div>
-            </div>
-
             <div class="bg-white">
               <div class="container">
                 <div class="row other-nav-fs">

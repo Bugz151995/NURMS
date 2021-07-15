@@ -1,11 +1,14 @@
 <?php 
 require('../src/api/header.php');
 require('../src/api/shop.php');
+require('../src/api/auction.php');
 
 $shop = new Shop($_SESSION['USER_ID']);
 $shop->fetchAllShop($mysqli);
 $shops = $shop->getShopArr();
 
+date_default_timezone_set('asia/manila');
+$current_date = date("Y-m-d H:m:i");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,8 +126,8 @@ $shops = $shop->getShopArr();
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="closed_auction.php">
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
@@ -232,65 +235,156 @@ $shops = $shop->getShopArr();
               </nav>
             </div>
 
-            <!--Auctioned Item Section-->
+            <!--live auction Section-->
             <section>
-              <!-- search auction shop -->
-              <div class="pl-5 pr-5 pb-5 pt-4"> <!-- padding for the search bar -->
-                <!-- search bar -->
-                <div class="input-group bg-white rounded shadow-sm"> 
-                  <input type="search" list="shop-list" class="form-control form-control-lg fs-search border-0" placeholder="Search shop...">
-                  <div class="input-group-append">
-                    <button class="btn">
-                      <i class="fas fa-search fa-fw"></i>
-                    </button>
-                  </div>
-                </div>
+              <div class="fs-alert alert alert-info shadow-sm">
+                <strong>Ongoing Live Auction!</strong>
               </div>
-              
-              <?php
+              <div id="ongoingEventList">
+                <?php
                 //get all the shops from the database
                 $i = 0;
-                while($i < count($shops)){
-              ?>
-                <!-- shops -->
-                <form action="live_auction.php" method="post">
-                  <input type="hidden" name="shop_id" value="<?php echo $shops[$i]['shop_id'];?>">
-                  <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row no-gutters mb-4 shadow-sm pt-3" style="cursor: pointer">
-                    <!-- container of the shop logo -->
-                    <div class="col-5">
-                      <div class="px-3">
-                        <?php
-                          if($shops[$i]['shop_img'] !== NULL){
-                            echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$i]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
-                          } else {
-                            echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
-                          }
-                        ?>
+                while($i < count($shops)){ ?>
+                  <?php 
+                    $auction = new Auction($shops[$i]['shop_id']);
+                    $auction->fetchOngoingEvents($mysqli, $current_date);
+                    $shop_event_date = $auction->getAuctionDate();
+
+                    if($shop_event_date !== NULL){
+                      $event_start = date('F d', strtotime($shop_event_date['ast']));
+                      $event_end = date('F d', strtotime($shop_event_date['aen']));
+                    }
+                    if($shop_event_date !== NULL && strtotime($event_start) < strtotime($current_date) && strtotime($event_end) > strtotime($current_date)){
+                  ?>
+
+                  <!-- shops -->
+                  <form action="live_auction.php" method="post">
+                    <input type="hidden" name="shop_id" value="<?php echo $shops[$i]['shop_id'];?>">
+                    <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row d-flex w-100 no-gutters mb-4 pt-4 position-relative" style="cursor: pointer">
+                      <!-- live bidding badge -->
+                      <h6>
+                        <span class="bid-status badge badge-danger position-absolute p-to-tl shadow-sm">
+                          <span>
+                            <?php 
+                              echo "Live Bidding";
+                            ?>
+                          </span>
+                        </span>
+                      </h6>
+                      <!-- container of the shop logo -->
+                      <div class="col-5">
+                        <div class="px-3">
+                          <?php
+                            if($shops[$i]['shop_img'] !== NULL){
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$i]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                            } else {
+                              echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                            }
+                          ?>
+                        </div>
                       </div>
-                    </div>
-                    <!-- containre of the shop name and description -->
-                    <div class="col-7">
-                      <!-- shop name -->
-                      <div class="px-3">
-                        <h6 class="fs-shop-name">
-                          <?php echo $shops[$i]['shop_name'];?>
-                        </h6>
-                      <!-- shop description -->
-                        <p class="fs-shop-description">
-                          <?php echo $shops[$i]['shop_description'];?>
-                        </p>
+                      <!-- container of the shop name and description -->
+                      <div class="col-7">
+                        <!-- shop name -->
+                        <div class="px-3">
+                          <h6 class="fs-shop-name">
+                            <?php echo $shops[$i]['shop_name'];?>
+                          </h6>
+                        <!-- shop description -->
+                          <div class="fs-shop-description module line-clamp">
+                            <p>
+                              <?php echo $shops[$i]['shop_description'];?>
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                </form>
-              <?php
+                    </button>
+                  </form>
+
+                  <?php
+                    }
                   $i++;
-                }
-              ?>
+                } ?>
+              </div>
             </section>
           </div>
-          
+
+          <div class="main-bg p-4 mt-4">
+            <!-- upcoming auction section -->
+            <section>
+              <div class="fs-alert alert alert-info shadow-sm">
+                <strong>Upcoming Auction Events!</strong>
+              </div>
+
+              <div id="upcomingEventList">
+                <?php
+                //get all the shops from the database
+                $j = 0;
+                while($j < count($shops)){ ?>
+                  <?php
+                    $auction = new Auction($shops[$j]['shop_id']);
+                    $auction->fetchUpcommingEvents($mysqli,  $current_date);
+                    $shop_event_date = $auction->getAuctionDate();
+
+                    if($shop_event_date !== NULL){
+                      $event_start = date('F d', strtotime($shop_event_date['ast']));
+                    }
+                    if($shop_event_date !== NULL && strtotime($event_start) > strtotime($current_date)){
+                  ?>
+
+                  <!-- shops -->
+                  <form action="live_auction.php" method="post">
+                    <input type="hidden" name="shop_id" value="<?php echo $shops[$j]['shop_id'];?>">
+                    <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row d-flex w-100 no-gutters mb-4 pt-4 position-relative" style="cursor: pointer">
+                      <!-- live bidding badge -->
+                      <h6>
+                        <span class="bid-status badge badge-secondary position-absolute p-to-tl shadow-sm">
+                          <span>
+                            <?php 
+                              echo $event_start;
+                            ?>
+                          </span>
+                        </span>
+                      </h6>
+                      <!-- container of the shop logo -->
+                      <div class="col-5">
+                        <div class="px-3">
+                          <?php
+                            if($shops[$j]['shop_img'] !== NULL){
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$j]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                            } else {
+                              echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                            }
+                          ?>
+                        </div>
+                      </div>
+                      <!-- containre of the shop name and description -->
+                      <div class="col-7">
+                        <!-- shop name -->
+                        <div class="px-3">
+                          <h6 class="fs-shop-name">
+                            <?php echo $shops[$j]['shop_name'];?>
+                          </h6>
+                        <!-- shop description -->
+                          <div class="fs-shop-description module line-clamp">
+                            <p>
+                              <?php echo $shops[$j]['shop_description'];?>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </form>
+
+                <?php
+                    }
+                  $j++;
+                } ?>
+              </div>
+            </section>
+          </div>
         </main>
+
         <footer class="py-3 bg-white mt-auto fs-footer">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
@@ -314,5 +408,6 @@ $shops = $shop->getShopArr();
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
     <script src="../src/js/redirect.js"></script>
+    <script src="../src/js/events-list.js"></script>
   </body>
 </html>

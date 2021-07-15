@@ -1,123 +1,60 @@
 <?php
 class Lot {
-  protected $lot_id;
-  protected $lot_estimate_price;
-  protected $lot_current_bid;
-  protected $lot_bid_inc;
-  protected $lot_name;
-  protected $lot_comp;
-  protected $lot_weight;
-  protected $lot_diameter;
-  protected $lot_note_desc;
-  protected $lot_obverse_img;
-  protected $lot_reverse_img;
+  private $lot_id;
+  private $lot_estimate_price;
+  private $lot_bid_inc;
+  private $item_id;
 
   private $lot_count;
-  private $lot_data;
-  private $shop_id;
 
-  public function __construct($shop_id){
-    $this->shop_id = $shop_id;
+  public function __construct($lot_id){
+    $this->lot_id = $lot_id;
   }
 
   public function fetchLot($mysqli) {
-    $stmt = $mysqli->prepare("SELECT l.lot_id, l.estimate_price, l.current_bid, l.bid_increment FROM lots l INNER JOIN items i ON l.item_id = l.item_id WHERE shop_id = ?");
-    $stmt->bind_param("i", $this->shop_id);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-    if($result) {
-      while($row = $result->fetch_assoc()) {
-        $this->lot_data[] = $row;
-      }
-    }
-  }
-
-  public function fetchAllLot($mysqli) {
-    $stmt = $mysqli->prepare("SELECT l.lot_id, l.estimate_price, l.current_bid, l.bid_increment FROM lots l INNER JOIN items i ON l.item_id = l.item_id WHERE shop_id = ?");
-    $stmt->bind_param("i", $this->shop_id);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-    if($result) {
-      while($row = $result->fetch_assoc()) {
-        $this->lot_data[] = $row;
-      }
-    }
-  }
-
-  public function countLot($mysqli) {
-    $stmt = $mysqli->prepare("SELECT count(*)a FROM lots l INNER JOIN items i ON l.item_id = l.item_id WHERE shop_id = ?");
-    $stmt->bind_param("i", $this->shop_id);
+    $stmt = $mysqli->prepare("SELECT estimate_price, bid_increment, item_id FROM lots WHERE lot_id = ?");
+    $stmt->bind_param("i", $this->lot_id);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows === 0) exit("No result");
 
-    $result = $stmt->bind_result($this->lot_count);
+    $result = $stmt->bind_result($this->lot_estimate_price, $this->lot_bid_inc, $this->item_id);
     $stmt->fetch();
     $stmt->close();
   }
 
   //getters
-  protected function getLotId() {
+  public function getLotId() {
     return $this->lot_id;
   }
 
-  protected function getEstimatePrice() {
+  public function getLotEstimate() {
     return $this->lot_estimate_price;
   }
 
-  protected function getLotCurrentBid() {
-    return $this->lot_current_bid;
-  }
-
-  protected function getLotBidInc() {
+  public function getLotBidInc() {
     return $this->lot_bid_inc;
   }
 
-  public function getItemName() {
-    return $this->item_name;
-  }
-
-  public function getItemCompName() {
-    return $this->item_comp;
-  }
-
-  public function getItemWeight() {
-    return $this->item_weight;
-  }
-
-  public function getItemDiameter() {
-    return $this->item_diameter;
-  }
-
-  public function getItemNoteDesc() {
-    return $this->item_note_desc;
-  }
-
-  public function getItemObverseImg() {
-    return $this->item_obverse_img;
-  }
-
-  public function getItemReverseImg() {
-    return $this->item_reverse_img;
+  public function getLotItemId() {
+    return $this->item_id;
   }
 
   //setters
-  protected function setLotId($lot_id) {
-    $this->lot_id;
+  public function setLotId($lot_id) {
+    $this->lot_id = $lot_id;
   }
 
-  protected function setEstimatePrice($lot_estimate_price) {
-    $this->lot_estimate_price;
+  public function setLotEstimatePrice($lot_estimate_price) {
+    $this->lot_estimate_price = $lot_estimate_price;
   }
 
-  protected function setLotCurrentBid($lot_current_bid) {
-    $this->lot_current_bid;
+  public function setLotBidInc($lot_bid_inc) {
+    $this->lot_bid_inc = $lot_bid_inc;
   }
 
-  protected function setLotBidInc($lot_bid_inc) {
-    $this->lot_bid_inc;
+  public function setLotItemId($item_id) {
+    $this->item_id = $item_id;
   }
 }

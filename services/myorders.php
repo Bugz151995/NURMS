@@ -1,4 +1,7 @@
-<?php require('../src/api/session.php');?>
+<?php 
+require('../src/api/header.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,61 +13,55 @@
     <title>Dashboard - SB Admin</title>
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    <link href="../src/css/styles.css" rel="stylesheet" />
-    <link href="../src/css/custom.css" rel="stylesheet" />
-  </head>  
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+    <link href="../src/css/main.css" rel="stylesheet" />
+  </head>
   <body class="sb-nav-fixed">
+
     <!--Top Navbar-->
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Top navigation numisworks logo -->
-      <div class="d-flex text-white bg-transparent" style="width: 225px">
-        <div class="p-2">
-          <img src="../src/img/logo_light.png" width="30" alt="">
+    <nav id="top-navbar" class="sb-topnav navbar navbar-expand navbar-light bg-white justify-content-between">
+      <!-- Top navigation link icons-->
+      <div class="navbar-brand">
+        <div class="bg-transparent d-flex align-items-center justify-content-between fs-topnav" style="width: 250px">
+          <img src="../src/img/logo_dark.png" class="pl-3" width="56" height="56" style="object-fit: contain" id="appLogo" alt="">
+          <!-- Sidebar Toggle-->
+          <div class="pl-4" id="sidebarToggle">
+            <button class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
+              <i class="lni lni-menu"></i>
+            </button>
+          </div>
         </div>
       </div>
-      <!-- Top navigation link icons-->
-      <div class="navbar-nav">
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-lg-0" id="sidebarToggle" href="#!">
-          <i class="fas fa-bars fa-lg"></i>
-        </button>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      
+      <div class="navbar-nav fs-topnav">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-shopping-cart fa-lg fa-fw"></i>
+            <div class="input-group search-bar">
+              <button class="search-btn" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+                <i class="lni lni-search-alt"></i>
+              </button>
+              <input type="search" class="search-input" placeholder="Search" name="" id="">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+              <i class="lni lni-cart"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-bell fa-lg fa-fw"></i>
+            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+              <i class="lni lni-alarm"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-question-circle fa-lg fa-fw"></i>
+            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+              <i class="lni lni-question-circle"></i>
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user-circle fa-lg fa-fw"></i>
+          <li class="nav-item">
+            <a class="nav-link top-nav-icons" style="color: #5E35B1;" href="#" role="button" aria-expanded="false">
+              <i class="lni lni-user"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li>
-                  <div class="d-flex align-items-center">
-                    <a class="dropdown-item ml-2 mr-2" href="#!">
-                      <i class="fas fa-sliders-h fa-fw"></i><span class="pl-2">My Account</span> 
-                    </a>
-                  </div>
-                </li>
-                
-                <li>
-                  <div class="d-flex align-items-center"> 
-                    <a class="dropdown-item ml-2 mr-2" href="#!">
-                      <i class="fas fa-sign-out-alt fa-fw"></i><span class="pl-2">Sign Out</span> 
-                    </a>
-                  </div>
-                </li>
-            </ul>
           </li>
         </ul>
       </div>      
@@ -74,128 +71,134 @@
     <div id="layoutSidenav">
 
       <!--Side Navbar-->
-      <div id="layoutSidenav_nav" class="side-nav-bg">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" style="opacity: 85%" id="sidenavAccordion">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-light bg-white fs-sidenav" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
-            <!--User's Profile Picture-->
-            <div class="text-center my-2">
-              <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
-              <h5 class="text-white fs-6">
-                <?php echo $_SESSION['FIRST_NAME']." ".substr($_SESSION['MIDDLE_NAME'], 0, 1).". ".$_SESSION['LAST_NAME'];?>
-              </h5>
-              <p class="text-warning">Semi-Verified</p>
-            </div>
             <!--Side Navbar's navigation links-->
             <div class="nav">
               <!--Core links Header-->
               <div class="sb-sidenav-menu-heading"><h6>Core</h6></div>
               <!--Home link-->
-              <a class="nav-link" href="../core/home.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-home"></i>
-                </div>
-                Home
-              </a>
+              
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link" href="../core/home.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-home fa-fw"></i>
+                  </div>
+                  Home
+                </a>
+              </div>
               <!--Numismatic Product Link-->
-              <a class="nav-link" href="../core/products.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fab fa-product-hunt"></i>
-                </div>
-                Numismatic Products
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link" href="../core/products.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fab fa-product-hunt fa-fw"></i>
+                  </div>
+                  Numismatic Items
+                </a>
+              </div>
+              
               <!--Auction Product Link-->
-              <a class="nav-link" id="auction-toggle" role="button" href="#" aria-expanded="false">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-gavel"></i>
-                </div>
-                Auction 
-                <span class="text-right w-100"> 
-                  <i id="auction-toggle-icon" class="fas fa-caret-right"></i>
-                </span>
-              </a>
-              <div style="display: none" id="auction-links">
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-gavel fa-fw"></i>
+                  </div>
+                  Auction <span class="text-right w-100"></span>
+                </a>
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="../core/live_auction.php">
-                      <div class="sb-nav-link-icon">
-                        <i class="fas fa-search-dollar"></i>
-                      </div>
+                    <a class="nav-link bg-transparent" href="../core/auction_house.php">
+                      Auction House
+                    </a>
+                  </li>
+                  <li class="text-decoration-none">
+                    <a class="nav-link bg-transparent" href="../core/live_auction.php">
                       Live Auction
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="../core/closed_auction.php">
-                      <div class="sb-nav-link-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                      </div>
-                      Closed Auction
+                    <a class="nav-link bg-transparent" href="../core/watch_list.php">
+                      My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link" href="../core/my_bids.php">
-                      <div class="sb-nav-link-icon">
-                        <i class="fas fa-bold"></i>
-                      </div>
+                    <a class="nav-link bg-transparent" href="../core/my_bids.php">
                       My Bids
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div>              
+              
                 
-              <div class="sb-sidenav-menu-heading"><h6>Interface</h6></div>
+              <div class="sb-sidenav-menu-heading"><h6>Services</h6></div>
               <!--Account Verification-->
-              <a class="nav-link collapsed" href="../services/account_verification.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-check"></i>
-                </div>
-                Account Verification
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="account_verification.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-user-check fa-fw"></i>
+                  </div>
+                  Account Verification
+                </a>
+              </div>
               <!--Events-->
-              <a class="nav-link collapsed" href="../services/events.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-calendar-check"></i>
-                </div>
-                Events
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="events.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-calendar-check fa-fw"></i>
+                  </div>
+                  Events
+                </a>
+              </div>
               <!--My Orders-->
-              <a class="nav-link collapsed active" href="../services/myorders.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-list"></i>
-                </div>
-                My Orders
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed active" href="#" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-list fa-fw"></i>
+                  </div>
+                  My Orders
+                </a>
+              </div>
               <!--Cart-->
-              <a class="nav-link collapsed" href="../services/mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-shopping-cart"></i>
-                </div>
-                My Cart
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-shopping-cart fa-fw"></i>
+                  </div>
+                  My Cart
+                </a>
+              </div>
 
               <div class="sb-sidenav-menu-heading">
                 <h6>Settings</h6>
               </div>
               <!--My Account-->
-              <a class="nav-link collapsed" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-user-circle"></i>
-                </div>
-                My Account
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-user-circle fa-fw"></i>
+                  </div>
+                  My Account
+                </a>
+              </div>
               <!--Help-->
-              <a class="nav-link collapsed" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-question-circle"></i>
-                </div>
-                Help
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-question-circle fa-fw"></i>
+                  </div>
+                  Help
+                </a>
+              </div>
               <!--Logout-->
-              <a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-sign-out-alt"></i>
-                </div>
-                Sign Out
-              </a>
+              <div class="pl-3 pr-3 pb-2">
+                <a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="collapseLayouts">
+                  <div class="sb-nav-link-icon">
+                    <i class="fas fa-sign-out-alt fa-fw"></i>
+                  </div>
+                  Sign Out
+                </a>
+              </div>
             </div>
           </div>
         </nav>
@@ -203,27 +206,23 @@
 
       <!--Main Content-->
       <div id="layoutSidenav_content">
-        <main>
+
+        <main id="mainContent">
           <!--Contains Breadcrumbs, shop selection, and shop description-->
-          <div class="slide-downward bg-home p-3 pb-5">
+          <div class="main-bg p-4">
             <!--Breadcrumb-->
-            <div class="page__section mb-4 ">
-              <nav class="breadcrumb bg-light breadcrumb_type" aria-label="Breadcrumb">
+            <div class="page__section">
+              <nav class="breadcrumb p-0 pt-1 bg-transparent fs-breadcrumb" aria-label="Breadcrumb">
                 <ol class="breadcrumb__list r-list">
                   <li class="breadcrumb__group">
-                    <div class="bg-warning rounded p-2 mt">
-                      <i class="fas fa-home fa-lg"></i>
-                    </div>
+
+                    <i class="fas fa-home fa-sm ml-2"></i>
                     
-                    <a href="../core/home.php" class="fs-header breadcrumb__point r-link ml-3">Home</a>
+                    <a href="home.php" class="breadcrumb__point r-link ml-2">Home</a>
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="fs-header breadcrumb__point r-link">My Orders</span>
-                    <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
-                  </li>
-                  <li class="breadcrumb__group">
-                    <span href="#" class="fs-header breadcrumb__point">Pending</span>
+                    <span href="#" class="breadcrumb__point">My Orders</span>
                   </li>
                 </ol>
               </nav>

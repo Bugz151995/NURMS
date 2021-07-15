@@ -1,7 +1,15 @@
 <?php 
 require('../src/api/header.php');
-?>
+require('../src/api/shop.php');
+require('../src/api/auction.php');
 
+$shop = new Shop($_SESSION['USER_ID']);
+$shop->fetchAllShop($mysqli);
+$shops = $shop->getShopArr();
+
+date_default_timezone_set('asia/manila');
+$current_date = date("Y-m-d H:m:i");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,10 +74,10 @@ require('../src/api/header.php');
         </ul>
       </div>      
     </nav>
-
+    
     <!--Contains layout of sidenav and the main content-->
     <div id="layoutSidenav">
-
+      
       <!--Side Navbar-->
       <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-light bg-white fs-sidenav" id="sidenavAccordion">
@@ -81,7 +89,7 @@ require('../src/api/header.php');
               <!--Home link-->
               
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="../core/home.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link" href="home.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-home fa-fw"></i>
                   </div>
@@ -90,7 +98,7 @@ require('../src/api/header.php');
               </div>
               <!--Numismatic Product Link-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="../core/products.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link" href="products.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fab fa-product-hunt fa-fw"></i>
                   </div>
@@ -100,7 +108,7 @@ require('../src/api/header.php');
               
               <!--Auction Product Link-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link dropdown-toggle" role="button" href="#" data-toggle="dropdown" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link dropdown-toggle active" role="button" href="#" data-toggle="dropdown" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-gavel fa-fw"></i>
                   </div>
@@ -108,22 +116,22 @@ require('../src/api/header.php');
                 </a>
                 <ul class="remove-list-style-type">
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="../core/auction_house.php">
+                    <a class="nav-link active bg-transparent" href="#">
                       Auction House
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="../core/live_auction.php">
+                    <a class="nav-link bg-transparent" href="live_auction.php">
                       Live Auction
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="../core/watch_list.php">
+                    <a class="nav-link bg-transparent" href="watch_list.php">
                       My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="../core/my_bids.php">
+                    <a class="nav-link bg-transparent" href="my_bids.php">
                       My Bids
                     </a>
                   </li>
@@ -134,7 +142,7 @@ require('../src/api/header.php');
               <div class="sb-sidenav-menu-heading"><h6>Services</h6></div>
               <!--Account Verification-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link active" href="#" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../services/account_verification.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-user-check fa-fw"></i>
                   </div>
@@ -143,7 +151,7 @@ require('../src/api/header.php');
               </div>
               <!--Events-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="events.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../services/events.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-calendar-check fa-fw"></i>
                   </div>
@@ -152,7 +160,7 @@ require('../src/api/header.php');
               </div>
               <!--My Orders-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="myorders.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../services/myorders.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-list fa-fw"></i>
                   </div>
@@ -161,7 +169,7 @@ require('../src/api/header.php');
               </div>
               <!--Cart-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../services/mycart.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-shopping-cart fa-fw"></i>
                   </div>
@@ -174,7 +182,7 @@ require('../src/api/header.php');
               </div>
               <!--My Account-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../settings/myaccount.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-user-circle fa-fw"></i>
                   </div>
@@ -183,7 +191,7 @@ require('../src/api/header.php');
               </div>
               <!--Help-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="../settings/help.php" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-question-circle fa-fw"></i>
                   </div>
@@ -192,7 +200,7 @@ require('../src/api/header.php');
               </div>
               <!--Logout-->
               <div class="pl-3 pr-3 pb-2">
-                <a class="nav-link" href="#" aria-expanded="false" aria-controls="collapseLayouts">
+                <a class="nav-link collapsed" href="#" aria-expanded="false" aria-controls="collapseLayouts">
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-sign-out-alt fa-fw"></i>
                   </div>
@@ -203,12 +211,11 @@ require('../src/api/header.php');
           </div>
         </nav>
       </div>
-
+      
       <!--Main Content-->
       <div id="layoutSidenav_content">
-        <!--Main Content container-->
+        
         <main id="mainContent">
-          <!--Contains Breadcrumbs, shop selection, and shop description-->
           <div class="main-bg p-4">
             <!--Breadcrumb-->
             <div class="page__section">
@@ -222,113 +229,162 @@ require('../src/api/header.php');
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">Account Verification</span>
+                    <span href="#" class="breadcrumb__point">Auction House</span>
                   </li>
                 </ol>
               </nav>
             </div>
-          </div>
-          
-          <!-- Upload Profile picture-->
-          <div class="mb-4">
-            <div class="row p-2 pt-5"> 
-              <!-- Upload image result-->
-              <div class="container col-md-3 pb-3 bg-warning rounded-left">
-                <img id="imageResult" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="" width="150" height="150" class="mt-n5 rounded shadow rounded-circle">
+
+            <!--live auction Section-->
+            <section>
+              <div class="fs-alert alert alert-info shadow-sm">
+                <strong>Ongoing Live Auction!</strong>
               </div>
-              <!-- Upload image input-->
-              <div class="container col-md-9 pb-4 pt-3 bg-warning rounded-right">
-                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                  <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                  <div class="input-group-append">
-                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload-alt mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose image</small></label>
-                  </div>
-                </div>
-                <span class="small"><em><span class="text-danger">*</span> Choose an image for your profile picture.</em></span>
+              <div id="ongoingEventList">
+                <?php
+                //get all the shops from the database
+                $i = 0;
+                while($i < count($shops)){ ?>
+                  <?php 
+                    $auction = new Auction($shops[$i]['shop_id']);
+                    $auction->fetchOngoingEvents($mysqli, $current_date);
+                    $shop_event_date = $auction->getAuctionDate();
+
+                    if($shop_event_date !== NULL){
+                      $event_start = date('F d', strtotime($shop_event_date['ast']));
+                      $event_end = date('F d', strtotime($shop_event_date['aen']));
+                    }
+                    if($shop_event_date !== NULL && strtotime($event_start) < strtotime($current_date) && strtotime($event_end) > strtotime($current_date)){
+                  ?>
+
+                  <!-- shops -->
+                  <form action="live_auction.php" method="post">
+                    <input type="hidden" name="shop_id" value="<?php echo $shops[$i]['shop_id'];?>">
+                    <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row d-flex w-100 no-gutters mb-4 pt-4 position-relative" style="cursor: pointer">
+                      <!-- live bidding badge -->
+                      <h6>
+                        <span class="bid-status badge badge-danger position-absolute p-to-tl shadow-sm">
+                          <span>
+                            <?php 
+                              echo "Live Bidding";
+                            ?>
+                          </span>
+                        </span>
+                      </h6>
+                      <!-- container of the shop logo -->
+                      <div class="col-5">
+                        <div class="px-3">
+                          <?php
+                            if($shops[$i]['shop_img'] !== NULL){
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$i]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                            } else {
+                              echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                            }
+                          ?>
+                        </div>
+                      </div>
+                      <!-- container of the shop name and description -->
+                      <div class="col-7">
+                        <!-- shop name -->
+                        <div class="px-3">
+                          <h6 class="fs-shop-name">
+                            <?php echo $shops[$i]['shop_name'];?>
+                          </h6>
+                        <!-- shop description -->
+                          <div class="fs-shop-description module line-clamp">
+                            <p>
+                              <?php echo $shops[$i]['shop_description'];?>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </form>
+
+                  <?php
+                    }
+                  $i++;
+                } ?>
               </div>
-            </div>
+            </section>
           </div>
 
-          <!-- Verify Account form-->
-          <div class="bg-light shadow"> 
-            <div class="row p-2"> 
-              <div class="container">
-                <div class="bg-warning rounded">
-                  <h1 class="fs-4 p-3">Verify Account</h1>
-                </div>  
-              </div> 
-              <form class="p-4">
-                <!-- 1st row of the form-->
-                <div class="fs-5"><u>Full Name</u></div>
-                <div class="row form-group"> 
-                  <div class="col-md-4">
-                    <label for="exampleInputLastname">Last Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputLastname" aria-describedby="LastnameHelp" placeholder="Last Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputFirstname">First Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputFirstname" aria-describedby="FirstnameHelp" placeholder="First Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputMiddlename">Middle Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputMiddlename" aria-describedby="MiddlenameHelp" placeholder="Middle Name">
-                  </div>    
-                </div>
-                <hr class="p-2">
-                <!-- 2nd row of the form-->
-                <div class="fs-5"><u>Permanent Address</u></div>
-                <div class="row form-group">
-                  <div class="col-md-4">
-                    <label for="exampleInputStreet">Street Name</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputStreet" aria-describedby="StreetHelp" placeholder="Street Name">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputBarangay">Barangay</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputBarangay" aria-describedby="BarangayHelp" placeholder="Barangay">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputCity/Municipality">Municipality</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputMunicipality" aria-describedby="MunicipalityHelp" placeholder="Municipality">
-                  </div>
-                </div>
-                  <!-- 3rd row of the form-->
-                <div class="row form-group">
-                  <div class="col-md-4">
-                    <label for="exampleInputProvince">Province</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputProvince" aria-describedby="ProvinceHelp" placeholder="Province">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputZip Codee">Zip Code</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputZip Code" aria-describedby="Zip CodeHelp" placeholder="Zip Code">
-                  </div>
-                </div>
-                <hr class="p-2">
-                <!-- 4rd row of the form-->
-                <div class="fs-5"><u>Contact Information</u></div>
-                <div class="row form-group ">
-                  <div class="col-md-4">
-                    <label for="exampleInputFacebooklink">Facebook Link</label>
-                    <input type="url" class="form-control form-control-sm" id="exampleInputFacebooklink" placeholder="http:\\">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputContact Number">Contact Number</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputContact Number" aria-describedby="Contact NumberHelp" placeholder="Contact Number">
-                  </div>
-                </div>
-                <hr class="p-2">
-                <div class="row">
-                  <div class="col-md-12 d-flex justify-content-center">
-                    <button type="submit" class="shadow-sm btn btn-primary">Submit</button>
-                  </div>
-                </div>
-              </form>
-            </div>
+          <div class="main-bg p-4 mt-4">
+            <!-- upcoming auction section -->
+            <section>
+              <div class="fs-alert alert alert-info shadow-sm">
+                <strong>Upcoming Auction Events!</strong>
+              </div>
+
+              <div id="upcomingEventList">
+                <?php
+                //get all the shops from the database
+                $j = 0;
+                while($j < count($shops)){ ?>
+                  <?php
+                    $auction = new Auction($shops[$j]['shop_id']);
+                    $auction->fetchUpcommingEvents($mysqli,  $current_date);
+                    $shop_event_date = $auction->getAuctionDate();
+
+                    if($shop_event_date !== NULL){
+                      $event_start = date('F d', strtotime($shop_event_date['ast']));
+                    }
+                    if($shop_event_date !== NULL && strtotime($event_start) > strtotime($current_date)){
+                  ?>
+
+                  <!-- shops -->
+                  <form action="live_auction.php" method="post">
+                    <input type="hidden" name="shop_id" value="<?php echo $shops[$j]['shop_id'];?>">
+                    <button id="auctionHouseCatalog" name="auction_house_btn" type="submit" class="border-0 row d-flex w-100 no-gutters mb-4 pt-4 position-relative" style="cursor: pointer">
+                      <!-- live bidding badge -->
+                      <h6>
+                        <span class="bid-status badge badge-secondary position-absolute p-to-tl shadow-sm">
+                          <span>
+                            <?php 
+                              echo $event_start;
+                            ?>
+                          </span>
+                        </span>
+                      </h6>
+                      <!-- container of the shop logo -->
+                      <div class="col-5">
+                        <div class="px-3">
+                          <?php
+                            if($shops[$j]['shop_img'] !== NULL){
+                              echo '<img src="data:image/jpeg;base64,'.base64_encode($shops[$j]['shop_img']).'"/ class="shop-logo-auction-size pb-3 rounded">';
+                            } else {
+                              echo '<img src="https://dummyimage.com/300x150/000/fff" class="shop-logo-auction-size pb-3 rounded">';
+                            }
+                          ?>
+                        </div>
+                      </div>
+                      <!-- containre of the shop name and description -->
+                      <div class="col-7">
+                        <!-- shop name -->
+                        <div class="px-3">
+                          <h6 class="fs-shop-name">
+                            <?php echo $shops[$j]['shop_name'];?>
+                          </h6>
+                        <!-- shop description -->
+                          <div class="fs-shop-description module line-clamp">
+                            <p>
+                              <?php echo $shops[$j]['shop_description'];?>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </form>
+
+                <?php
+                    }
+                  $j++;
+                } ?>
+              </div>
+            </section>
           </div>
         </main>
+
         <footer class="py-3 bg-white mt-auto fs-footer">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
@@ -345,12 +401,13 @@ require('../src/api/header.php');
     </div>
 
   <!--===============================================================================================-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="../src/js/toggle-sidenav.js"></script>
-    <script src="../src/js/toggle-nav-links.js"></script>
-    <script src="../src/js/custom.js"></script>
+    <script src="../src/js/redirect.js"></script>
+    <script src="../src/js/events-list.js"></script>
   </body>
 </html>

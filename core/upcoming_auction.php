@@ -302,43 +302,41 @@ $current_date = date("Y-m-d H:m:i");
             </div>
           </div>
 
-          <ul class="fs-header nav nav-tabs mt-4 d-flex w-100">
+          <ul class="fs-header nav nav-tabs mt-4">
             <li class="nav-item">
-              <a class="nav-link active live" href="#">Live Auction</a>
+              <a class="nav-link" href="live_auction.php">Live Auction</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="upcoming_auction.php">Upcoming Auction</a>
+              <a class="nav-link active upcoming" href="#">Upcoming Auction</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="closed_auction.php">Closed Auction</a>
             </li>
           </ul>
 
-          <!-- ongoing live auctioned items -->
-          <div class="live-event-bg p-4 position-relative">
-
+          <!-- upcoming auction items -->
+          <div class="upcoming-event-bg p-4 position-relative">
             <!-- section title -->
-            <div class="fs-alert position-absolute w-100 p-3 live-event-header">
+            <div class="fs-alert position-absolute w-100 p-3 upcoming-event-header">
               &nbsp;
             </div>
-
-            <!-- ongoing live auction -->
+            <!-- catalogs of products -->
             <div class="pt-5 pb-4">
               <!-- flexbox container of the products -->
-              <div id="onAuctionItems" class="d-flex flex-wrap no-gutters">
+              <div id="closedItems" class="d-flex flex-wrap no-gutters">
 
                 <?php 
-                $i = 0;
-                while($i < $auction->getLotCount()){
-                  $auction_start = $auctionLot[$i]['auction_start'];
-                  $auction_end = $auctionLot[$i]['auction_end'];
+                $j = 0;
+                while($j < $auction->getLotCount()){
+                  $auction_start = $auctionLot[$j]['auction_start'];
+                  $auction_end = $auctionLot[$j]['auction_end'];
 
                   //fetch the lot of the auction house 
-                  $lot = new Lot($auctionLot[$i]['lot_id']);
+                  $lot = new Lot($auctionLot[$j]['lot_id']);
                   $lot->fetchLot($mysqli);
                   
                   //fetch the bid of the auction lot 
-                  $bid = new Bid($auctionLot[$i]['lot_id']);
+                  $bid = new Bid($auctionLot[$j]['lot_id']);
                   $bid->fetchCurrentBid($mysqli);
                   $bid->countBid($mysqli);
                   $bid_count = $bid->getBidCount();
@@ -346,17 +344,17 @@ $current_date = date("Y-m-d H:m:i");
                   //fetch the item information of the auction lot 
                   $item = new Item($shop->getShopId(), $lot->getLotItemId());
                   $item->fetchItem($mysqli);
-                  
-                  if(strtotime($auction_start) < strtotime($current_date) &&  strtotime($current_date) < strtotime($auction_end)){
+
+                  if(strtotime($current_date) < strtotime($auction_start) && strtotime($current_date) < strtotime($auction_end)){
                 ?>
 
                 <!-- product catalog -->
                 <div class="p-1 col-md-6">
-                  <div id="liveAuctionCatalog" class="border-0 card position-relative shadow-sm">
+                  <div id="liveAuctionCatalog" class="card position-relative shadow-sm">
                     <div class="card-header p-0 mb-n3 border-0 bg-white">
                       <form action="lot_status.php" method="post">
                         <!-- container for the product image -->
-                        <input type="hidden" name="LOT_ID" value="<?php echo $auctionLot[$i]['lot_id']?>">
+                        <input type="hidden" name="LOT_ID" value="<?php echo $auctionLot[$j]['lot_id']?>">
                         <input type="hidden" name="SHOP_ID" value="<?php echo $shop->getShopId()?>">
                         <button type="submit" class="w-100 btn m-0 p-0">
                           <div class="product-img d-inline-flex w-100 justify-content-around pt-3">
@@ -372,16 +370,9 @@ $current_date = date("Y-m-d H:m:i");
 
                     <!-- badge that displays the total bidders -->
                     <h6>
-                      <span class="bid-status badge badge-success position-absolute p-to-tl shadow-sm">
-                        <span>
-                          <?php 
-                            echo $bid_count;
-                          ?>
-                        </span>
-                        <?php
-                          if($bid_count > 1) {
-                            echo "BIDDERS";
-                          } else echo "BIDDER";
+                      <span class="bid-status badge badge-secondary position-absolute p-to-tl shadow-sm">
+                        <?php 
+                          echo date("F d", strtotime($auction_start));
                         ?>
                       </span>
                     </h6>
@@ -433,7 +424,7 @@ $current_date = date("Y-m-d H:m:i");
 
                 <?php
                   }
-                  $i++;
+                  $j++;
                 } ?>
               </div>
             </div>

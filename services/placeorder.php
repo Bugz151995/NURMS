@@ -14,9 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/custom.css">
   </head>
-  <?php
-      confirm_logged_in();
-  ?>
   <body class="sb-nav-fixed">
     <!--Top Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

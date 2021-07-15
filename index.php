@@ -1,4 +1,15 @@
-<?php require 'src/api/session.php'?>
+<?php 
+require('src/api/mysqli_connect.php');
+
+session_start();
+
+//instantiate a new database object which automatically connects to the database.
+$db = new Database();
+$mysqli = $db->connect();
+
+//reset the session every time the user goes back to this page
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +38,7 @@
 		<div class="limiter">
 			<div class="container-login100">
 				<div class="wrap-login100">
-					<form class="login100-form validate-form" action="src/api/authenticate.php" method="POST">
+					<form class="login100-form validate-form" enctype="application/x-www-form-urlencoded" action="src/api/authenticate.php" method="POST">
 						<span class="login100-form-title p-b-46 p-t-80">
 							Sign in to continue
 						</span>

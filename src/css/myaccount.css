@@ -1,0 +1,97 @@
+
+.myaccnt-body {
+  display: flex;
+}
+.my-account-heading {
+  background-color: #B4F8C8;
+  font-size: 15pt;
+  border-radius: 10px;
+  text-emphasis-color:  #fcfcfc;
+  
+}
+.input-group {
+  border-radius: 20px, 20px;
+}
+.upload-img {   
+  width: 200px;
+  height: 30px;
+}
+#imageResult {
+font-size: 10px;
+}
+.img-upload-bg-color {
+  background-color: rgb(188, 253, 255);
+  border-radius: 20px;
+  margin-left: -30px;
+}
+.fullname-bg-color {
+  background-color: #FBE7C6;
+  border-radius: 20px;
+  margin: 10px;
+}
+.contact-bg-color {
+  background-color: rgb(188, 253, 255);
+  border-radius: 20px;
+  margin-top: 10px;
+  margin: 10px;
+}
+.address-bg-color {
+  background-color: #FBE7C6;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin: 10px;
+}
+.modal-color {
+  background-color: #B4F8C8;
+  border-radius: 20px;
+  border: none;
+}
+
+@media screen and (max-width: 992px){ 
+  .my-account-heading
+  {
+    background-color: #B4F8C8;
+    font-size: 15pt;
+    border-radius: 10px;
+    text-emphasis-color:  #fcfcfc;
+   
+  }
+  .img-upload-bg-color{
+    background-color: rgb(188, 253, 255);
+    border-radius: 20px;
+   
+    
+  }
+  .fullname-bg-color{
+    background-color: #FBE7C6;
+    border-radius: 20px;
+    margin: 5px;
+  }
+  .address-bg-color{
+    background-color: #FBE7C6;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin: 5px;
+  }
+  .contact-bg-color{
+    background-color: rgba(188, 253, 255, 0.741);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin: 5px;
+  }
+  .modal-color{
+    background-color: #b4f8c9ce;
+    border-radius: 20px;
+    border: none;
+    width: 350px;
+  }
+  
+  .upload-img{
+    
+    width: 200px;
+    height: 30px;
+  }
+  #imageResult{
+  font-size: 10px;
+  }
+}

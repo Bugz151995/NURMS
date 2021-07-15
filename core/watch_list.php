@@ -26,9 +26,9 @@ require('../src/api/header.php');
           <img src="../src/img/logo_dark.png" class="pl-3" width="56" height="56" style="object-fit: contain" id="appLogo" alt="">
           <!-- Sidebar Toggle-->
           <div class="pl-4" id="sidebarToggle">
-            <button class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
+            <a class="side-nav-toggle-bg btn" style="color: #5E35B1;" href="#!">
               <i class="lni lni-menu"></i>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -118,12 +118,12 @@ require('../src/api/header.php');
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link bg-transparent" href="watch_list.php">
+                    <a class="nav-link active bg-transparent" href="watch_list.php">
                       My Watch List
                     </a>
                   </li>
                   <li class="text-decoration-none">
-                    <a class="nav-link active bg-transparent" href="my_bids.php">
+                    <a class="nav-link bg-transparent" href="my_bids.php">
                       My Bids
                     </a>
                   </li>
@@ -221,15 +221,15 @@ require('../src/api/header.php');
                     <span class="fs-header breadcrumb__divider" aria-hidden="true">›</span>
                   </li>
                   <li class="breadcrumb__group">
-                    <span href="#" class="breadcrumb__point">My Bids</span>
+                    <span href="#" class="breadcrumb__point">Watch List</span>
                   </li>
                 </ol>
               </nav>
             </div>
           </div>
 
-           <!--Auctioned Item Section-->
-           <section>
+          <!--Auctioned Item Section-->
+          <section>
             <div class="bg-white">
               <div class="container">
                 <div class="row other-nav-fs">
